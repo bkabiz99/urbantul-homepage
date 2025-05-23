@@ -87,29 +87,43 @@ body {
 /* --- Bagian Kategori Utama / Slider --- */
 .main-categories {
     padding: 20px 10px; /* Padding atas-bawah dan samping */
-    background-color: #f0f0f0; /* Latar belakang sama dengan body */
+    margin-top: 20px; /* Jarak dari bagian atas */
+
+    /* Tambahan PENTING untuk memposisikan di tengah */
+    display: flex;           /* Mengaktifkan Flexbox */
+    flex-direction: column;  /* Mengatur item (judul & grid) dalam kolom (satu di atas yang lain) */
+    align-items: center;     /* Memposisikan item di tengah secara horizontal */
+    width: 100%;             /* Pastikan lebarnya 100% agar centering bekerja */
+    box-sizing: border-box;  /* Agar padding tidak menambah lebar keseluruhan */
 }
 
 .main-categories h2 {
-    text-align: center; /* Judul di tengah */
-    margin-top: 0;
-    margin-bottom: 20px; /* Jarak bawah judul */
-    font-size: 20px; /* Ukuran font judul */
-    color: #333;
+    /* Properti yang sudah ada (judul "Kategori Pilihan") */
+    margin-bottom: 20px; /* Jarak bawah judul ke grid kategori */
+    font-size: 20px;
+    color: #fff;
+    background-color: #9370DB; /* Warna ungu sesuai sketsa */
+    padding: 5px 15px;
+    border-radius: 20px;
+    width: fit-content; /* Agar background mengikuti lebar teks */
 }
 
 .category-grid {
-    display: flex; /* Menggunakan Flexbox untuk deretan kategori */
-    overflow-x: auto; /* Memungkinkan scroll horizontal jika kategori terlalu banyak */
-    padding-bottom: 10px; /* Sedikit padding bawah untuk scrollbar */
-    gap: 15px; /* Jarak antar blok kategori */
-    -webkit-overflow-scrolling: touch; /* Memperbaiki scrolling di iOS */
-    scrollbar-width: none; /* Menyembunyikan scrollbar Firefox */
+    display: flex; /* Menggunakan Flexbox untuk deretan kotak kategori */
+    overflow-x: auto; /* Memungkinkan scroll horizontal jika item lebih banyak */
+    -webkit-overflow-scrolling: touch; /* Untuk scroll yang lebih halus di iOS */
+    padding: 0 10px; /* Memberi sedikit padding di samping agar kotak tidak menempel ujung */
+    gap: 15px; /* Jarak antar kotak kategori */
+    width: 100%; /* Pastikan lebarnya 100% dari parent untuk menampung scroll */
+    box-sizing: border-box; /* Agar padding tidak menambah lebar */
+    justify-content: flex-start; /* Kotak mulai dari kiri dalam grid yang bisa discroll */
+    /* Tambahan untuk menyembunyikan scrollbar di WebKit (Chrome, Safari) */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
 
-/* Menyembunyikan scrollbar untuk Webkit (Chrome, Safari) */
 .category-grid::-webkit-scrollbar {
-    display: none;
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .category-block {
