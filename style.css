@@ -127,41 +127,47 @@ body {
 }
 
 .category-block {
-    flex-shrink: 0; /* Mencegah blok menyusut */
-    width: 120px; /* Lebar blok kategori */
-    height: 120px; /* Tinggi blok kategori */
-    background-color: #A9A9A9; /* Warna default abu-abu untuk blok yang belum didefinisikan warnanya */
-    color: #fff; /* Warna teks putih */
-    display: flex; /* Menggunakan Flexbox untuk menengahkan teks */
-    justify-content: center; /* Menengahkan horizontal */
-    align-items: center; /* Menengahkan vertikal */
-    border-radius: 15px; /* Sudut membulat */
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-    font-size: 24px; /* Ukuran font teks kategori */
-    font-weight: bold; /* Teks tebal */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan ringan */
+    flex-shrink: 0;
+    min-width: 220px; /* Lebar 2x dari 110px */
+    height: 330px;   /* Tinggi 3x dari 110px */
+    background-color: #A9A9A9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    /* Ini tetap untuk efek skala dinamis di JavaScript */
+    transform: scale(0.8); 
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
 }
 
-/* Warna spesifik untuk setiap kategori sesuai sketsa UI (sesuaikan jika ada warna lain) */
+/* Warna spesifik untuk setiap kategori (tetap sama) */
 .category-block.booster,
 .category-block.booster-alt {
-    background-color: #A9A9A9; /* Abu-abu gelap untuk BO */
+    background-color: #555555;
 }
 
 .category-block.flash-sale {
-    background-color: #FF6961; /* Merah untuk FS */
+    background-color: #FF6961;
 }
 
 .category-block.timteng-eropa {
-    background-color: #FADA5E; /* Kuning untuk TG */
+    background-color: #FADA5E;
 }
 
 .category-block.new-arrival {
-    background-color: #FF6961; /* Merah untuk NA (jika sama dengan FS) */
+    background-color: #FF6961;
 }
 
 .category-block.parfum-malam {
-    background-color: #A9A9A9; /* Abu-abu untuk PM (jika tidak ada warna spesifik di sketsa) */
+    background-color: #8BC34A;
 }
 /* --- Bagian Kategori Utama / Slider (Diperbarui) --- */
 .main-categories {
