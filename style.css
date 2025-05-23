@@ -190,31 +190,47 @@ body {
     }
 }
 
-/* --- Bagian Best Seller --- */
-.best-sellers {
+/* --- Bagian Best Seller & Kelas Aroma & Aroma Pilihan Lain --- */
+/* Umumkan styling section secara keseluruhan */
+.best-sellers,
+.aroma-classes, /* Termasuk Kelas Aroma */
+.random-aromas { /* Termasuk Aroma Pilihan Lain */
     padding: 20px 10px;
-    background-color: #fff;
+    background-color: #fff; /* Umumkan background ke putih */
     margin-top: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.best-sellers .section-header {
+/* Header untuk semua section yang memiliki format serupa */
+.best-sellers .section-header,
+.aroma-classes .section-header,
+.random-aromas .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
+/* Judul h2 untuk semua section yang memiliki format serupa */
 .best-sellers h2 {
     margin: 0;
     font-size: 20px;
     color: #fff;
-    background-color: #FF6961;
+    background-color: #FF6961; /* Warna merah */
     padding: 5px 15px;
     border-radius: 20px;
 }
 
-.best-sellers .more-button {
+/* Judul h2 khusus untuk Kelas Aroma dan Aroma Pilihan Lain */
+.aroma-classes h2,
+.random-aromas h2 {
+    background-color: #9370DB; /* Warna ungu */
+}
+
+/* Tombol more untuk semua section yang memiliki format serupa */
+.best-sellers .more-button,
+.aroma-classes .more-button,
+.random-aromas .more-button {
     text-decoration: none;
     color: #333;
     font-size: 14px;
@@ -223,28 +239,34 @@ body {
     border-radius: 15px;
 }
 
-.best-sellers .product-grid {
+/* Styling untuk grid produk (sekarang diterapkan pada semua product-grid) */
+.product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 15px;
 }
 
+/* Styling untuk setiap product-card */
 .product-card {
     background-color: #A9A9A9;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding-bottom: 10px;
+    padding-bottom: 10px; /* Jarak untuk nama produk */
     text-align: center;
+    display: flex; /* Untuk flexbox */
+    flex-direction: column; /* Susun ke bawah */
+    justify-content: space-between; /* Untuk mendorong nama ke bawah */
+    min-height: 120px; /* Pastikan tinggi minimum yang konsisten */
 }
 
 .product-card .product-image {
     width: 100%;
-    padding-top: 100%;
-    background-color: #D3D3D3;
+    padding-top: 100%; /* Membuat kotak aspek rasio 1:1 */
+    background-color: #D3D3D3; /* Warna abu-abu placeholder */
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Jarak antara gambar dan nama */
 }
 
 .product-card .product-name {
@@ -252,82 +274,8 @@ body {
     font-size: 14px;
     color: #fff;
     font-weight: bold;
-}
-
-/* --- Bagian Kelas Aroma & Aroma Pilihan Lain (Menggunakan styling yang sama) --- */
-/* Gabungkan selector untuk styling section secara keseluruhan */
-.aroma-classes, .random-aromas {
-    padding: 20px 10px;
-    background-color: #f0f0f0;
-    margin-top: 20px;
-}
-
-/* Gabungkan selector untuk header di kedua section */
-.aroma-classes .section-header, .random-aromas .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-/* Gabungkan selector untuk h2 di kedua section */
-.aroma-classes h2, .random-aromas h2 {
-    margin: 0;
-    font-size: 20px;
-    color: #fff;
-    background-color: #9370DB; /* Warna ungu */
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-/* Gabungkan selector untuk tombol more di kedua section */
-.aroma-classes .more-button, .random-aromas .more-button {
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    background-color: #A9A9A9;
-    padding: 5px 10px;
-    border-radius: 15px;
-}
-
-/* Gabungkan selector untuk grid di kedua section (aroma-grid dan random-aroma-grid) */
-.aroma-classes .aroma-grid, .random-aromas .aroma-grid { /* Pastikan .random-aromas .aroma-grid */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
-}
-
-/* Styling untuk setiap aroma-card (ini akan diterapkan pada kedua section) */
-.aroma-card {
-    background-color: #A9A9A9;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-    display: flex; /* Menggunakan flexbox untuk menengahkan konten */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 120px; /* Atur tinggi minimum agar konsisten */
-    padding: 10px; /* Tambahkan padding agar teks tidak terlalu mepet tepi */
-    box-sizing: border-box; /* Pastikan padding dihitung dalam min-height */
-}
-
-.aroma-card .aroma-icon {
-    width: 60px; /* Ukuran icon yang lebih realistis */
-    height: 60px;
-    background-color: #D3D3D3;
-    border-radius: 50%; /* Bentuk lingkaran */
-    margin-bottom: 10px;
-}
-
-.aroma-card .aroma-name {
-    margin: 0;
-    font-size: 14px;
-    color: #fff;
-    font-weight: bold;
-    word-wrap: break-word; /* Memastikan teks panjang tidak keluar dari batas */
-    max-width: 100%; /* Memastikan teks tidak melebihi lebar card */
+    word-wrap: break-word;
+    padding: 0 5px; /* Sedikit padding samping untuk teks */
 }
 
 /* --- Bagian Footer Website --- */
