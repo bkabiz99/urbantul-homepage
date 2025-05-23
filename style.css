@@ -385,3 +385,89 @@ body {
 .main-footer a:hover {
     text-decoration: underline; /* Garis bawah saat di-hover */
 }
+/* --- Bagian Kelas Aroma --- */
+.aroma-classes {
+    padding: 20px 10px; /* Padding atas-bawah dan samping */
+    background-color: #f0f0f0; /* Latar belakang abu-abu muda */
+    margin-top: 20px; /* Jarak dari bagian di atasnya */
+}
+
+.aroma-classes .section-header {
+    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
+    justify-content: space-between; /* Judul di kiri, More di kanan */
+    align-items: center; /* Sejajar vertikal */
+    margin-bottom: 20px; /* Jarak bawah header bagian */
+}
+
+.aroma-classes h2 {
+    margin: 0; /* Menghilangkan margin bawaan h2 */
+    font-size: 20px; /* Ukuran font judul */
+    color: #fff; /* Warna teks putih */
+    background-color: #9370DB; /* Warna ungu sesuai sketsa */
+    padding: 5px 15px;
+    border-radius: 20px; /* Sudut membulat */
+}
+
+.aroma-classes .more-button {
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    color: #333; /* Warna teks */
+    font-size: 14px;
+    background-color: #A9A9A9; /* Warna abu-abu */
+    padding: 5px 10px;
+    border-radius: 15px; /* Sudut membulat */
+}
+
+.aroma-classes .aroma-grid {
+    display: grid; /* Menggunakan Grid untuk tata letak aroma */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsif, min 100px */
+    gap: 15px; /* Jarak antar kartu aroma */
+}
+
+.aroma-card {
+    background-color: #A9A9A9; /* Warna abu-abu untuk kartu aroma */
+    border-radius: 15px; /* Sudut membulat */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kartu */
+    padding-bottom: 10px; /* Padding bawah untuk nama aroma */
+    text-align: center; /* Teks nama aroma di tengah */
+}
+
+.aroma-card .aroma-icon {
+    width: 100%; /* Lebar ikon mengisi kartu */
+    padding-top: 100%; /* Membuat kotak ikon jadi persegi */
+    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder ikon */
+    border-top-left-radius: 15px; /* Sudut bulat atas */
+    border-top-right-radius: 15px;
+    margin-bottom: 10px; /* Jarak bawah ikon ke nama aroma */
+}
+
+.aroma-card .aroma-name {
+    margin: 0; /* Menghilangkan margin bawaan p */
+    font-size: 14px;
+    color: #fff; /* Warna teks nama aroma putih */
+    font-weight: bold;
+}
+/* --- Bagian Footer Website --- */
+.main-footer {
+    background-color: #333; /* Latar belakang abu-abu gelap */
+    color: #fff; /* Warna teks putih */
+    padding: 20px 15px; /* Padding di sekeliling footer */
+    text-align: center; /* Teks di tengah */
+    font-size: 14px; /* Ukuran font lebih kecil */
+    margin-top: 30px; /* Jarak dari bagian di atasnya */
+}
+
+.main-footer p {
+    margin: 5px 0; /* Jarak antar paragraf */
+    line-height: 1.5; /* Jarak antar baris */
+}
+
+.main-footer a {
+    color: #8BC34A; /* Warna link hijau muda (sesuai warna PM) */
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    font-weight: bold;
+}
+
+.main-footer a:hover {
+    text-decoration: underline; /* Garis bawah saat di-hover */
+}
