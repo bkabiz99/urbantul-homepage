@@ -179,37 +179,28 @@ body {
 }
 
 .category-block {
-    flex-shrink: 0; /* Mencegah blok menyusut */
-    min-width: 100px; /* Lebar minimum agar tidak terlalu kecil */
-    height: 120px; /* Tinggi dasar blok kategori */
-    background-color: #A9A9A9; /* Warna default abu-abu */
-    color: #fff; /* Warna teks putih */
-    display: flex; /* Menggunakan Flexbox untuk menengahkan teks */
-    justify-content: center; /* Menengahkan horizontal */
-    align-items: center; /* Menengahkan vertikal */
-    border-radius: 15px; /* Sudut membulat */
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-    font-size: 20px; /* Ukuran font teks kategori */
-    font-weight: bold; /* Teks tebal */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan ringan */
+    .category-block {
+    flex-shrink: 0;
+    min-width: 110px; /* <-- Atur ini ke ukuran dasar yang sama untuk semua */
+    height: 110px;   /* <-- Atur ini ke ukuran dasar yang sama untuk semua */
+    background-color: #A9A9A9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    transform: scale(0.8); /* Ini tetap untuk efek skala */
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
+}
 }
 
-/* Penyesuaian ukuran spesifik berdasarkan sketsa terbaru */
-.category-block.booster,
-.category-block.new-arrival {
-    width: 100px; /* Lebih ramping */
-}
-
-.category-block.flash-sale,
-.category-block.parfum-malam {
-    width: 110px; /* Sedikit lebih lebar */
-}
-
-.category-block.timteng-eropa {
-    width: 140px; /* Paling lebar */
-    height: 140px; /* Paling tinggi */
-    font-size: 28px; /* Lebih besar untuk TG */
-}
 
 /* Warna spesifik untuk setiap kategori sesuai sketsa UI terbaru */
 .category-block.booster,
