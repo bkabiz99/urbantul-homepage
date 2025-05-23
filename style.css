@@ -1,1 +1,257 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #1a1a1a; /* Dark background as in the image */
+    color: #f0f0f0; /* Light text color */
+}
 
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333; /* Darker header background */
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.tagline {
+    background-color: #555;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: #ddd;
+}
+
+.main-nav .nav-item {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav .nav-item:hover {
+    background-color: #666;
+}
+
+/* Search Bar */
+.search-bar-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-bar {
+    display: inline-flex;
+    align-items: center;
+    background-color: #555;
+    border-radius: 25px;
+    padding: 5px 15px;
+    width: 60%; /* Adjust as needed */
+    max-width: 700px;
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    color: #f0f0f0;
+    padding: 8px;
+    outline: none;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #bbb;
+}
+
+.search-bar .search-icon {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+/* Main Content Styling */
+.main-content {
+    padding: 20px;
+}
+
+/* Horizontal Scroll Section (BO, FS, TG, NA, PM) */
+.horizontal-scroll-section {
+    margin-bottom: 40px;
+}
+
+.scroll-wrapper {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 15px; /* Space for scrollbar */
+    gap: 20px; /* Space between items */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #555; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
+.scroll-item {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    width: 200px; /* Fixed width, adjust as needed */
+    height: 200px; /* Fixed height, adjust as needed */
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease; /* Transition for potential scaling/color changes */
+}
+
+/* Specific colors for BO, FS, TG, NA, PM */
+.item-bo { background-color: #555; }
+.item-fs { background-color: #ff5c5c; } /* Red */
+.item-tg { background-color: #ffcc33; } /* Yellow */
+.item-na { background-color: #a05cff; } /* Purple */
+.item-pm { background-color: #66cc33; } /* Green */
+
+/* Category Sections (Best Seller, Kelas Aroma, Aroma Lainnya) */
+.category-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.best-seller-section .section-title {
+    border-bottom: none; /* Remove border for best seller */
+}
+
+.best-seller-section .section-title::before,
+.class-aroma-section .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust size of the colored indicator */
+    height: 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.best-seller-section .section-title::before {
+    background-color: #ff5c5c; /* Red indicator for Best Seller */
+}
+
+.class-aroma-section .section-title::before {
+    background-color: #a05cff; /* Purple indicator for Kelas Aroma */
+}
+
+.class-aroma-title {
+    border-bottom: none; /* Remove border for Kelas Aroma */
+}
+
+
+.more-link {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.more-link:hover {
+    background-color: #666;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: #444;
+    border-radius: 10px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+    color: #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for basic responsiveness */
+@media (max-width: 768px) {
+    .search-bar {
+        width: 90%;
+    }
+
+    .scroll-item {
+        width: 150px;
+        height: 150px;
+        font-size: 1.5em;
+    }
+
+    .item-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav {
+        margin-top: 10px;
+    }
+
+    .main-nav .nav-item {
+        margin: 0 5px;
+    }
+
+    .search-bar {
+        padding: 5px 10px;
+    }
+
+    .scroll-item {
+        width: 120px;
+        height: 120px;
+        font-size: 1.2em;
+    }
+}
