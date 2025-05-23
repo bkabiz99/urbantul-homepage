@@ -1,31 +1,28 @@
-/* Reset CSS dasar untuk konsistensi di berbagai browser */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Ini penting untuk tata letak responsif */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Warna latar belakang gelap */
-    color: #f0f0f0; /* Warna teks terang */
-    line-height: 1.6;
-}
+/* --- Bagian ini di style.css, modifikasi yang sudah ada --- */
 
 /* Styling untuk Header */
 header {
-    background-color: #333;
+    background-color: #333; /* Warna background gelap */
     padding: 15px 20px;
+    display: flex; /* Gunakan flexbox */
+    flex-direction: column; /* Default tumpuk ke bawah di mobile */
+    align-items: center; /* Pusatkan secara horizontal */
+    gap: 10px; /* Jarak antar grup elemen di header */
+}
+
+header nav {
+    width: 100%; /* Navigasi mengisi lebar penuh */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Agar elemen di header bisa wrap di layar kecil */
+    flex-direction: column; /* Default tumpuk ke bawah di mobile */
+    align-items: center; /* Pusatkan item nav */
+    gap: 10px;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: #f0f0f0;
+    margin-right: auto; /* Dorong ke kiri di layout desktop */
 }
 
 .info-harga {
@@ -34,22 +31,23 @@ header {
     border-radius: 20px;
     font-size: 14px;
     color: #f0f0f0;
-    margin: 5px 0; /* Memberi sedikit margin agar tidak terlalu rapat di mobile */
+    /* margin: 5px 0; <-- Ini bisa dihapus jika tidak diperlukan lagi */
 }
 
 .nav-links {
-    list-style: none; /* Menghilangkan bullet point dari daftar */
+    list-style: none;
     display: flex;
-    gap: 20px; /* Jarak antar item navigasi */
+    gap: 20px;
     flex-wrap: wrap;
-    justify-content: center; /* Pusatkan di mobile jika banyak item */
+    justify-content: center;
+    margin-left: auto; /* Dorong ke kanan di layout desktop */
 }
 
 .nav-links li a {
     color: #f0f0f0;
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    text-decoration: none;
     padding: 5px 10px;
-    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+    transition: background-color 0.3s ease;
 }
 
 .nav-links li a:hover {
@@ -57,194 +55,32 @@ header {
     border-radius: 5px;
 }
 
-/* Styling untuk Search Section */
-.search-section {
-    padding: 20px;
-    text-align: center;
+/* MEDIA QUERIES untuk Responsivitas - Perbaiki Header di Desktop */
+
+/* Untuk layar yang lebih besar dari 768px (Desktop dan Tablet Landscape) */
+@media (min-width: 769px) { /* Mengubah dari max-width menjadi min-width untuk desktop-first */
+    header {
+        flex-direction: row; /* Elemen header jadi horizontal */
+        justify-content: space-between; /* Sejajarkan ke samping */
+        align-items: center;
+    }
+
+    header nav {
+        flex-direction: row; /* Elemen nav jadi horizontal */
+        justify-content: flex-end; /* Dorong ke kanan */
+        gap: 20px; /* Jarak antar elemen nav */
+        width: auto; /* Biarkan lebarnya sesuai konten */
+    }
+
+    .logo {
+        margin-right: 0; /* Hapus dorongan ke kiri */
+    }
+
+    .nav-links {
+        margin-left: 0; /* Hapus dorongan ke kanan */
+    }
 }
 
-.search-bar {
-    display: flex;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 25px;
-    overflow: hidden; /* Penting agar border-radius berfungsi pada input */
-    background-color: #444;
-}
-
-.search-bar input {
-    flex-grow: 1; /* Input akan mengisi ruang yang tersedia */
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    background-color: transparent; /* Latar belakang transparan mengikuti parent */
-    color: #f0f0f0;
-    font-size: 16px;
-}
-
-.search-bar input::placeholder {
-    color: #bbb;
-}
-
-.search-bar button {
-    background-color: #666;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    color: #f0f0f0;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-}
-
-.search-bar button:hover {
-    background-color: #888;
-}
-
-/* Styling untuk Kategori Utama Parfum (BO, FS, TG, NA, PM) */
-.main-categories {
-    display: flex;
-    overflow-x: auto; /* Aktifkan scroll horizontal */
-    padding: 20px 0;
-    gap: 15px; /* Jarak antar item */
-    scroll-snap-type: x mandatory; /* Untuk efek snap scroll */
-    -webkit-overflow-scrolling: touch; /* Meningkatkan pengalaman scrolling di iOS */
-    margin-bottom: 30px;
-}
-
-.main-categories::-webkit-scrollbar {
-    height: 8px;
-}
-
-.main-categories::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 10px;
-}
-
-.main-categories::-webkit-scrollbar-track {
-    background-color: #333;
-}
-
-.category-item {
-    flex-shrink: 0; /* Penting: mencegah item mengecil */
-    width: 150px; /* Ukuran default item */
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    font-weight: bold;
-    color: #fff;
-    border-radius: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    transition: all 0.3s ease-in-out; /* Untuk efek scaling */
-    scroll-snap-align: center; /* Agar item di tengah saat scroll snap */
-}
-
-/* Warna spesifik untuk setiap kategori */
-.category-item.bo { background-color: #5d5d5d; } /* Dark Gray */
-.category-item.fs { background-color: #f54242; } /* Red */
-.category-item.tg { background-color: #f5c742; } /* Gold/Yellow */
-.category-item.na { background-color: #c742f5; } /* Purple */
-.category-item.pm { background-color: #42f56d; } /* Green */
-
-/* Styling untuk bagian product-grid (Best Seller, Kelas Aroma, Aroma Lainnya) */
-.product-grid {
-    padding: 20px;
-    margin-bottom: 30px;
-    background-color: #2a2a2a; /* Latar belakang sedikit lebih terang dari body */
-    border-radius: 10px;
-    position: relative; /* Untuk posisi tombol More */
-}
-
-.product-grid h2 {
-    font-size: 2em;
-    color: #e0e0e0;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.product-grid .more-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #666;
-    color: #f0f0f0;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
-}
-
-.product-grid .more-button:hover {
-    background-color: #888;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsif: minimal 120px, mengisi ruang */
-    gap: 15px;
-    justify-content: center; /* Pusatkan item jika ada ruang kosong */
-}
-
-.product-card, .class-card {
-    background-color: #444;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    color: #f0f0f0;
-    font-size: 1em;
-    min-height: 100px; /* Tinggi minimal untuk card */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease-in-out;
-}
-
-.product-card:hover, .class-card:hover {
-    transform: translateY(-5px); /* Efek sedikit naik saat di-hover */
-}
-
-/* Warna spesifik untuk kelas aroma */
-.class-grid .class-card {
-    background-color: #f5c742; /* Warna default seperti sketsa */
-    color: #333; /* Teks gelap agar kontras */
-    font-weight: bold;
-}
-
-/* Sesuaikan warna untuk beberapa kelas aroma jika perlu, contoh: */
-.class-grid .class-card:nth-child(4) { /* Floral */
-    background-color: #c742f5;
-    color: #fff;
-}
-.class-grid .class-card:nth-child(9) { /* Amber */
-    background-color: #ffbf00; /* Warna kuning-oranye untuk Amber */
-    color: #333;
-}
-
-
-/* Styling untuk Footer */
-footer {
-    background-color: #333;
-    color: #f0f0f0;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-    font-size: 0.9em;
-}
-
-footer a {
-    color: #a0c0ff; /* Warna tautan di footer */
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* MEDIA QUERIES untuk Responsivitas */
 
 /* Untuk layar yang lebih kecil dari 768px (misal: tablet portrait, mobile landscape) */
 @media (max-width: 768px) {
@@ -253,14 +89,24 @@ footer a:hover {
         text-align: center;
     }
 
-    .nav-links {
-        margin-top: 10px;
+    header nav {
         flex-direction: column;
         gap: 10px;
     }
 
+    .logo {
+        margin-right: 0; /* Pastikan tidak ada margin auto di mobile */
+    }
+
     .info-harga {
         margin-top: 10px;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 0; /* Pastikan tidak ada margin auto di mobile */
     }
 
     .search-bar {
@@ -279,57 +125,3 @@ footer a:hover {
     }
 
     .main-categories {
-        padding: 15px 0;
-        gap: 10px;
-    }
-
-    .category-item {
-        width: 120px;
-        height: 120px;
-        font-size: 1.5em;
-        border-radius: 10px;
-    }
-
-    .product-grid h2 {
-        font-size: 1.8em;
-    }
-
-    .product-grid .more-button {
-        position: static; /* Kembalikan ke posisi normal di mobile */
-        display: block; /* Buat tombol menjadi blok */
-        width: fit-content; /* Sesuaikan lebar dengan konten */
-        margin: 15px auto 0; /* Pusatkan tombol */
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ukuran card lebih kecil */
-    }
-
-    .product-card, .class-card {
-        min-height: 80px;
-        font-size: 0.9em;
-        padding: 10px;
-    }
-}
-
-/* Untuk layar yang lebih kecil dari 480px (misal: ponsel portrait) */
-@media (max-width: 480px) {
-    .logo {
-        font-size: 20px;
-    }
-
-    .info-harga {
-        font-size: 12px;
-        padding: 3px 8px;
-    }
-
-    .category-item {
-        width: 100px;
-        height: 100px;
-        font-size: 1.2em;
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Bahkan lebih kecil */
-    }
-}
