@@ -48,7 +48,8 @@
             <h2>Best Seller Kita</h2>
             <a href="best-sellers.html" class="more-button">More</a>
         </div>
-        <div class="product-grid" id="bestSellerGrid"> </div>
+        <div class="product-grid" id="bestSellerGrid">
+            </div>
     </section>
 
     <section class="aroma-classes">
@@ -97,12 +98,13 @@
     </section>
 
     <section class="random-aromas">
-    <div class="section-header">
-        <h2>Aroma Pilihan Lain</h2>
-        <a href="all-aromas.html" class="more-button">More</a>
-    </div>
-    <div class="random-aroma-grid aroma-grid" id="randomAromaGrid"> </div>
-</section>
+        <div class="section-header">
+            <h2>Aroma Pilihan Lain</h2>
+            <a href="all-aromas.html" class="more-button">More</a>
+        </div>
+        <div class="random-aroma-grid aroma-grid" id="randomAromaGrid">
+            </div>
+    </section>
 
     <footer class="main-footer">
         <p>Jl. Jend. Sudirman No.95, Kurahan, Bantul, Kec. Bantul, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55711</p>
@@ -1502,14 +1504,11 @@
         ];
         // --- AKHIR KODE DATABASE ---
 
-        const categoryGrid = document.querySelector('.category-grid');
+      const categoryGrid = document.querySelector('.category-grid');
         const categoryBlocks = document.querySelectorAll('.category-block');
-
-        // --- Definisi DOM Elements untuk Best Seller dan Random Aroma ---
-        const bestSellerGrid = document.getElementById('bestSellerGrid'); // Menggunakan ID
+        const bestSellerGrid = document.getElementById('bestSellerGrid');
         const randomAromaGrid = document.getElementById('randomAromaGrid'); // Menggunakan ID
 
-        // Daftar namaBesar parfum best seller Anda
         const bestSellerNames = [
             "Gucci Gold", "Temperature", "Fuck Boy Ood", "Super Sombrero", "Zivan",
             "Blue Paradise", "Gempita Moon", "AA Will You Exits", "Bamboo Cici",
@@ -1517,28 +1516,18 @@
             "Alioner Sensual", "Jeeylow"
         ];
 
-        // Fungsi untuk memuat Best Seller
         function loadBestSellers() {
             if (!bestSellerGrid) {
                 console.error("Elemen #bestSellerGrid tidak ditemukan.");
                 return;
             }
-
-            bestSellerGrid.innerHTML = ''; // Kosongkan konten placeholder
-
-            // Filter allParfumes berdasarkan nama di bestSellerNames
+            bestSellerGrid.innerHTML = '';
             const selectedBestSellers = allParfumes.filter(parfum =>
                 bestSellerNames.includes(parfum.namaBesar)
-            );
-
-            // Ambil hanya 9 parfum pertama jika ada lebih dari 9
-            const displayedBestSellers = selectedBestSellers.slice(0, 9);
-
-            displayedBestSellers.forEach(parfum => {
+            ).slice(0, 9); // Ambil 9 teratas
+            selectedBestSellers.forEach(parfum => {
                 const card = document.createElement('div');
                 card.classList.add('product-card');
-
-                // Anda bisa menambahkan detail lain jika mau, seperti gambar
                 card.innerHTML = `
                     <div class="product-image"></div>
                     <p class="product-name">${parfum.namaBesar}</p>
@@ -1547,78 +1536,64 @@
             });
         }
 
-        // Fungsi untuk mengacak array (digunakan untuk Aroma Pilihan Lain)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]]; // Tukar elemen
+                [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
         }
 
-        // Fungsi untuk memuat Aroma Pilihan Lain (Acak)
+        // FUNGSI INI YANG PENTING UNTUK "AROMA PILIHAN LAIN"
         function loadRandomAromas() {
             if (!randomAromaGrid) {
                 console.error("Elemen #randomAromaGrid tidak ditemukan.");
                 return;
             }
-
             randomAromaGrid.innerHTML = ''; // Hapus konten lama
-
-            // Acak semua parfum
-            const shuffledParfumes = shuffleArray([...allParfumes]); // Buat salinan agar array asli tidak berubah
-
-            // Ambil 9 parfum pertama setelah diacak
-            const selectedRandomParfumes = shuffledParfumes.slice(0, 9);
+            const shuffledParfumes = shuffleArray([...allParfumes]);
+            const selectedRandomParfumes = shuffledParfumes.slice(0, 9); // Ambil 9 parfum pertama setelah diacak
 
             selectedRandomParfumes.forEach(parfum => {
                 const card = document.createElement('div');
-                card.classList.add('aroma-card');
-                
+                card.classList.add('aroma-card'); // PENTING: Gunakan 'aroma-card' di sini
+
+                // Sesuaikan innerHTML agar mirip dengan struktur aroma-card di HTML
                 card.innerHTML = `
-            <div class="aroma-icon"></div>
-            <p class="aroma-name">${parfum.namaBesar}</p>
+                    <div class="aroma-icon"></div>
+                    <p class="aroma-name">${parfum.namaBesar}</p>
                 `;
                 randomAromaGrid.appendChild(card);
             });
         }
 
-        // --- FUNGSI UNTUK SKALA KATEGORI Pilihan (kode Anda yang sudah ada) ---
         function updateCategoryScales() {
             const gridRect = categoryGrid.getBoundingClientRect();
             const gridCenter = gridRect.left + gridRect.width / 2;
-
             categoryBlocks.forEach(block => {
                 const blockRect = block.getBoundingClientRect();
                 const blockCenter = blockRect.left + blockRect.width / 2;
-
                 const distance = Math.abs(gridCenter - blockCenter);
                 const maxDistance = gridRect.width / 2;
                 const normalizedDistance = Math.min(1, distance / maxDistance);
-
                 const maxScale = 1.1;
                 const minScale = 0.8;
                 const scale = maxScale - (normalizedDistance * (maxScale - minScale));
-
                 block.style.transform = `scale(${scale})`;
                 const zIndex = Math.round((1 - normalizedDistance) * 100);
                 block.style.zIndex = zIndex;
             });
         }
 
-        // --- FUNGSI UNTUK INFINITE SCROLL KATEGORI Pilihan (kode Anda yang sudah ada) ---
         const scrollThreshold = 0.1;
         let isScrolling = false;
 
         categoryGrid.addEventListener('scroll', () => {
             if (isScrolling) return;
-
             updateCategoryScales();
-
             const scrollLeft = categoryGrid.scrollLeft;
             const scrollWidth = categoryGrid.scrollWidth;
             const clientWidth = categoryGrid.clientWidth;
-
             if (scrollLeft < clientWidth * scrollThreshold) {
                 isScrolling = true;
                 for (let i = 0; i < 3; i++) {
@@ -1643,14 +1618,12 @@
             }
         });
 
-        // Panggil fungsi saat window di-resize (agar skala diperbarui jika ukuran layar berubah)
         window.addEventListener('resize', updateCategoryScales);
 
-        // --- Panggil semua fungsi saat DOM sudah siap ---
         document.addEventListener('DOMContentLoaded', () => {
-            updateCategoryScales(); // Untuk kategori Pilihan
-            loadBestSellers();      // Memuat data Best Seller
-            loadRandomAromas();     // Memuat data Aroma Pilihan Lain secara acak
+            updateCategoryScales();
+            loadBestSellers();
+            loadRandomAromas(); // Pastikan fungsi ini dipanggil saat DOM siap
         });
     </script>
 </body>
