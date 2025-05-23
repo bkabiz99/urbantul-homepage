@@ -128,8 +128,8 @@ body {
 
 .category-block {
     flex-shrink: 0;
-    min-width: 110px;
-    height: 110px;
+    min-width: 220px; /* Lebar 2x dari 110px */
+    height: 330px;   /* Tinggi 3x dari 110px */
     background-color: #A9A9A9;
     color: #fff;
     display: flex;
@@ -140,13 +140,15 @@ body {
     font-size: 20px;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transform: scale(0.8);
+
+    /* Ini tetap untuk efek skala dinamis di JavaScript */
+    transform: scale(0.8); 
     transition: transform 0.2s ease-out, z-index 0s ease-out;
     position: relative;
     z-index: 1;
 }
 
-/* Warna spesifik untuk setiap kategori */
+/* Warna spesifik untuk setiap kategori (tetap sama) */
 .category-block.booster,
 .category-block.booster-alt {
     background-color: #555555;
