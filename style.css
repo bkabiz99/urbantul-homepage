@@ -86,44 +86,88 @@ body {
 
 /* --- Bagian Kategori Utama / Slider --- */
 .main-categories {
-    padding: 20px 10px; /* Padding atas-bawah dan samping */
-    margin-top: 20px; /* Jarak dari bagian atas */
-
-    /* Tambahan PENTING untuk memposisikan di tengah */
-    display: flex;           /* Mengaktifkan Flexbox */
-    flex-direction: column;  /* Mengatur item (judul & grid) dalam kolom (satu di atas yang lain) */
-    align-items: center;     /* Memposisikan item di tengah secara horizontal */
-    width: 100%;             /* Pastikan lebarnya 100% agar centering bekerja */
-    box-sizing: border-box;  /* Agar padding tidak menambah lebar keseluruhan */
+    padding: 20px 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Posisikan judul dan grid di tengah */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .main-categories h2 {
-    /* Properti yang sudah ada (judul "Kategori Pilihan") */
-    margin-bottom: 20px; /* Jarak bawah judul ke grid kategori */
+    margin-bottom: 20px;
     font-size: 20px;
     color: #fff;
-    background-color: #9370DB; /* Warna ungu sesuai sketsa */
+    background-color: #9370DB;
     padding: 5px 15px;
     border-radius: 20px;
-    width: fit-content; /* Agar background mengikuti lebar teks */
+    width: fit-content;
 }
 
 .category-grid {
-    display: flex; /* Menggunakan Flexbox untuk deretan kotak kategori */
-    overflow-x: auto; /* Memungkinkan scroll horizontal jika item lebih banyak */
-    -webkit-overflow-scrolling: touch; /* Untuk scroll yang lebih halus di iOS */
-    padding: 0 10px; /* Memberi sedikit padding di samping agar kotak tidak menempel ujung */
-    gap: 15px; /* Jarak antar kotak kategori */
-    width: 100%; /* Pastikan lebarnya 100% dari parent untuk menampung scroll */
-    box-sizing: border-box; /* Agar padding tidak menambah lebar */
-    justify-content: flex-start; /* Kotak mulai dari kiri dalam grid yang bisa discroll */
-    /* Tambahan untuk menyembunyikan scrollbar di WebKit (Chrome, Safari) */
-    scrollbar-width: none;  /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    display: flex;
+    overflow-x: auto; /* Aktifkan scroll di HP */
+    -webkit-overflow-scrolling: touch;
+    padding: 0 10px;
+    gap: 15px;
+    width: 100%; /* Lebar 100% agar bisa di-scroll */
+    box-sizing: border-box;
+    justify-content: flex-start; /* Dimulai dari kiri */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .category-grid::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+}
+
+/* Ukuran kotak kategori (Sudah kamu ubah) */
+.category-block {
+    flex-shrink: 0;
+    min-width: 220px; /* Lebar 2x */
+    height: 330px;   /* Tinggi 3x */
+    background-color: #A9A9A9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    transform: scale(0.8); /* Tetap aktif untuk efek skala di HP */
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Media Query untuk Layar PC (Lebar minimal 768px atau lebih) --- */
+@media (min-width: 768px) {
+    .main-categories {
+        /* Kita ingin grid kategori di tengah, tapi judul tetap di tengah section */
+        /* align-items: center; sudah cukup untuk menengahkan seluruh section */
+        padding: 20px; /* Tambah padding samping di PC */
+    }
+
+    .category-grid {
+        overflow-x: hidden; /* Matikan scroll di PC */
+        justify-content: center; /* Posisikan item di tengah dalam grid */
+        width: auto; /* Biarkan grid menyesuaikan lebar kontennya */
+        max-width: 100%; /* Jangan melebihi lebar parent */
+        padding: 0; /* Hapus padding samping jika tidak perlu */
+
+        /* Jika kamu ingin mengatur jarak antar item lebih presisi di PC */
+        /* gap: 20px; */ /* Bisa diatur di sini, atau biarkan default dari atas */
+    }
+
+    /* Di PC, kita tidak ingin efek skala dinamis lagi, jadi reset transform */
+    .category-block {
+        transform: none; /* Kembalikan ke ukuran asli (tidak diskala 0.8) */
+        font-size: 20px; /* Pastikan ukuran font tetap normal */
+    }
 }
 
 .category-block {
