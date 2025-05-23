@@ -32,7 +32,7 @@
         </div>
     </header>
 
-    <section class="main-categories">
+<section class="main-categories">
         <h2>Kategori Pilihan</h2>
         <div class="category-grid">
             <a href="booster.html" class="category-block booster">BO</a>
@@ -40,6 +40,16 @@
             <a href="timteng-eropa.html" class="category-block timteng-eropa">TG</a>
             <a href="new-arrival.html" class="category-block new-arrival">NA</a>
             <a href="parfum-malam.html" class="category-block parfum-malam">PM</a>
+            
+            <a href="booster.html" class="category-block booster">BO</a>
+            <a href="flash-sale.html" class="category-block flash-sale">FS</a>
+            <a href="timteng-eropa.html" class="category-block timteng-eropa">TG</a>
+            <a href="new-arrival.html" class="category-block new-arrival">NA</a>
+            <a href="parfum-malam.html" class="category-block parfum-malam">PM</a>
+            <a href="booster.html" class="category-block booster">BO</a>
+            <a href="flash-sale.html" class="category-block flash-sale">FS</a>
+            </div>
+    </section>
         </div>
     </section>
 
@@ -130,6 +140,56 @@
         <p>Kontak: <a href="tel:+6289529535222">+62 895-2953-5222</a></p>
         <p>Instagram: <a href="https://www.instagram.com/urbanperfumepoint.official/" target="_blank">@urbanperfumepoint.official</a></p>
     </footer>
+<script>
+        const categoryGrid = document.querySelector('.category-grid');
+        const categoryBlocks = document.querySelectorAll('.category-block');
 
+        // Fungsi untuk menghitung skala berdasarkan posisi elemen di tengah viewport
+        function updateCategoryScales() {
+            const gridRect = categoryGrid.getBoundingClientRect();
+            const gridCenter = gridRect.left + gridRect.width / 2; // Titik tengah grid di viewport
+
+            categoryBlocks.forEach(block => {
+                const blockRect = block.getBoundingClientRect();
+                const blockCenter = blockRect.left + blockRect.width / 2; // Titik tengah blok di viewport
+
+                // Jarak blok dari tengah grid (bisa positif atau negatif)
+                const distance = Math.abs(gridCenter - blockCenter);
+
+                // Normalisasi jarak ke dalam rentang 0-1, di mana 0 adalah tengah sempurna
+                // Sesuaikan 'maxDistance' ini agar efek skala sesuai keinginanmu
+                const maxDistance = gridRect.width / 2; 
+                const normalizedDistance = Math.min(1, distance / maxDistance);
+
+                // Menghitung skala: skala terbesar di tengah (1), mengecil ke samping (misal 0.7)
+                const maxScale = 1.1; // Ukuran maksimum di tengah
+                const minScale = 0.8; // Ukuran minimum di samping
+                const scale = maxScale - (normalizedDistance * (maxScale - minScale));
+
+                block.style.transform = `scale(${scale})`;
+
+                // Mengatur z-index agar item yang besar/di tengah berada di atas
+                // Item yang lebih dekat ke tengah akan memiliki z-index lebih tinggi
+                const zIndex = Math.round((1 - normalizedDistance) * 100); 
+                block.style.zIndex = zIndex;
+            });
+        }
+
+        // Panggil fungsi saat halaman dimuat dan saat grid di-scroll
+        categoryGrid.addEventListener('scroll', updateCategoryScales);
+
+        // Panggil juga saat window di-resize (agar skala diperbarui jika ukuran layar berubah)
+        window.addEventListener('resize', updateCategoryScales);
+
+        // Panggil sekali saat halaman pertama kali dimuat untuk pengaturan awal
+        updateCategoryScales();
+
+        // Optional: Implementasi infinite scroll palsu (lebih kompleks)
+        // Untuk infinite scroll sungguhan, kita akan memanipulasi elemen di awal/akhir saat scroll
+        // Ini akan kita bahas jika kamu benar-benar ingin efek infinite scroll,
+        // karena membutuhkan duplikasi elemen dan logika yang lebih rumit.
+    </script>
+</body>
+</html>
 </body>
 </html>
