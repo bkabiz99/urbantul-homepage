@@ -57,42 +57,42 @@
             <h2>Kelas Aroma</h2>
             <a href="aroma-classes.html" class="more-button">More</a>
         </div>
-        <div class="aroma-grid product-grid"> 
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Fruity</p>
+        <div class="aroma-grid">
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Fruity</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Gourmand</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Gourmand</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Citrus</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Citrus</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Floral</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Floral</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Natural</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Natural</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Spicy</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Spicy</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Woody</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Woody</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Musky</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Musky</p>
             </div>
-            <div class="product-card">
-                <div class="product-image"></div>
-                <p class="product-name">Amber</p>
+            <div class="aroma-card">
+                <div class="aroma-icon"></div>
+                <p class="aroma-name">Amber</p>
             </div>
         </div>
     </section>
@@ -102,7 +102,7 @@
             <h2>Aroma Pilihan Lain</h2>
             <a href="all-aromas.html" class="more-button">More</a>
         </div>
-        <div class="product-grid" id="randomAromaGrid">
+        <div class="random-aroma-grid aroma-grid" id="randomAromaGrid">
             </div>
     </section>
 
@@ -1524,10 +1524,10 @@
             bestSellerGrid.innerHTML = '';
             const selectedBestSellers = allParfumes.filter(parfum =>
                 bestSellerNames.includes(parfum.namaBesar)
-            ).slice(0, 9);
+            ).slice(0, 9); // Ambil 9 teratas
             selectedBestSellers.forEach(parfum => {
                 const card = document.createElement('div');
-                card.classList.add('product-card'); // TETAP product-card
+                card.classList.add('product-card');
                 card.innerHTML = `
                     <div class="product-image"></div>
                     <p class="product-name">${parfum.namaBesar}</p>
@@ -1555,16 +1555,20 @@
 
             selectedRandomParfumes.forEach(parfum => {
                 const card = document.createElement('div');
-                card.classList.add('product-card'); // UBAH ke 'product-card'
+                card.classList.add('aroma-card');
                 card.innerHTML = `
-                    <div class="product-image"></div>
-                    <p class="product-name">${parfum.namaBesar}</p>
+                    <div class="aroma-icon"></div>
+                    <p class="aroma-name">${parfum.namaBesar}</p>
                 `;
                 randomAromaGrid.appendChild(card);
             });
         }
 
         function updateCategoryScales() {
+            if (!categoryGrid || categoryBlocks.length === 0) {
+                //console.warn("Elemen categoryGrid atau categoryBlocks tidak ditemukan untuk updateCategoryScales.");
+                return;
+            }
             const gridRect = categoryGrid.getBoundingClientRect();
             const gridCenter = gridRect.left + gridRect.width / 2;
             categoryBlocks.forEach(block => {
@@ -1599,10 +1603,9 @@
                         categoryGrid.prepend(lastChild);
                     }
                 }
-                categoryGrid.scrollLeft = scrollLeft + (categoryBlocks[0].offsetWidth || 110) * 3;
+                categoryGrid.scrollLeft = scrollLeft + (categoryBlocks[0] ? categoryBlocks[0].offsetWidth : 110) * 3;
                 isScrolling = false;
-            }
-            else if (scrollLeft + clientWidth > scrollWidth - clientWidth * scrollThreshold) {
+            } else if (scrollLeft + clientWidth > scrollWidth - clientWidth * scrollThreshold) {
                 isScrolling = true;
                 for (let i = 0; i < 3; i++) {
                     const firstChild = categoryGrid.firstElementChild;
@@ -1610,7 +1613,7 @@
                         categoryGrid.appendChild(firstChild);
                     }
                 }
-                categoryGrid.scrollLeft = scrollLeft - (categoryBlocks[0].offsetWidth || 110) * 3;
+                categoryGrid.scrollLeft = scrollLeft - (categoryBlocks[0] ? categoryBlocks[0].offsetWidth : 110) * 3;
                 isScrolling = false;
             }
         });
@@ -1618,7 +1621,7 @@
         window.addEventListener('resize', updateCategoryScales);
 
         document.addEventListener('DOMContentLoaded', () => {
-            updateCategoryScales();
+            updateCategoryScales(); // Panggil pertama kali saat DOM siap
             loadBestSellers();
             loadRandomAromas();
         });
