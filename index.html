@@ -162,9 +162,9 @@
                 const maxDistance = gridRect.width / 2; 
                 const normalizedDistance = Math.min(1, distance / maxDistance);
 
-                // Menghitung skala: skala terbesar di tengah (1), mengecil ke samping (misal 0.7)
-                const maxScale = 1.1; // Ukuran maksimum di tengah
-                const minScale = 0.8; // Ukuran minimum di samping
+                // Menghitung skala: skala terbesar di tengah (maxScale), mengecil ke samping (minScale)
+                const maxScale = 1.1; // Ukuran maksimum di tengah (110% dari ukuran asli)
+                const minScale = 0.8; // Ukuran minimum di samping (80% dari ukuran asli)
                 const scale = maxScale - (normalizedDistance * (maxScale - minScale));
 
                 block.style.transform = `scale(${scale})`;
@@ -176,20 +176,55 @@
             });
         }
 
-        // Panggil fungsi saat halaman dimuat dan saat grid di-scroll
-        categoryGrid.addEventListener('scroll', updateCategoryScales);
+        // --- BAGIAN KODE UNTUK EFEK INFINITE SCROLL SEMU ---
+        const scrollThreshold = 0.1; // Ketika scroll mencapai 10% dari awal/akhir grid, elemen akan dipindahkan
+        let isScrolling = false; // Flag untuk mencegah loop saat memanipulasi scroll
 
-        // Panggil juga saat window di-resize (agar skala diperbarui jika ukuran layar berubah)
+        categoryGrid.addEventListener('scroll', () => {
+            if (isScrolling) return; // Jika sedang dalam proses pemindahan, jangan jalankan lagi
+
+            updateCategoryScales(); // Selalu update skala saat discroll
+
+            const scrollLeft = categoryGrid.scrollLeft; // Posisi scroll saat ini
+            const scrollWidth = categoryGrid.scrollWidth; // Total lebar konten yang bisa digulir
+            const clientWidth = categoryGrid.clientWidth; // Lebar area yang terlihat (viewport)
+
+            // Mendeteksi jika scroll mendekati awal (misal kurang dari 10% dari lebar terlihat dari kiri)
+            if (scrollLeft < clientWidth * scrollThreshold) {
+                isScrolling = true; // Set flag agar tidak berulang
+                // Pindahkan 3 elemen terakhir ke awal. Sesuaikan angka 3 jika perlu.
+                for (let i = 0; i < 3; i++) {
+                    const lastChild = categoryGrid.lastElementChild;
+                    if (lastChild) {
+                        categoryGrid.prepend(lastChild); // Memindahkan elemen ke awal
+                    }
+                }
+                // Sesuaikan posisi scroll agar terlihat mulus.
+                // (categoryBlocks[0].offsetWidth || 110) * 3 adalah perkiraan jarak 3 blok.
+                categoryGrid.scrollLeft = scrollLeft + (categoryBlocks[0].offsetWidth || 110) * 3;
+                isScrolling = false; // Reset flag
+            } 
+            // Mendeteksi jika scroll mendekati akhir (misal 10% dari lebar terlihat dari kanan)
+            else if (scrollLeft + clientWidth > scrollWidth - clientWidth * scrollThreshold) {
+                isScrolling = true; // Set flag
+                // Pindahkan 3 elemen pertama ke akhir. Sesuaikan angka 3 jika perlu.
+                for (let i = 0; i < 3; i++) {
+                    const firstChild = categoryGrid.firstElementChild;
+                    if (firstChild) {
+                        categoryGrid.appendChild(firstChild); // Memindahkan elemen ke akhir
+                    }
+                }
+                // Sesuaikan posisi scroll agar terlihat mulus.
+                categoryGrid.scrollLeft = scrollLeft - (categoryBlocks[0].offsetWidth || 110) * 3;
+                isScrolling = false; // Reset flag
+            }
+        });
+
+        // Panggil fungsi saat window di-resize (agar skala diperbarui jika ukuran layar berubah)
         window.addEventListener('resize', updateCategoryScales);
 
         // Panggil sekali saat halaman pertama kali dimuat untuk pengaturan awal
         updateCategoryScales();
-
-        // Optional: Implementasi infinite scroll palsu (lebih kompleks)
-        // Untuk infinite scroll sungguhan, kita akan memanipulasi elemen di awal/akhir saat scroll
-        // Ini akan kita bahas jika kamu benar-benar ingin efek infinite scroll,
-        // karena membutuhkan duplikasi elemen dan logika yang lebih rumit.
-    </script></body>
-</html>
+    </script>
 </body>
 </html>
