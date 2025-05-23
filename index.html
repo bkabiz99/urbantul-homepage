@@ -97,12 +97,12 @@
     </section>
 
     <section class="random-aromas">
-        <div class="section-header">
-            <h2>Aroma Pilihan Lain</h2>
-            <a href="all-aromas.html" class="more-button">More</a>
-        </div>
-        <div class="random-aroma-grid product-grid" id="randomAromaGrid"> </div>
-    </section>
+    <div class="section-header">
+        <h2>Aroma Pilihan Lain</h2>
+        <a href="all-aromas.html" class="more-button">More</a>
+    </div>
+    <div class="random-aroma-grid aroma-grid" id="randomAromaGrid"> </div>
+</section>
 
     <footer class="main-footer">
         <p>Jl. Jend. Sudirman No.95, Kurahan, Bantul, Kec. Bantul, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55711</p>
@@ -1573,11 +1573,11 @@
 
             selectedRandomParfumes.forEach(parfum => {
                 const card = document.createElement('div');
-                card.classList.add('product-card');
-
+                card.classList.add('aroma-card');
+                
                 card.innerHTML = `
-                    <div class="product-image"></div>
-                    <p class="product-name">${parfum.namaBesar}</p>
+            <div class="aroma-icon"></div>
+            <p class="aroma-name">${parfum.namaBesar}</p>
                 `;
                 randomAromaGrid.appendChild(card);
             });
