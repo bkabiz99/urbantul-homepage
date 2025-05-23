@@ -178,6 +178,21 @@ body {
     display: none;
 }
 
+.category-block.booster,
+.category-block.new-arrival {
+    width: 110px; // Lebih ramping
+}
+
+.category-block.flash-sale,
+.category-block.parfum-malam {
+    width: 110px; // Sedikit lebih lebar
+}
+
+.category-block.timteng-eropa {
+    width: 110px; // Paling lebar
+    height: 110px; // Paling tinggi
+}
+
 .category-block {
     .category-block {
     flex-shrink: 0;
