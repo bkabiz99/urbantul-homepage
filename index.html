@@ -57,42 +57,42 @@
             <h2>Kelas Aroma</h2>
             <a href="aroma-classes.html" class="more-button">More</a>
         </div>
-        <div class="aroma-grid">
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Fruity</p>
+        <div class="aroma-grid product-grid"> 
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Fruity</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Gourmand</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Gourmand</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Citrus</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Citrus</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Floral</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Floral</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Natural</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Natural</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Spicy</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Spicy</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Woody</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Woody</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Musky</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Musky</p>
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Amber</p>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <p class="product-name">Amber</p>
             </div>
         </div>
     </section>
@@ -102,7 +102,7 @@
             <h2>Aroma Pilihan Lain</h2>
             <a href="all-aromas.html" class="more-button">More</a>
         </div>
-        <div class="random-aroma-grid aroma-grid" id="randomAromaGrid">
+        <div class="product-grid" id="randomAromaGrid">
             </div>
     </section>
 
@@ -1507,7 +1507,7 @@
       const categoryGrid = document.querySelector('.category-grid');
         const categoryBlocks = document.querySelectorAll('.category-block');
         const bestSellerGrid = document.getElementById('bestSellerGrid');
-        const randomAromaGrid = document.getElementById('randomAromaGrid'); // Menggunakan ID
+        const randomAromaGrid = document.getElementById('randomAromaGrid');
 
         const bestSellerNames = [
             "Gucci Gold", "Temperature", "Fuck Boy Ood", "Super Sombrero", "Zivan",
@@ -1524,10 +1524,10 @@
             bestSellerGrid.innerHTML = '';
             const selectedBestSellers = allParfumes.filter(parfum =>
                 bestSellerNames.includes(parfum.namaBesar)
-            ).slice(0, 9); // Ambil 9 teratas
+            ).slice(0, 9);
             selectedBestSellers.forEach(parfum => {
                 const card = document.createElement('div');
-                card.classList.add('product-card');
+                card.classList.add('product-card'); // TETAP product-card
                 card.innerHTML = `
                     <div class="product-image"></div>
                     <p class="product-name">${parfum.namaBesar}</p>
@@ -1544,24 +1544,21 @@
             return array;
         }
 
-        // FUNGSI INI YANG PENTING UNTUK "AROMA PILIHAN LAIN"
         function loadRandomAromas() {
             if (!randomAromaGrid) {
                 console.error("Elemen #randomAromaGrid tidak ditemukan.");
                 return;
             }
-            randomAromaGrid.innerHTML = ''; // Hapus konten lama
+            randomAromaGrid.innerHTML = '';
             const shuffledParfumes = shuffleArray([...allParfumes]);
-            const selectedRandomParfumes = shuffledParfumes.slice(0, 9); // Ambil 9 parfum pertama setelah diacak
+            const selectedRandomParfumes = shuffledParfumes.slice(0, 9);
 
             selectedRandomParfumes.forEach(parfum => {
                 const card = document.createElement('div');
-                card.classList.add('aroma-card'); // PENTING: Gunakan 'aroma-card' di sini
-
-                // Sesuaikan innerHTML agar mirip dengan struktur aroma-card di HTML
+                card.classList.add('product-card'); // UBAH ke 'product-card'
                 card.innerHTML = `
-                    <div class="aroma-icon"></div>
-                    <p class="aroma-name">${parfum.namaBesar}</p>
+                    <div class="product-image"></div>
+                    <p class="product-name">${parfum.namaBesar}</p>
                 `;
                 randomAromaGrid.appendChild(card);
             });
@@ -1623,7 +1620,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             updateCategoryScales();
             loadBestSellers();
-            loadRandomAromas(); // Pastikan fungsi ini dipanggil saat DOM siap
+            loadRandomAromas();
         });
     </script>
 </body>
