@@ -32,7 +32,8 @@ body {
     justify-content: space-between; /* Menyebar item ke ujung */
     align-items: center; /* Menyelaraskan item secara vertikal di tengah */
     padding: 10px 20px; /* Padding atas-bawah dan kiri-kanan */
-    /* background-color: #f8f8f8; /* Contoh warna latar belakang header, sesuaikan jika perlu */
+    background-color: #fff; /* Latar belakang header putih */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Bayangan tipis */
     gap: 20px; /* Memberi jarak antar item flex (hamburger-left, promo-banner, main-nav) */
     flex-wrap: wrap; /* Izinkan wrapping jika layar terlalu kecil */
 }
@@ -48,22 +49,29 @@ body {
 .logo h1 {
     font-size: 1.8em; /* Sesuaikan ukuran font jika perlu */
     margin: 0; /* Hapus margin default h1 */
+    color: #333; /* Warna logo */
 }
 
 /* Menggeser promo banner dan main nav ke kanan atau tengah atas */
 .promo-banner {
+    background-color: #A9A9A9; /* Warna abu-abu dari sketsa */
+    color: #fff; /* Warna teks putih */
+    padding: 5px 15px; /* Padding di dalam banner */
+    border-radius: 20px; /* Sudut membulat */
+    font-size: 14px; /* Ukuran font promo */
+    white-space: nowrap; /* Mencegah teks memisah baris */
+    margin: 5px 0; /* Sedikit margin jika terwrap */
     flex-grow: 1; /* Biarkan promo banner mengambil ruang yang tersisa */
     text-align: center; /* Teks di tengah */
-    white-space: nowrap; /* Jangan putus baris */
     overflow: hidden; /* Sembunyikan jika teks terlalu panjang */
     text-overflow: ellipsis; /* Tambahkan elipsis jika disembunyikan */
 }
 
 .main-nav ul {
-    display: flex; /* Untuk menata link navigasi secara horizontal */
     list-style: none; /* Hapus bullet point */
     margin: 0;
     padding: 0;
+    display: flex; /* Untuk menata link navigasi secara horizontal */
     gap: 15px; /* Jarak antar item navigasi */
 }
 
@@ -158,7 +166,6 @@ body {
     display: block; /* Tampilkan overlay */
     opacity: 1; /* Transisi menjadi terlihat penuh */
 }
-
 
 /* Header Sidebar */
 .sidebar-header {
