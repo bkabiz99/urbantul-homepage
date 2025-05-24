@@ -7,8 +7,27 @@
     <link rel="stylesheet" href="style.css">
     </head>
 <body>
+<body>
+    <div class="menu-overlay"></div>
 
+    <aside class="sidebar-menu">
+        <div class="sidebar-header">
+            <h2>Menu urBANtul</h2>
+            <button class="close-sidebar-button">&times;</button> </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" class="sidebar-link" data-menu-item="daftar-aroma">Daftar Aroma</a></li>
+                <li><a href="#" class="sidebar-link" data-menu-item="notes-aroma">Notes Aroma</a></li>
+                <li><a href="best-sellers.html" class="sidebar-link" data-menu-item="aroma-best-seller">Aroma Best Seller</a></li>
+                <li><a href="#" class="sidebar-link" data-menu-item="panduan-aroma">Panduan Aroma</a></li>
+                <li><a href="#" class="sidebar-link" data-menu-item="lokasi-kontak">Lokasi & Kontak</a></li>
+            </ul>
+        </nav>
+        </aside>
+
+    ```
     <header class="main-header">
+        <header class="main-header">
     <div class="header-top">
         <div class="header-left">
             <div class="hamburger-menu-icon">
@@ -167,7 +186,7 @@
             { no: 7, namaKecil: "Annasui Secret Wish", namaBesar: "Scent Quisite", topNote: "Lemon, Melon, Peach, Marigold", middleNote: "Pineapple, Black Currant, Floral Notes", baseNote: "White Cedar Extract, Musk, Amber, Sandalwood" },
             { no: 8, namaKecil: "Antonio Banderas Determination", namaBesar: "Determination", topNote: "Bergamot, Green Apple, Cardamom", middleNote: "Marine Notes, Nutmeg, Tea", baseNote: "Musk, Sandalwood, Amber" },
             { no: 9, namaKecil: "Aqua Kiss", namaBesar: "Adore You", topNote: "Sea Notes, Freesia, Aloe Vera", middleNote: "Daisy, Chamomile, Sweet Notes, Plum Blossom", baseNote: "" },
-            { no: 10, namaKecil: "Avril FBLBidden Rose Spring", namaBesar: "Red Apple, Peach, Pepper", topNote: "Lotus, Granny Smith apple, Heliotrope", middleNote: "Vanille, Mexican chocolate", baseNote: "Sandalwood" },
+            { no: 10, namaKecil: "Avril FBLBidden Rose Spring", namaBesar: "Bidden Rose Spring", topNote: "Red Apple, Peach, Pepper", middleNote: "Lotus, Granny Smith apple, Heliotrope", baseNote: "Vanille, Mexican chocolate, Sandalwood" },
             { no: 11, namaKecil: "B&B Strawberry", namaBesar: "Tincture", topNote: "Strawberry", middleNote: "Cupcake, Whipped Cream", baseNote: "" },
             { no: 12, namaKecil: "Bacarat 724", namaBesar: "Autumn Fertiver", topNote: "Aldehydes, Bergamot", middleNote: "White Floral Notes", baseNote: "Musk, Sandalwood" },
             { no: 13, namaKecil: "Bacarat Amyris Feme", namaBesar: "River Mist", topNote: "Lemon Blossom, Sweet Pea", middleNote: "Amyris, Jasmine", baseNote: "Musk, Woody Notes" },
@@ -406,6 +425,38 @@
 
             // Jika Anda ingin mengubah 9 aroma setiap kali halaman di-refresh, 
             // fungsi displayRandomAromas() sudah cukup.
+        
+        // --- KODE UNTUK FUNGSI SIDEBAR MENU ---
+const hamburgerIcon = document.querySelector('.hamburger-menu-icon');
+const sidebarMenu = document.querySelector('.sidebar-menu');
+const closeSidebarBtn = document.querySelector('.close-sidebar-button');
+const menuOverlay = document.querySelector('.menu-overlay');
+
+// Fungsi untuk membuka sidebar
+function openSidebar() {
+    sidebarMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Mencegah scrolling konten utama saat menu terbuka
+}
+
+// Fungsi untuk menutup sidebar
+function closeSidebar() {
+    sidebarMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = ''; // Mengizinkan scrolling kembali
+}
+
+// Event Listeners (Apa yang terjadi saat diklik)
+if (hamburgerIcon) { // Pastikan elemen ditemukan sebelum menambahkan event listener
+    hamburgerIcon.addEventListener('click', openSidebar);
+}
+if (closeSidebarBtn) {
+    closeSidebarBtn.addEventListener('click', closeSidebar);
+}
+if (menuOverlay) {
+    menuOverlay.addEventListener('click', closeSidebar);
+}    
+
         const categoryGrid = document.querySelector('.category-grid');
         const categoryBlocks = document.querySelectorAll('.category-block');
 
@@ -439,32 +490,6 @@
                 block.style.zIndex = zIndex;
             });
         }
-
-            // --- KODE BARU UNTUK FUNGSI SIDEBAR MENU ---
-    const hamburgerIcon = document.querySelector('.hamburger-menu-icon');
-    const sidebarMenu = document.querySelector('.sidebar-menu');
-    const closeSidebarBtn = document.querySelector('.close-sidebar-button');
-    const menuOverlay = document.querySelector('.menu-overlay');
-
-    // Fungsi untuk membuka sidebar
-    function openSidebar() {
-        sidebarMenu.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Mencegah scrolling konten utama
-    }
-
-    // Fungsi untuk menutup sidebar
-    function closeSidebar() {
-        sidebarMenu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = ''; // Mengizinkan scrolling kembali
-    }
-
-    // Event Listeners
-    hamburgerIcon.addEventListener('click', openSidebar);
-    closeSidebarBtn.addEventListener('click', closeSidebar);
-    menuOverlay.addEventListener('click', closeSidebar); // Menutup jika klik di luar menu
-
 
         // --- BAGIAN KODE UNTUK EFEK INFINITE SCROLL SEMU ---
         const scrollThreshold = 0.1; // Ketika scroll mencapai 10% dari awal/akhir grid, elemen akan dipindahkan
