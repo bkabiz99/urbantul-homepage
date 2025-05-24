@@ -1,1055 +1,528 @@
 /* --- CSS Global / Reset Dasar --- */
-
 body {
-
-    margin: 0; /* Menghilangkan margin bawaan browser */
-
-    font-family: Arial, sans-serif; /* Mengatur jenis font dasar */
-
-    background-color: #f0f0f0; /* Warna latar belakang umum, mendekati abu-abu muda sketsa */
-
-    color: #333; /* Warna teks dasar */
-
+    margin: 0; /* Menghilangkan margin bawaan browser */
+    font-family: Arial, sans-serif; /* Mengatur jenis font dasar */
+    background-color: #f0f0f0; /* Warna latar belakang umum, mendekati abu-abu muda sketsa */
+    color: #333; /* Warna teks dasar */
 }
-
-
 
 /* --- Header Utama --- */
-
 .main-header {
-
-    background-color: #fff; /* Latar belakang putih sesuai sketsa */
-
-    padding: 10px; /* Sedikit padding di sekeliling header */
-
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Bayangan tipis di bawah header */
-
+    background-color: #fff; /* Latar belakang putih sesuai sketsa */
+    padding: 10px; /* Sedikit padding di sekeliling header */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Bayangan tipis di bawah header */
 }
-
-
 
 .header-top {
-
-    display: flex; /* Menggunakan Flexbox untuk menata elemen di dalam header-top */
-
-    justify-content: space-between; /* Menyebarkan elemen secara horizontal */
-
-    align-items: center; /* Menyelaraskan elemen secara vertikal di tengah */
-
-    flex-wrap: wrap; /* Memungkinkan elemen untuk 'wrap' ke baris baru jika layar terlalu kecil */
-
-    margin-bottom: 10px; /* Jarak antara header-top dan search-section */
-
+    display: flex; /* Menggunakan Flexbox untuk menata elemen di dalam header-top */
+    justify-content: space-between; /* Menyebarkan elemen secara horizontal */
+    align-items: center; /* Menyelaraskan elemen secara vertikal di tengah */
+    flex-wrap: wrap; /* Memungkinkan elemen untuk 'wrap' ke baris baru jika layar terlalu kecil */
+    margin-bottom: 10px; /* Jarak antara header-top dan search-section */
 }
-
-
 
 .logo h1 {
-
-    margin: 0; /* Menghilangkan margin bawaan h1 */
-
-    font-size: 24px; /* Ukuran font logo */
-
-    color: #333; /* Warna logo */
-
+    margin: 0; /* Menghilangkan margin bawaan h1 */
+    font-size: 24px; /* Ukuran font logo */
+    color: #333; /* Warna logo */
 }
-
-
 
 .promo-banner {
-
-    background-color: #A9A9A9; /* Warna abu-abu dari sketsa */
-
-    color: #fff; /* Warna teks putih */
-
-    padding: 5px 15px; /* Padding di dalam banner */
-
-    border-radius: 20px; /* Sudut membulat */
-
-    font-size: 14px; /* Ukuran font promo */
-
-    white-space: nowrap; /* Mencegah teks memisah baris */
-
-    margin: 5px 0; /* Sedikit margin jika terwrap */
-
+    background-color: #A9A9A9; /* Warna abu-abu dari sketsa */
+    color: #fff; /* Warna teks putih */
+    padding: 5px 15px; /* Padding di dalam banner */
+    border-radius: 20px; /* Sudut membulat */
+    font-size: 14px; /* Ukuran font promo */
+    white-space: nowrap; /* Mencegah teks memisah baris */
+    margin: 5px 0; /* Sedikit margin jika terwrap */
 }
-
-
 
 .main-nav ul {
-
-    list-style: none; /* Menghilangkan bullet point dari list */
-
-    margin: 0;
-
-    padding: 0;
-
-    display: flex; /* Membuat item navigasi bersebelahan */
-
-    gap: 15px; /* Jarak antar item navigasi */
-
+    list-style: none; /* Menghilangkan bullet point dari list */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Membuat item navigasi bersebelahan */
+    gap: 15px; /* Jarak antar item navigasi */
 }
-
-
 
 .main-nav a {
-
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-
-    color: #333; /* Warna teks tautan */
-
-    font-size: 14px;
-
-    background-color: #A9A9A9; /* Warna abu-abu untuk background link */
-
-    padding: 5px 10px; /* Padding di dalam link */
-
-    border-radius: 15px; /* Sudut membulat */
-
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    color: #333; /* Warna teks tautan */
+    font-size: 14px;
+    background-color: #A9A9A9; /* Warna abu-abu untuk background link */
+    padding: 5px 10px; /* Padding di dalam link */
+    border-radius: 15px; /* Sudut membulat */
 }
-
-
 
 /* --- Search Bar --- */
-
 .search-section {
-
-    display: flex; /* Menggunakan Flexbox untuk input dan tombol */
-
-    margin-top: 10px; /* Jarak dari elemen di atasnya */
-
-    padding: 0 10px; /* Padding samping agar tidak terlalu mepet tepi */
-
+    display: flex; /* Menggunakan Flexbox untuk input dan tombol */
+    margin-top: 10px; /* Jarak dari elemen di atasnya */
+    padding: 0 10px; /* Padding samping agar tidak terlalu mepet tepi */
 }
-
-
 
 .search-input {
-
-    flex-grow: 1; /* Membuat input mengisi ruang yang tersedia */
-
-    padding: 8px 15px;
-
-    border: 1px solid #ccc; /* Border abu-abu */
-
-    border-radius: 20px; /* Sudut membulat */
-
-    font-size: 14px;
-
-    outline: none; /* Menghilangkan outline biru saat fokus */
-
-    margin-right: 5px; /* Jarak antara input dan tombol */
-
+    flex-grow: 1; /* Membuat input mengisi ruang yang tersedia */
+    padding: 8px 15px;
+    border: 1px solid #ccc; /* Border abu-abu */
+    border-radius: 20px; /* Sudut membulat */
+    font-size: 14px;
+    outline: none; /* Menghilangkan outline biru saat fokus */
+    margin-right: 5px; /* Jarak antara input dan tombol */
 }
-
-
 
 .search-button {
-
-    background-color: #A9A9A9; /* Warna abu-abu tombol */
-
-    color: #fff; /* Warna ikon/teks putih */
-
-    border: none; /* Menghilangkan border tombol */
-
-    padding: 8px 12px;
-
-    border-radius: 20px; /* Sudut membulat */
-
-    cursor: pointer; /* Mengubah kursor jadi pointer saat di hover */
-
-    font-size: 16px; /* Ukuran ikon */
-
-    display: flex; /* Untuk menengahkan ikon jika ada */
-
-    align-items: center;
-
-    justify-content: center;
-
+    background-color: #A9A9A9; /* Warna abu-abu tombol */
+    color: #fff; /* Warna ikon/teks putih */
+    border: none; /* Menghilangkan border tombol */
+    padding: 8px 12px;
+    border-radius: 20px; /* Sudut membulat */
+    cursor: pointer; /* Mengubah kursor jadi pointer saat di hover */
+    font-size: 16px; /* Ukuran ikon */
+    display: flex; /* Untuk menengahkan ikon jika ada */
+    align-items: center;
+    justify-content: center;
 }
-
-
 
 /* --- Bagian Kategori Utama / Slider --- */
-
 .main-categories {
-
-    padding: 20px 10px;
-
-    margin-top: 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center; /* Posisikan judul dan grid di tengah */
-
-    width: 100%;
-
-    box-sizing: border-box;
-
+    padding: 20px 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Posisikan judul dan grid di tengah */
+    width: 100%;
+    box-sizing: border-box;
 }
-
-
 
 .main-categories h2 {
-
-    margin-bottom: 20px;
-
-    font-size: 20px;
-
-    color: #fff;
-
-    background-color: #9370DB;
-
-    padding: 5px 15px;
-
-    border-radius: 20px;
-
-    width: fit-content;
-
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #9370DB;
+    padding: 5px 15px;
+    border-radius: 20px;
+    width: fit-content;
 }
-
-
 
 .category-grid {
-
-    display: flex;
-
-    overflow-x: auto; /* Aktifkan scroll di HP */
-
-    -webkit-overflow-scrolling: touch;
-
-    padding: 0 10px;
-
-    gap: 15px;
-
-    width: 100%; /* Lebar 100% agar bisa di-scroll */
-
-    box-sizing: border-box;
-
-    justify-content: flex-start; /* Dimulai dari kiri */
-
-    scrollbar-width: none;
-
-    -ms-overflow-style: none;
-
+    display: flex;
+    overflow-x: auto; /* Aktifkan scroll di HP */
+    -webkit-overflow-scrolling: touch;
+    padding: 0 10px;
+    gap: 15px;
+    width: 100%; /* Lebar 100% agar bisa di-scroll */
+    box-sizing: border-box;
+    justify-content: flex-start; /* Dimulai dari kiri */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-
-
 
 .category-grid::-webkit-scrollbar {
-
-    display: none;
-
+    display: none;
 }
-
-
 
 /* Ukuran kotak kategori (Sudah kamu ubah) */
-
 .category-block {
+    flex-shrink: 0;
+    min-width: 220px; /* Lebar 2x */
+    height: 330px;   /* Tinggi 3x */
+    background-color: #A9A9A9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
-    flex-shrink: 0;
-
-    min-width: 220px; /* Lebar 2x */
-
-    height: 330px;   /* Tinggi 3x */
-
-    background-color: #A9A9A9;
-
-    color: #fff;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    border-radius: 15px;
-
-    text-decoration: none;
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
-
-
-    transform: scale(0.8); /* Tetap aktif untuk efek skala di HP */
-
-    transition: transform 0.2s ease-out, z-index 0s ease-out;
-
-    position: relative;
-
-    z-index: 1;
-
+    transform: scale(0.8); /* Tetap aktif untuk efek skala di HP */
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
 }
-
-
 
 /* --- Media Query untuk Layar PC (Lebar minimal 768px atau lebih) --- */
-
 @media (min-width: 768px) {
+    .main-categories {
+        /* Kita ingin grid kategori di tengah, tapi judul tetap di tengah section */
+        /* align-items: center; sudah cukup untuk menengahkan seluruh section */
+        padding: 20px; /* Tambah padding samping di PC */
+    }
 
-    .main-categories {
+    .category-grid {
+        overflow-x: hidden; /* Matikan scroll di PC */
+        justify-content: center; /* Posisikan item di tengah dalam grid */
+        width: auto; /* Biarkan grid menyesuaikan lebar kontennya */
+        max-width: 100%; /* Jangan melebihi lebar parent */
+        padding: 0; /* Hapus padding samping jika tidak perlu */
 
-        /* Kita ingin grid kategori di tengah, tapi judul tetap di tengah section */
+        /* Jika kamu ingin mengatur jarak antar item lebih presisi di PC */
+        /* gap: 20px; */ /* Bisa diatur di sini, atau biarkan default dari atas */
+    }
 
-        /* align-items: center; sudah cukup untuk menengahkan seluruh section */
-
-        padding: 20px; /* Tambah padding samping di PC */
-
-    }
-
-
-
-    .category-grid {
-
-        overflow-x: hidden; /* Matikan scroll di PC */
-
-        justify-content: center; /* Posisikan item di tengah dalam grid */
-
-        width: auto; /* Biarkan grid menyesuaikan lebar kontennya */
-
-        max-width: 100%; /* Jangan melebihi lebar parent */
-
-        padding: 0; /* Hapus padding samping jika tidak perlu */
-
-
-
-        /* Jika kamu ingin mengatur jarak antar item lebih presisi di PC */
-
-        /* gap: 20px; */ /* Bisa diatur di sini, atau biarkan default dari atas */
-
-    }
-
-
-
-    /* Di PC, kita tidak ingin efek skala dinamis lagi, jadi reset transform */
-
-    .category-block {
-
-        transform: none; /* Kembalikan ke ukuran asli (tidak diskala 0.8) */
-
-        font-size: 20px; /* Pastikan ukuran font tetap normal */
-
-    }
-
+    /* Di PC, kita tidak ingin efek skala dinamis lagi, jadi reset transform */
+    .category-block {
+        transform: none; /* Kembalikan ke ukuran asli (tidak diskala 0.8) */
+        font-size: 20px; /* Pastikan ukuran font tetap normal */
+    }
 }
-
-
 
 .category-block {
+    flex-shrink: 0;
+    min-width: 220px; /* Lebar 2x dari 110px */
+    height: 330px;   /* Tinggi 3x dari 110px */
+    background-color: #A9A9A9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
-    flex-shrink: 0;
-
-    min-width: 220px; /* Lebar 2x dari 110px */
-
-    height: 330px;   /* Tinggi 3x dari 110px */
-
-    background-color: #A9A9A9;
-
-    color: #fff;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    border-radius: 15px;
-
-    text-decoration: none;
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
-
-
-    /* Ini tetap untuk efek skala dinamis di JavaScript */
-
-    transform: scale(0.8); 
-
-    transition: transform 0.2s ease-out, z-index 0s ease-out;
-
-    position: relative;
-
-    z-index: 1;
-
+    /* Ini tetap untuk efek skala dinamis di JavaScript */
+    transform: scale(0.8); 
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
 }
-
-
 
 /* Warna spesifik untuk setiap kategori (tetap sama) */
-
 .category-block.booster,
-
 .category-block.booster-alt {
-
-    background-color: #555555;
-
+    background-color: #555555;
 }
-
-
 
 .category-block.flash-sale {
-
-    background-color: #FF6961;
-
+    background-color: #FF6961;
 }
-
-
 
 .category-block.timteng-eropa {
-
-    background-color: #FADA5E;
-
+    background-color: #FADA5E;
 }
-
-
 
 .category-block.new-arrival {
-
-    background-color: #FF6961;
-
+    background-color: #FF6961;
 }
-
-
 
 .category-block.parfum-malam {
-
-    background-color: #8BC34A;
-
+    background-color: #8BC34A;
 }
-
 /* --- Bagian Kategori Utama / Slider (Diperbarui) --- */
-
 .main-categories {
-
-    padding: 20px 10px; /* Padding atas-bawah dan samping */
-
-    background-color: #f0f0f0; /* Latar belakang sama dengan body */
-
+    padding: 20px 10px; /* Padding atas-bawah dan samping */
+    background-color: #f0f0f0; /* Latar belakang sama dengan body */
 }
-
-
 
 .main-categories h2 {
-
-    text-align: center; /* Judul di tengah */
-
-    margin-top: 0;
-
-    margin-bottom: 20px; /* Jarak bawah judul */
-
-    font-size: 20px; /* Ukuran font judul */
-
-    color: #333;
-
+    text-align: center; /* Judul di tengah */
+    margin-top: 0;
+    margin-bottom: 20px; /* Jarak bawah judul */
+    font-size: 20px; /* Ukuran font judul */
+    color: #333;
 }
-
-
 
 .category-grid {
-
-    display: flex; /* Menggunakan Flexbox untuk deretan kategori */
-
-    overflow-x: auto; /* Memungkinkan scroll horizontal */
-
-    padding-bottom: 10px; /* Sedikit padding bawah untuk scrollbar */
-
-    gap: 15px; /* Jarak antar blok kategori */
-
-    -webkit-overflow-scrolling: touch; /* Memperbaiki scrolling di iOS */
-
-    scrollbar-width: none; /* Menyembunyikan scrollbar Firefox */
-
-    align-items: flex-start; /* Menyelaraskan item ke bagian atas (jika ada perbedaan tinggi) */
-
+    display: flex; /* Menggunakan Flexbox untuk deretan kategori */
+    overflow-x: auto; /* Memungkinkan scroll horizontal */
+    padding-bottom: 10px; /* Sedikit padding bawah untuk scrollbar */
+    gap: 15px; /* Jarak antar blok kategori */
+    -webkit-overflow-scrolling: touch; /* Memperbaiki scrolling di iOS */
+    scrollbar-width: none; /* Menyembunyikan scrollbar Firefox */
+    align-items: flex-start; /* Menyelaraskan item ke bagian atas (jika ada perbedaan tinggi) */
 }
-
-
 
 /* Menyembunyikan scrollbar untuk Webkit (Chrome, Safari) */
-
 .category-grid::-webkit-scrollbar {
-
-    display: none;
-
+    display: none;
 }
-
-
 
 .category-block {
+    .category-block {
+    flex-shrink: 0;
+    min-width: 110px; /* <-- Atur ini ke ukuran dasar yang sama untuk semua */
+    height: 110px;   /* <-- Atur ini ke ukuran dasar yang sama untuk semua */
+    background-color: #A9A9A9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
-    .category-block {
-
-    flex-shrink: 0;
-
-    min-width: 110px; /* <-- Atur ini ke ukuran dasar yang sama untuk semua */
-
-    height: 110px;   /* <-- Atur ini ke ukuran dasar yang sama untuk semua */
-
-    background-color: #A9A9A9;
-
-    color: #fff;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    border-radius: 15px;
-
-    text-decoration: none;
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
-
-
-    transform: scale(0.8); /* Ini tetap untuk efek skala */
-
-    transition: transform 0.2s ease-out, z-index 0s ease-out;
-
-    position: relative;
-
-    z-index: 1;
-
+    transform: scale(0.8); /* Ini tetap untuk efek skala */
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
 }
-
 }
-
-
-
 
 
 /* Warna spesifik untuk setiap kategori sesuai sketsa UI terbaru */
-
 .category-block.booster,
-
 .category-block.booster-alt {
-
-    background-color: #555555; /* Abu-abu gelap untuk BO */
-
+    background-color: #555555; /* Abu-abu gelap untuk BO */
 }
-
-
 
 .category-block.flash-sale {
-
-    background-color: #FF6961; /* Merah untuk FS */
-
+    background-color: #FF6961; /* Merah untuk FS */
 }
-
-
 
 .category-block.timteng-eropa {
-
-    background-color: #FADA5E; /* Kuning untuk TG */
-
+    background-color: #FADA5E; /* Kuning untuk TG */
 }
-
-
 
 .category-block.new-arrival {
-
-    background-color: #FF6961; /* Merah untuk NA (sesuai sketsa baru) */
-
+    background-color: #FF6961; /* Merah untuk NA (sesuai sketsa baru) */
 }
-
-
 
 .category-block.parfum-malam {
-
-    background-color: #8BC34A; /* Hijau muda untuk PM (sesuai sketsa baru) */
-
+    background-color: #8BC34A; /* Hijau muda untuk PM (sesuai sketsa baru) */
 }
-
-
 
 /* --- Bagian Best Seller --- */
-
 .best-sellers {
-
-    padding: 20px 10px; /* Padding atas-bawah dan samping */
-
-    background-color: #fff; /* Latar belakang putih */
-
-    margin-top: 20px; /* Jarak dari bagian di atasnya */
-
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Bayangan ringan */
-
+    padding: 20px 10px; /* Padding atas-bawah dan samping */
+    background-color: #fff; /* Latar belakang putih */
+    margin-top: 20px; /* Jarak dari bagian di atasnya */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Bayangan ringan */
 }
-
-
 
 .best-sellers .section-header {
-
-    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
-
-    justify-content: space-between; /* Judul di kiri, More di kanan */
-
-    align-items: center; /* Sejajar vertikal */
-
-    margin-bottom: 20px; /* Jarak bawah header bagian */
-
+    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
+    justify-content: space-between; /* Judul di kiri, More di kanan */
+    align-items: center; /* Sejajar vertikal */
+    margin-bottom: 20px; /* Jarak bawah header bagian */
 }
-
-
 
 .best-sellers h2 {
-
-    margin: 0; /* Menghilangkan margin bawaan h2 */
-
-    font-size: 20px; /* Ukuran font judul */
-
-    color: #333;
-
-    background-color: #FF6961; /* Warna merah sesuai sketsa */
-
-    color: #fff;
-
-    padding: 5px 15px;
-
-    border-radius: 20px; /* Sudut membulat */
-
+    margin: 0; /* Menghilangkan margin bawaan h2 */
+    font-size: 20px; /* Ukuran font judul */
+    color: #333;
+    background-color: #FF6961; /* Warna merah sesuai sketsa */
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px; /* Sudut membulat */
 }
-
-
 
 .best-sellers .more-button {
-
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-
-    color: #333; /* Warna teks */
-
-    font-size: 14px;
-
-    background-color: #A9A9A9; /* Warna abu-abu */
-
-    padding: 5px 10px;
-
-    border-radius: 15px; /* Sudut membulat */
-
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    color: #333; /* Warna teks */
+    font-size: 14px;
+    background-color: #A9A9A9; /* Warna abu-abu */
+    padding: 5px 10px;
+    border-radius: 15px; /* Sudut membulat */
 }
-
-
 
 .best-sellers .product-grid {
-
-    display: grid; /* Menggunakan Grid untuk tata letak produk */
-
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsif, min 100px, max 1fr */
-
-    gap: 15px; /* Jarak antar kartu produk */
-
+    display: grid; /* Menggunakan Grid untuk tata letak produk */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsif, min 100px, max 1fr */
+    gap: 15px; /* Jarak antar kartu produk */
 }
-
-
 
 .product-card {
-
-    background-color: #A9A9A9; /* Warna abu-abu untuk kartu produk */
-
-    border-radius: 15px; /* Sudut membulat */
-
-    overflow: hidden; /* Memastikan konten tidak keluar dari sudut bulat */
-
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kartu */
-
-    padding-bottom: 10px; /* Padding bawah untuk nama produk */
-
-    text-align: center; /* Teks nama produk di tengah */
-
+    background-color: #A9A9A9; /* Warna abu-abu untuk kartu produk */
+    border-radius: 15px; /* Sudut membulat */
+    overflow: hidden; /* Memastikan konten tidak keluar dari sudut bulat */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kartu */
+    padding-bottom: 10px; /* Padding bawah untuk nama produk */
+    text-align: center; /* Teks nama produk di tengah */
 }
-
-
 
 .product-card .product-image {
-
-    width: 100%; /* Lebar gambar mengisi kartu */
-
-    padding-top: 100%; /* Membuat kotak gambar jadi persegi (height sama dengan width) */
-
-    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder gambar */
-
-    border-top-left-radius: 15px; /* Sudut bulat atas */
-
-    border-top-right-radius: 15px;
-
-    margin-bottom: 10px; /* Jarak bawah gambar ke nama produk */
-
+    width: 100%; /* Lebar gambar mengisi kartu */
+    padding-top: 100%; /* Membuat kotak gambar jadi persegi (height sama dengan width) */
+    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder gambar */
+    border-top-left-radius: 15px; /* Sudut bulat atas */
+    border-top-right-radius: 15px;
+    margin-bottom: 10px; /* Jarak bawah gambar ke nama produk */
 }
-
-
 
 .product-card .product-name {
-
-    margin: 0; /* Menghilangkan margin bawaan p */
-
-    font-size: 14px;
-
-    color: #fff; /* Warna teks nama produk putih */
-
-    font-weight: bold;
-
-}
-
-
-
-/* --- Bagian Kelas Aroma --- */
-
-.aroma-classes {
-
-    padding: 20px 10px; /* Padding atas-bawah dan samping */
-
-    background-color: #f0f0f0; /* Latar belakang abu-abu muda */
-
-    margin-top: 20px; /* Jarak dari bagian di atasnya */
-
-}
-
-
-
-.aroma-classes .section-header {
-
-    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
-
-    justify-content: space-between; /* Judul di kiri, More di kanan */
-
-    align-items: center; /* Sejajar vertikal */
-
-    margin-bottom: 20px; /* Jarak bawah header bagian */
-
-}
-
-
-
-.aroma-classes h2 {
-
-    margin: 0; /* Menghilangkan margin bawaan h2 */
-
-    font-size: 20px; /* Ukuran font judul */
-
-    color: #fff; /* Warna teks putih */
-
-    background-color: #9370DB; /* Warna ungu sesuai sketsa */
-
-    padding: 5px 15px;
-
-    border-radius: 20px; /* Sudut membulat */
-
-}
-
-
-
-.aroma-classes .more-button {
-
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-
-    color: #333; /* Warna teks */
-
-    font-size: 14px;
-
-    background-color: #A9A9A9; /* Warna abu-abu */
-
-    padding: 5px 10px;
-
-    border-radius: 15px; /* Sudut membulat */
-
-}
-
-
-
-.aroma-classes .aroma-grid {
-
-    display: grid; /* Menggunakan Grid untuk tata letak aroma */
-
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsif, min 100px */
-
-    gap: 15px; /* Jarak antar kartu aroma */
-
-}
-
-
-
-.aroma-card {
-
-    background-color: #A9A9A9; /* Warna abu-abu untuk kartu aroma */
-
-    border-radius: 15px; /* Sudut membulat */
-
-    overflow: hidden;
-
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kartu */
-
-    padding-bottom: 10px; /* Padding bawah untuk nama aroma */
-
-    text-align: center; /* Teks nama aroma di tengah */
-
-}
-
-
-
-.aroma-card .aroma-icon {
-
-    width: 100%; /* Lebar ikon mengisi kartu */
-
-    padding-top: 100%; /* Membuat kotak ikon jadi persegi */
-
-    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder ikon */
-
-    border-top-left-radius: 15px; /* Sudut bulat atas */
-
-    border-top-right-radius: 15px;
-
-    margin-bottom: 10px; /* Jarak bawah ikon ke nama aroma */
-
-}
-
-
-
-.aroma-card .aroma-name {
-
-    margin: 0; /* Menghilangkan margin bawaan p */
-
-    font-size: 14px;
-
-    color: #fff; /* Warna teks nama aroma putih */
-
-    font-weight: bold;
-
-}
-
-
-
-/* --- Bagian Footer Website --- */
-
-.main-footer {
-
-    background-color: #333; /* Latar belakang abu-abu gelap */
-
-    color: #fff; /* Warna teks putih */
-
-    padding: 20px 15px; /* Padding di sekeliling footer */
-
-    text-align: center; /* Teks di tengah */
-
-    font-size: 14px; /* Ukuran font lebih kecil */
-
-    margin-top: 30px; /* Jarak dari bagian di atasnya */
-
-}
-
-
-
-.main-footer p {
-
-    margin: 5px 0; /* Jarak antar paragraf */
-
-    line-height: 1.5; /* Jarak antar baris */
-
-}
-
-
-
-.main-footer a {
-
-    color: #8BC34A; /* Warna link hijau muda (sesuai warna PM) */
-
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-
-    font-weight: bold;
-
-}
-
-
-
-.main-footer a:hover {
-
-    text-decoration: underline; /* Garis bawah saat di-hover */
-
+    margin: 0; /* Menghilangkan margin bawaan p */
+    font-size: 14px;
+    color: #fff; /* Warna teks nama produk putih */
+    font-weight: bold;
 }
 
 /* --- Bagian Kelas Aroma --- */
-
 .aroma-classes {
-
-    padding: 20px 10px; /* Padding atas-bawah dan samping */
-
-    background-color: #f0f0f0; /* Latar belakang abu-abu muda */
-
-    margin-top: 20px; /* Jarak dari bagian di atasnya */
-
+    padding: 20px 10px; /* Padding atas-bawah dan samping */
+    background-color: #f0f0f0; /* Latar belakang abu-abu muda */
+    margin-top: 20px; /* Jarak dari bagian di atasnya */
 }
-
-
 
 .aroma-classes .section-header {
-
-    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
-
-    justify-content: space-between; /* Judul di kiri, More di kanan */
-
-    align-items: center; /* Sejajar vertikal */
-
-    margin-bottom: 20px; /* Jarak bawah header bagian */
-
+    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
+    justify-content: space-between; /* Judul di kiri, More di kanan */
+    align-items: center; /* Sejajar vertikal */
+    margin-bottom: 20px; /* Jarak bawah header bagian */
 }
-
-
 
 .aroma-classes h2 {
-
-    margin: 0; /* Menghilangkan margin bawaan h2 */
-
-    font-size: 20px; /* Ukuran font judul */
-
-    color: #fff; /* Warna teks putih */
-
-    background-color: #9370DB; /* Warna ungu sesuai sketsa */
-
-    padding: 5px 15px;
-
-    border-radius: 20px; /* Sudut membulat */
-
+    margin: 0; /* Menghilangkan margin bawaan h2 */
+    font-size: 20px; /* Ukuran font judul */
+    color: #fff; /* Warna teks putih */
+    background-color: #9370DB; /* Warna ungu sesuai sketsa */
+    padding: 5px 15px;
+    border-radius: 20px; /* Sudut membulat */
 }
-
-
 
 .aroma-classes .more-button {
-
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-
-    color: #333; /* Warna teks */
-
-    font-size: 14px;
-
-    background-color: #A9A9A9; /* Warna abu-abu */
-
-    padding: 5px 10px;
-
-    border-radius: 15px; /* Sudut membulat */
-
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    color: #333; /* Warna teks */
+    font-size: 14px;
+    background-color: #A9A9A9; /* Warna abu-abu */
+    padding: 5px 10px;
+    border-radius: 15px; /* Sudut membulat */
 }
-
-
 
 .aroma-classes .aroma-grid {
-
-    display: grid; /* Menggunakan Grid untuk tata letak aroma */
-
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsif, min 100px */
-
-    gap: 15px; /* Jarak antar kartu aroma */
-
+    display: grid; /* Menggunakan Grid untuk tata letak aroma */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsif, min 100px */
+    gap: 15px; /* Jarak antar kartu aroma */
 }
-
-
 
 .aroma-card {
-
-    background-color: #A9A9A9; /* Warna abu-abu untuk kartu aroma */
-
-    border-radius: 15px; /* Sudut membulat */
-
-    overflow: hidden;
-
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kartu */
-
-    padding-bottom: 10px; /* Padding bawah untuk nama aroma */
-
-    text-align: center; /* Teks nama aroma di tengah */
-
+    background-color: #A9A9A9; /* Warna abu-abu untuk kartu aroma */
+    border-radius: 15px; /* Sudut membulat */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kartu */
+    padding-bottom: 10px; /* Padding bawah untuk nama aroma */
+    text-align: center; /* Teks nama aroma di tengah */
 }
-
-
 
 .aroma-card .aroma-icon {
-
-    width: 100%; /* Lebar ikon mengisi kartu */
-
-    padding-top: 100%; /* Membuat kotak ikon jadi persegi */
-
-    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder ikon */
-
-    border-top-left-radius: 15px; /* Sudut bulat atas */
-
-    border-top-right-radius: 15px;
-
-    margin-bottom: 10px; /* Jarak bawah ikon ke nama aroma */
-
+    width: 100%; /* Lebar ikon mengisi kartu */
+    padding-top: 100%; /* Membuat kotak ikon jadi persegi */
+    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder ikon */
+    border-top-left-radius: 15px; /* Sudut bulat atas */
+    border-top-right-radius: 15px;
+    margin-bottom: 10px; /* Jarak bawah ikon ke nama aroma */
 }
 
-
-
 .aroma-card .aroma-name {
-
-    margin: 0; /* Menghilangkan margin bawaan p */
-
-    font-size: 14px;
-
-    color: #fff; /* Warna teks nama aroma putih */
-
-    font-weight: bold;
-
+    margin: 0; /* Menghilangkan margin bawaan p */
+    font-size: 14px;
+    color: #fff; /* Warna teks nama aroma putih */
+    font-weight: bold;
 }
 
 /* --- Bagian Footer Website --- */
-
 .main-footer {
-
-    background-color: #333; /* Latar belakang abu-abu gelap */
-
-    color: #fff; /* Warna teks putih */
-
-    padding: 20px 15px; /* Padding di sekeliling footer */
-
-    text-align: center; /* Teks di tengah */
-
-    font-size: 14px; /* Ukuran font lebih kecil */
-
-    margin-top: 30px; /* Jarak dari bagian di atasnya */
-
+    background-color: #333; /* Latar belakang abu-abu gelap */
+    color: #fff; /* Warna teks putih */
+    padding: 20px 15px; /* Padding di sekeliling footer */
+    text-align: center; /* Teks di tengah */
+    font-size: 14px; /* Ukuran font lebih kecil */
+    margin-top: 30px; /* Jarak dari bagian di atasnya */
 }
-
-
 
 .main-footer p {
-
-    margin: 5px 0; /* Jarak antar paragraf */
-
-    line-height: 1.5; /* Jarak antar baris */
-
+    margin: 5px 0; /* Jarak antar paragraf */
+    line-height: 1.5; /* Jarak antar baris */
 }
-
-
 
 .main-footer a {
-
-    color: #8BC34A; /* Warna link hijau muda (sesuai warna PM) */
-
-    text-decoration: none; /* Menghilangkan garis bawah tautan */
-
-    font-weight: bold;
-
+    color: #8BC34A; /* Warna link hijau muda (sesuai warna PM) */
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    font-weight: bold;
 }
 
+.main-footer a:hover {
+    text-decoration: underline; /* Garis bawah saat di-hover */
+}
+/* --- Bagian Kelas Aroma --- */
+.aroma-classes {
+    padding: 20px 10px; /* Padding atas-bawah dan samping */
+    background-color: #f0f0f0; /* Latar belakang abu-abu muda */
+    margin-top: 20px; /* Jarak dari bagian di atasnya */
+}
 
+.aroma-classes .section-header {
+    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
+    justify-content: space-between; /* Judul di kiri, More di kanan */
+    align-items: center; /* Sejajar vertikal */
+    margin-bottom: 20px; /* Jarak bawah header bagian */
+}
+
+.aroma-classes h2 {
+    margin: 0; /* Menghilangkan margin bawaan h2 */
+    font-size: 20px; /* Ukuran font judul */
+    color: #fff; /* Warna teks putih */
+    background-color: #9370DB; /* Warna ungu sesuai sketsa */
+    padding: 5px 15px;
+    border-radius: 20px; /* Sudut membulat */
+}
+
+.aroma-classes .more-button {
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    color: #333; /* Warna teks */
+    font-size: 14px;
+    background-color: #A9A9A9; /* Warna abu-abu */
+    padding: 5px 10px;
+    border-radius: 15px; /* Sudut membulat */
+}
+
+.aroma-classes .aroma-grid {
+    display: grid; /* Menggunakan Grid untuk tata letak aroma */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsif, min 100px */
+    gap: 15px; /* Jarak antar kartu aroma */
+}
+
+.aroma-card {
+    background-color: #A9A9A9; /* Warna abu-abu untuk kartu aroma */
+    border-radius: 15px; /* Sudut membulat */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kartu */
+    padding-bottom: 10px; /* Padding bawah untuk nama aroma */
+    text-align: center; /* Teks nama aroma di tengah */
+}
+
+.aroma-card .aroma-icon {
+    width: 100%; /* Lebar ikon mengisi kartu */
+    padding-top: 100%; /* Membuat kotak ikon jadi persegi */
+    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder ikon */
+    border-top-left-radius: 15px; /* Sudut bulat atas */
+    border-top-right-radius: 15px;
+    margin-bottom: 10px; /* Jarak bawah ikon ke nama aroma */
+}
+
+.aroma-card .aroma-name {
+    margin: 0; /* Menghilangkan margin bawaan p */
+    font-size: 14px;
+    color: #fff; /* Warna teks nama aroma putih */
+    font-weight: bold;
+}
+/* --- Bagian Footer Website --- */
+.main-footer {
+    background-color: #333; /* Latar belakang abu-abu gelap */
+    color: #fff; /* Warna teks putih */
+    padding: 20px 15px; /* Padding di sekeliling footer */
+    text-align: center; /* Teks di tengah */
+    font-size: 14px; /* Ukuran font lebih kecil */
+    margin-top: 30px; /* Jarak dari bagian di atasnya */
+}
+
+.main-footer p {
+    margin: 5px 0; /* Jarak antar paragraf */
+    line-height: 1.5; /* Jarak antar baris */
+}
+
+.main-footer a {
+    color: #8BC34A; /* Warna link hijau muda (sesuai warna PM) */
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    font-weight: bold;
+}
 
 .main-footer a:hover {
-
-    text-decoration: underline; /* Garis bawah saat di-hover */
-
+    text-decoration: underline; /* Garis bawah saat di-hover */
 }
