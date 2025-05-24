@@ -9,28 +9,37 @@
 <body>
 
     <header class="main-header">
-        <div class="header-top">
+    <div class="header-top">
+        <div class="header-left">
+            <div class="hamburger-menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
             <div class="logo">
                 <h1>urBANtul</h1>
             </div>
-            <div class="promo-banner">
-                <span>Hanya Rp.1000/ml</span>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="urban-perfume-point.html">Urban Perfume Point</a></li>
-                </ul>
-            </nav>
         </div>
 
-        <div class="search-section">
-            <input type="text" placeholder="Search : Nama Aroma, Kelas Aroma, dan Note Aroma" class="search-input">
-            <button class="search-button">
-                &#128269;
-            </button>
+        <div class="promo-banner">
+            <span>Hanya Rp.1000/ml</span>
         </div>
-    </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="urban-perfume-point.html">Urban Perfume Point</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="search-section">
+        <input type="text" placeholder="Search : Nama Aroma, Kelas Aroma, dan Note Aroma" class="search-input">
+        <button class="search-button">
+            &#128269;
+        </button>
+    </div>
+</header>
 
 <section class="main-categories">
         <h2>Kategori Pilihan</h2>
@@ -430,6 +439,32 @@
                 block.style.zIndex = zIndex;
             });
         }
+
+            // --- KODE BARU UNTUK FUNGSI SIDEBAR MENU ---
+    const hamburgerIcon = document.querySelector('.hamburger-menu-icon');
+    const sidebarMenu = document.querySelector('.sidebar-menu');
+    const closeSidebarBtn = document.querySelector('.close-sidebar-button');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    // Fungsi untuk membuka sidebar
+    function openSidebar() {
+        sidebarMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Mencegah scrolling konten utama
+    }
+
+    // Fungsi untuk menutup sidebar
+    function closeSidebar() {
+        sidebarMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Mengizinkan scrolling kembali
+    }
+
+    // Event Listeners
+    hamburgerIcon.addEventListener('click', openSidebar);
+    closeSidebarBtn.addEventListener('click', closeSidebar);
+    menuOverlay.addEventListener('click', closeSidebar); // Menutup jika klik di luar menu
+
 
         // --- BAGIAN KODE UNTUK EFEK INFINITE SCROLL SEMU ---
         const scrollThreshold = 0.1; // Ketika scroll mencapai 10% dari awal/akhir grid, elemen akan dipindahkan
