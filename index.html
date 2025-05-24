@@ -131,51 +131,15 @@
         </div>
     </section>
 
-     <section class="Other-Aroma">
+    <section class="Other-Aroma">
         <div class="section-header">
             <h2>Aroma Lainnya</h2>
             <a href="aroma-classes.html" class="more-button">More</a>
         </div>
-        <div class="aroma-grid">
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma A</p>
+        <div class="aroma-grid" id="otherAromaGrid">
             </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma B</p>
-            </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma C</p>
-            </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma D</p>
-            </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma E</p>
-            </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma F</p>
-            </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma G</p>
-            </div>
-            <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma H</p>
-            </div>
-             <div class="aroma-card">
-                <div class="aroma-icon"></div>
-                <p class="aroma-name">Aroma I</p>
-            </div>
-        </div>
     </section>
-
+    
     <footer class="main-footer">
         <p>Jl. Jend. Sudirman No.95, Kurahan, Bantul, Kec. Bantul, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55711</p>
         <p>Kontak: <a href="tel:+6289529535222">+62 895-2953-5222</a></p>
@@ -183,6 +147,256 @@
     </footer>
 
 <script>
+
+     const allAromas = [
+            { no: 1, namaKecil: "Adidas Natural", namaBesar: "Sundew", topNote: "Red Apple, Litchi, Tomato, Orange", middleNote: "Lotus, Watermelon, Osmanthus", baseNote: "Musk, Sandalwood" },
+            { no: 2, namaKecil: "Al Rehab Dalal", namaBesar: "Scent space", topNote: "Caramel, Vanilla, Orange", middleNote: "", baseNote: "Sandalwood" },
+            { no: 3, namaKecil: "Annasui Dolly Girl", namaBesar: "Black Rose", topNote: "Melon, Apple, Bergamot, Cinnamon", middleNote: "Rose, Magnolia, Violet, Lily-of-the-Valley, Jasmine", baseNote: "Raspberry, Teakwood Essence, Strawberry, Musk, Amber, Vetiver" },
+            { no: 4, namaKecil: "Annasui Dream", namaBesar: "Full Moon", topNote: "Nectarine, Mandarin Orange, Bitter Orange, Bergamot", middleNote: "Nectarine, Mandarin Orange, Bitter Orange, Bergamot", baseNote: "Tahitian Vanilla, Musk, Nutmeg, Anise, Sandalwood, Cedar" },
+            { no: 5, namaKecil: "Annasui Flight Funcy", namaBesar: "Evening Sunset", topNote: "Yuzu, Litchi, Lemon", middleNote: "Magnolia, Freesia, Rose", baseNote: "Musk, White Woods, Amber" },
+            { no: 6, namaKecil: "Annasui Magic Romance", namaBesar: "Fougere", topNote: "Bergamot, Sicilian Lemon, Melon", middleNote: "Orange Blossom, Lotus, Tuberose, Night blooming Cereus", baseNote: "Musk, Coconut, Brazilian Rosewood, Amber" },
+            { no: 7, namaKecil: "Annasui Secret Wish", namaBesar: "Scent Quisite", topNote: "Lemon, Melon, Peach, Marigold", middleNote: "Pineapple, Black Currant, Floral Notes", baseNote: "White Cedar Extract, Musk, Amber, Sandalwood" },
+            { no: 8, namaKecil: "Antonio Banderas Determination", namaBesar: "Determination", topNote: "Bergamot, Green Apple, Cardamom", middleNote: "Marine Notes, Nutmeg, Tea", baseNote: "Musk, Sandalwood, Amber" },
+            { no: 9, namaKecil: "Aqua Kiss", namaBesar: "Adore You", topNote: "Sea Notes, Freesia, Aloe Vera", middleNote: "Daisy, Chamomile, Sweet Notes, Plum Blossom", baseNote: "" },
+            { no: 10, namaKecil: "Avril FBLBidden Rose Spring", namaBesar: "Red Apple, Peach, Pepper", topNote: "Lotus, Granny Smith apple, Heliotrope", middleNote: "Vanille, Mexican chocolate", baseNote: "Sandalwood" },
+            { no: 11, namaKecil: "B&B Strawberry", namaBesar: "Tincture", topNote: "Strawberry", middleNote: "Cupcake, Whipped Cream", baseNote: "" },
+            { no: 12, namaKecil: "Bacarat 724", namaBesar: "Autumn Fertiver", topNote: "Aldehydes, Bergamot", middleNote: "White Floral Notes", baseNote: "Musk, Sandalwood" },
+            { no: 13, namaKecil: "Bacarat Amyris Feme", namaBesar: "River Mist", topNote: "Lemon Blossom, Sweet Pea", middleNote: "Amyris, Jasmine", baseNote: "Musk, Woody Notes" },
+            { no: 14, namaKecil: "Bacarat Aqua Celestia", namaBesar: "Calestial Charm", topNote: "Lime, Mint, Black Currant, Neroli", middleNote: "Mimosa, Green Notes, Lily-of-the-Valley", baseNote: "Musk" },
+            { no: 15, namaKecil: "Bacarat Aqua Universal", namaBesar: "Ocean Royal", topNote: "Bergamot, Lemon", middleNote: "White Flowers", baseNote: "Musk, Woody Notes" },
+            { no: 16, namaKecil: "Bacarat Extrait Red", namaBesar: "Epic Desire", topNote: "Bitter Almond, Saffron", middleNote: "Egyptian Jasmine, Cedar", baseNote: "Musk, Woody Notes, Ambergris" },
+            { no: 17, namaKecil: "Bacarat Grand Soir", namaBesar: "Date Night", topNote: "Labdanum", middleNote: "Tonka Bean, Vanilla", baseNote: "Amber" },
+            { no: 18, namaKecil: "Bacarat Intens", namaBesar: "Endless Scent", topNote: "Saffron, Jasmine", middleNote: "Amberwood, Ambergris", baseNote: "Fir Resin, Cedar" },
+            { no: 19, namaKecil: "Bacarat La Rose", namaBesar: "Four Season Roses", topNote: "Damask Rose", middleNote: "Grasse Rose", baseNote: "" },
+            { no: 20, namaKecil: "Bacarat Rouge", namaBesar: "Desert Land", topNote: "Saffron, Jasmine", middleNote: "Amberwood, Ambergris", baseNote: "Fir Resin, Cedar" },
+            { no: 21, namaKecil: "Bacarat Satin Oud", namaBesar: "Scent Different", topNote: "Violet", middleNote: "Rose, Benzoin", baseNote: "Agarwood (Oud), Vanilla, Amber" },
+            { no: 22, namaKecil: "Bacarat Silk Mood", namaBesar: "Wild Win", topNote: "Chamomile, Rose", middleNote: "Jasmine", baseNote: "Agarwood (Oud), Vanilla, Patchouli, Amber" },
+            { no: 23, namaKecil: "Black Coffee", namaBesar: "Chocolate Chateau", topNote: "Coffee", middleNote: "White Flowers", baseNote: "Vanilla, Patchouli, Cedar" },
+            { no: 24, namaKecil: "Black Opium", namaBesar: "Getting Closer", topNote: "Pear, Pink Pepper, Orange Blossom", middleNote: "Coffee, Jasmine, Bitter Almond, Licorice", baseNote: "Vanilla, Patchouli, Cashmere Wood, Cedar" },
+            { no: 25, namaKecil: "Black Sakura", namaBesar: "Cherry Blossom", topNote: "Cherry Blossom, Green Notes", middleNote: "Rose, Jasmine", baseNote: "Musk, Woody Notes" },
+            { no: 26, namaKecil: "Brazil Man", namaBesar: "Gallantry", topNote: "Sweet Orange, Bergamot, Cedar Bark, Tomato Leaf", middleNote: "Passionfruit, Magnolia, Jasmine, Cassis, White Peach, Osmanthus, Rose", baseNote: "White Musk, Sandalwood, Cedarwood, Vetiver" },
+            { no: 27, namaKecil: "Britney Fantasy", namaBesar: "Sweetgrass", topNote: "Kiwi, Red Litchi, Quince", middleNote: "White Chocolate, Cupcake, Orchid, Jasmine", baseNote: "Musk, Orris Root, Woodsy Notes" },
+            { no: 28, namaKecil: "Britney Glitter", namaBesar: "Glitter Wild", topNote: "Red Fruits, Plum", middleNote: "Heliotrope, Lotus, Violet", baseNote: "Musk, Benzoin, Agarwood (Oud)" },
+            { no: 29, namaKecil: "Britney Midnight Fantasy", namaBesar: "Second Life", topNote: "Plum, Sour Cherry, Raspberry", middleNote: "Orchid, Iris, Freesia", baseNote: "Vanilla, Musk, Amber" },
+            { no: 30, namaKecil: "Britney Spears Prerogatif", namaBesar: "Scent Vibe", topNote: "Apricot, Goji Berries, Pink Pepper", middleNote: "Coffee, Saffron, Red Lily", baseNote: "Sandalwood, Amberwood" },
+            { no: 31, namaKecil: "BS Black Musk", namaBesar: "Mist Scent", topNote: "Pear, Pink Pepper, Bergamot", middleNote: "Licorice, Heliotrope, Ylang-Ylang", baseNote: "Black Vanilla Husk, Chocolate, Black Musk, Patchouli, Vetiver" },
+            { no: 32, namaKecil: "BS Mango", namaBesar: "Citrus Prodice", topNote: "Mango, Orange", middleNote: "Peach", baseNote: "Vanilla, Musk" },
+            { no: 33, namaKecil: "BS Satsuma", namaBesar: "Jewel Mist", topNote: "Jeruk Siam (Tangerin)", middleNote: "", baseNote: "" },
+            { no: 34, namaKecil: "BS Vanila", namaBesar: "Savana", topNote: "Apricot, Peach, Plum, Lemon", middleNote: "Ylang-Ylang, Jasmine, Orange Blossom, Tuberose, Lily-of-the-Valley", baseNote: "Vanilla, Sandalwood, Musk, Amber" },
+            { no: 35, namaKecil: "BS White Musk", namaBesar: "Summer Wave", topNote: "Musk, Lily, Ylang-Ylang, Galbanum, Basil", middleNote: "Musk, Lily, Jasmine, Rose", baseNote: "Musk, Iris, Jasmine, Oakmoss, Amber, Vanilla, Rose, Vetiver, Patchouli, Peach" },
+            { no: 36, namaKecil: "Bubble Gum", namaBesar: "Candy Pop", topNote: "Fruits, Clove", middleNote: "Bubble Gum, Orange Oil", baseNote: "Vanilla, Cashmeran, Patchouli" },
+            { no: 37, namaKecil: "Bulgari Aquamarine", namaBesar: "Scent Nightfall", topNote: "Mandarin Orange, Petitgrain", middleNote: "Seaweed, Water Notes, Rosemary", baseNote: "Mineral Notes, Amber" },
+            { no: 38, namaKecil: "Bulgari Aquatic", namaBesar: "Eternal Aqua", topNote: "Petitgrain, Orange", middleNote: "Seaweed, Lavender, Cotton Flower", baseNote: "Patchouli, Virginia Cedar, Woody Notes, Amber" },
+            { no: 39, namaKecil: "Bulgari Extreme", namaBesar: "Rainforest", topNote: "Cactus Juice, Calabrian bergamot, Pink Grapefruit", middleNote: "Guatemalan Cardamom, Freesia, Amber", baseNote: "Haitian Vetiver, Woodsy Notes, Benzoin" },
+            { no: 40, namaKecil: "Bulgari Goldea Rose", namaBesar: "Costa Verde", topNote: "Rose, Musk, Pomegranate, Bergamot", middleNote: "Damask Rose, Peony, Jasmine, Peach", baseNote: "Musk, Sandalwood, Olibanum, Vanilla" },
+            { no: 41, namaKecil: "Bulgari Omnia Crystal", namaBesar: "Bright Sunshine", topNote: "Mandarin Orange, Lotus", middleNote: "Heliotrope, Orris Root", baseNote: "Sandalwood, Musk, Benzoin" },
+            { no: 42, namaKecil: "Bulgari Outdoor", namaBesar: "Rainforest", topNote: "Green Notes, Bergamot", middleNote: "Cyclamen, Water Lily", baseNote: "Woody Notes, Sandalwood" },
+            { no: 43, namaKecil: "", namaBesar: "Celindion", topNote: "", middleNote: "", baseNote: "" }, // Akan menggunakan namaBesar
+            { no: 44, namaKecil: "CH 212 Sexy Man", namaBesar: "Sealed With a Secnt", topNote: "Mandarin Orange, Bergamot, Green Notes", middleNote: "Pepper, Floral Notes, Cardamom", baseNote: "Vanilla, Sandalwood, Musk, Guaiac Wood, Amber" },
+            { no: 45, namaKecil: "CH 212 VIP Black", namaBesar: "Black Batman", topNote: "Absinthe, Anise, Fennel", middleNote: "Lavender", baseNote: "Musk, Vanilla, Woody Notes" },
+            { no: 46, namaKecil: "CH 212 VIP Man", namaBesar: "Sealed With a Scent", topNote: "Passionfruit, Lime, Pepper and Ginger", middleNote: "Vodka, Gin, Mint and Spices", baseNote: "Amber, Leather and Woodsy Notes." },
+            { no: 47, namaKecil: "CH Good Girl", namaBesar: "Chasuma", topNote: "Almond, Coffee", middleNote: "Jasmine Sambac, Tuberose, Orris Root", baseNote: "Tonka Bean, Cacao, Vanilla, Sandalwood, Patchouli, Amber, Cashmeran, Cinnamon" },
+            { no: 48, namaKecil: "Chacharel Scarlett", namaBesar: "Smell of Brilliance", topNote: "Tea, Mandarin Orange, Pear", middleNote: "Honeysuckle, Jasmine, Orange Blossom", baseNote: "Musk, Sandalwood, Vanilla" },
+            { no: 49, namaKecil: "Chanel Blue", namaBesar: "Desiro Blue", topNote: "Lemon, Mint, Pink Pepper, Grapefruit", middleNote: "Ginger, Nutmeg, Jasmine, Iso E Super", baseNote: "Incense, Vetiver, Sandalwood, Cedar, White Musk, Patchouli, Labdanum" },
+            { no: 50, namaKecil: "Charlie Yellow", namaBesar: "Joyfull Whihpers", topNote: "Lily-of-the-Valley, Geranium, Jasmine, Coriander, White Lily, Violet", middleNote: "Oakmoss, Sandalwood, Vetiver, Musk, Vanilla", baseNote: "" },
+            { no: 51, namaKecil: "CK Enternity Man", namaBesar: "CK Enternity Man", topNote: "Lavender, Mandarin Orange, Bergamot, Lemon", middleNote: "Coriander, Lily, Orange Blossom, Juniper Berries, Basil, Jasmine, Sage, Geranium", baseNote: "Sandalwood, Musk, Vetiver, Cedar, Amber, Brazilian Rosewood" },
+            { no: 52, namaKecil: "Cliniq Happy Man", namaBesar: "A Groovy Man", topNote: "Lime, Mandarin Orange, Sea Notes, Bergamot, Lemon", middleNote: "Freesia, Jasmine, Lily-of-the-Valley, Rose", baseNote: "Cypress, Musk, Guaiac Wood, Cedar" },
+            { no: 53, namaKecil: "Coconut Passion", namaBesar: "Peacefull Summer", topNote: "Coconut", middleNote: "Vanilla", baseNote: "" },
+            { no: 54, namaKecil: "Coffee Oh Coklat", namaBesar: "Chocolate Chateau", topNote: "Coffee", middleNote: "Chocolate", baseNote: "Vanilla" },
+            { no: 55, namaKecil: "Cokies & Cream", namaBesar: "Sugary Scent", topNote: "Sweet Notes", middleNote: "Cookie, Cream", baseNote: "Vanilla" },
+            { no: 56, namaKecil: "Cread Adventuse", namaBesar: "Cool Winter", topNote: "Green Apple, Bergamot, Lemon, Patchouli, Pink Pepper, Violet", middleNote: "Musk, Rose, Sandalwood, Styrax", baseNote: "Black Currant, Peach, Amber, Lilac, Ylang-Ylang" },
+            { no: 57, namaKecil: "Creamy Vanila", namaBesar: "Creamy Scent", topNote: "Vanilla", middleNote: "Creamy Notes", baseNote: "" },
+            { no: 58, namaKecil: "D&G Light Blue", namaBesar: "Lozano Scent", topNote: "Sicilian Lemon, Apple, Cedar, Bellflower", middleNote: "Bamboo, Jasmine, White Rose", baseNote: "Cedar, Musk, Amber" },
+            { no: 59, namaKecil: "D&G No. 3", namaBesar: "Aura Blossoms", topNote: "Kiwi, Rhuburb, Pink Pepper", middleNote: "Watermelon, Cyclamen, Jasmine", baseNote: "Lemon Tree, Musk, Sandalwood" },
+            { no: 60, namaKecil: "Dior Sauvage", namaBesar: "Trace Splash", topNote: "Calabrian bergamot, Pepper", middleNote: "Sichuan Pepper, Lavender, Pink Pepper, Vetiver, Patchouli, Geranium, elemi", baseNote: "Ambroxan, Cedar, Labdanum" },
+            { no: 61, namaKecil: "Dunhil Blue", namaBesar: "All Day Long", topNote: "Litchi, Mandarin Orange, Lotus, Bergamot", middleNote: "Sea Notes, Orange, Brazilian Rosewood", baseNote: "Tonka Bean, Musk, Amber, Benzoin" },
+            { no: 62, namaKecil: "Dunhil Red", namaBesar: "Confidence", topNote: "Orange, Mandarin Orange, Black Pepper, Solar Notes, Petitgrain, Grapefruit", middleNote: "Fern, Geranium, Pepper, Olibanum", baseNote: "Cedar, Amber, Vetiver, Tonka Bean, Musk, Moss" },
+            { no: 63, namaKecil: "E.A Black Man", namaBesar: "Black Desiro", topNote: "Mandarin Orange, Green Notes, Nutmeg", middleNote: "Sea Notes, Violet, Jasmine", baseNote: "Musk, Patchouli, Amber" },
+            { no: 64, namaKecil: "E.A Blue Emotion", namaBesar: "Very Explosive", topNote: "Mandarin Orange, Bergamot, Lavender, Lemon, Violet Leaf", middleNote: "Coriander, Cardamom, Jasmine", baseNote: "" },
+            { no: 65, namaKecil: "E.A Debut", namaBesar: "Finesse Scent", topNote: "Bergamot, Lemon, Mandarin Orange", middleNote: "Lavender, Geranium", baseNote: "Patchouli, Vetiver, Cedar" },
+            { no: 66, namaKecil: "Elie Saab Girl Forever", namaBesar: "Sunflurry", topNote: "Raspberry, Black Currant", middleNote: "Rose, Orange Blossom", baseNote: "Vanilla, Musk, Sandalwood" },
+            { no: 67, namaKecil: "Erost By Versace", namaBesar: "Vaporisateur", topNote: "Mint, Green Apple, Lemon", middleNote: "Tonka Bean, Geranium, Ambroxan", baseNote: "Vanilla, Vetiver, Oakmoss, Cedar" },
+            { no: 68, namaKecil: "Erost Flame", namaBesar: "Ocean Rush", topNote: "Lemon, Mandarin Orange, Black Pepper, Rosemary", middleNote: "Rose, Geranium", baseNote: "Vanilla, Tonka Bean, Sandalwood, Patchouli, Cedar" },
+            { no: 69, namaKecil: "Esc. Candy", namaBesar: "Charme", topNote: "Caramel, Powdery Notes", middleNote: "White Flowers", baseNote: "Vanilla, Musk" },
+            { no: 70, namaKecil: "Esc. Cherry", namaBesar: "Glistening Twilight", topNote: "Cherry, Almond", middleNote: "White Flowers", baseNote: "Vanilla, Musk, Sandalwood" },
+            { no: 71, namaKecil: "Esc. Moon Sparkle", namaBesar: "Sweet Pea, Freesia, Jasmine, Rose", topNote: "Raspberry, Musk, Sandalwood", middleNote: "Ambe", baseNote: "" },
+            { no: 72, namaKecil: "Esc. Sexy Grafity", namaBesar: "Smell of Bliss", topNote: "Violet, red peony, lily-of-the-valey", middleNote: "lilymusk, cashmere wood, vanilla", baseNote: "musk, cashmere wood, vanilla" },
+            { no: 73, namaKecil: "Esc. Soberto", namaBesar: "Symbolina Scent", topNote: "Citrus Notes, Marine Notes", middleNote: "Freesia, Watermelon", baseNote: "Musk, Woody Notes" },
+            { no: 74, namaKecil: "Espresso Coffee", namaBesar: "Good Mood Scent", topNote: "Coffee", middleNote: "", baseNote: "" },
+            { no: 75, namaKecil: "Ferrari Oud", namaBesar: "Ferrari Oud", topNote: "Bergamot, Lavender, Nutmeg, Elemi", middleNote: "Rose, Carnation, Cinnamon, Agarwood (Oud)", baseNote: "Patchouli, Leather, Vanilla, Amber" },
+            { no: 76, namaKecil: "GA Aqua Digio Man", namaBesar: "Royality in a Bottle", topNote: "Lime, Lemon, Bergamot, Jasmine, Orange, Mandarin Orange, Neroli", middleNote: "Sea Notes, Jasmine, Calone, Rosemary, Peach, Freesia, Hiacynth, Cyclamen, Violet, Coriander, Rose, Nutmeg", baseNote: "White Musk, Cedar, Oakmoss, Patchouli, Amber." },
+            { no: 77, namaKecil: "GA Aqua Digio Perfume", namaBesar: "GA Aqua Digio Perfume", topNote: "Sea notes, bergamot", middleNote: "rosemary, sage, geranium", baseNote: "incense, patchouli" },
+            { no: 78, namaKecil: "GA My Way", namaBesar: "Scented Twilight", topNote: "Orange Blossom, Bergamot", middleNote: "Tuberose, Indian Jasmine", baseNote: "Madagascar Vanilla, White Musk, Virginian Cedar" },
+            { no: 79, namaKecil: "Grey Joyrose", namaBesar: "Zethful", topNote: "Grapefruit, Mandarin Orange", middleNote: "Rose, Jasmine, Ylang-Ylang", baseNote: "Musk, Sandalwood, Vanilla" },
+            { no: 80, namaKecil: "Gucci Bamboo", namaBesar: "Whispering Forest", topNote: "Bergamot", middleNote: "Casablanca Lily, Ylang-Ylang, Orange Blossom", baseNote: "Sandalwood, Tahitian Vanilla, Amber" },
+            { no: 81, namaKecil: "Gucci Floral", namaBesar: "Bouquet of Night", topNote: "Citrus Notes, Green Notes", middleNote: "Tuberose, Jasmine, Honeysuckle", baseNote: "Musk, Sandalwood, Patchouli" },
+            { no: 82, namaKecil: "Gucci Gardenia", namaBesar: "Garden Erotica", topNote: "Red Berries, Pear", middleNote: "White Gardenia, Frangipani", baseNote: "Patchouli, Brown Sugar" },
+            { no: 83, namaKecil: "Gucci Oud", namaBesar: "Rich Ood", topNote: "Pear, Raspberry, Saffron", middleNote: "Bulgarian Rose, Orange Blossom", baseNote: "Agarwood (Oud), Patchouli, Amber, Musk" },
+            { no: 84, namaKecil: "Gucci Rush 2", namaBesar: "Gossy 2", topNote: "Freesia, Lily-of-the-Valley, Rose", middleNote: "Narcissus, Gardenia, Black Currant", baseNote: "Musk, Oakmoss, Palm Tree" },
+            { no: 85, namaKecil: "Guess Summer Yellow", namaBesar: "Yellow Spring", topNote: "Mandarin Orange, Neroli, Bergamot", middleNote: "Orange Blossom, Flowers, Water Lily, Wild Rose", baseNote: "Musk Vanilla Orchid Teak Wood" },
+            { no: 86, namaKecil: "HB Bottle United", namaBesar: "Glamour City", topNote: "Bergamot, Blood Orange, Marine Notes", middleNote: "Orange Blossom, Freesia, Mimosa", baseNote: "Ambroxan, Musk, Guaiac Wood" },
+            { no: 87, namaKecil: "HB Energise", namaBesar: "Montaon Travelled", topNote: "Pink Pepper, Lemon, Kumquat, Pineapple Leaf, Mandarin Orange, Mint, Cardamom.", middleNote: "Nutmeg, Jasmine, Juniper, Freesia, Coriander, Clary Sage.", baseNote: "Vanilla, Leather, Teak Wood." },
+            { no: 88, namaKecil: "HB Ice Mint", namaBesar: "Earthly Scent", topNote: "Mint, Green Notes", middleNote: "Aquatic", baseNote: "" },
+            { no: 89, namaKecil: "HB Orange", namaBesar: "Blue Ocean", topNote: "Orange, Bergamot, Marine Notes", middleNote: "Lavender, Water Lily", baseNote: "Sandalwood, Musk, Amber" },
+            { no: 90, namaKecil: "HB Reserved", namaBesar: "HB Reserved", topNote: "Bergamot, Grapefruit", middleNote: "Lavender, Rosemary, Mint", baseNote: "Patchouli, Vetiver, Sandalwood" },
+            { no: 91, namaKecil: "HMNS Alpha", namaBesar: "Sweet Factory", topNote: "Bergamot, Lemon, Green Apple", middleNote: "Jasmine, Freesia, Rose", baseNote: "Musk, Amber, Patchouli" },
+            { no: 92, namaKecil: "HMNS Farhampton", namaBesar: "Delisioso Sceny", topNote: "Bergamot, Grapefruit, Pink Pepper", middleNote: "Lily-of-the-Valley, Freesia, Rose", baseNote: "Musk, Amber, Woody Notes" },
+            { no: 93, namaKecil: "HMNS Orgasm", namaBesar: "HMNS Orgasm", topNote: "Fig, Bergamot", middleNote: "Tuberose, Jasmine, Ylang-Ylang", baseNote: "Coconut Milk, Sandalwood, Amber, Musk" },
+            { no: 94, namaKecil: "Incanto Shine", namaBesar: "Atelier", topNote: "Pineapple, Passionfruit, Bergamot", middleNote: "Freesia, Pink Peony, Peach", baseNote: "Musk, Sandalwood, Amber" },
+            { no: 95, namaKecil: "Jaguar Blue Jack", namaBesar: "Blue Ilution", topNote: "Bergamot, Orange, Mandarin Orange", middleNote: "Lavender, Lotus, Violet", baseNote: "Musk, Sandalwood, Patchouli" },
+            { no: 96, namaKecil: "Jaguar Visio", namaBesar: "Briliant Stone", topNote: "Bergamot, Grapefruit, Cardamom", middleNote: "Marine Notes, Jasmine, Patchouli", baseNote: "Musk, Amber, Woody Notes" },
+            { no: 97, namaKecil: "JB Someday", namaBesar: "Fiosima Scent", topNote: "Mandarin Orange, Wild Berries, Pear", middleNote: "Jasmine, White Flowers", baseNote: "Vanilla, Musk, Sandalwood" },
+            { no: 98, namaKecil: "Jhonson Equilibrio", namaBesar: "Summer Escape", topNote: "Bergamot, Lemon, Marine Notes", middleNote: "Freesia, Lily-of-the-Valley, Cyclamen", baseNote: "Musk, Cedarwood, Amber" },
+            { no: 99, namaKecil: "Jilo Live Platinum", namaBesar: "Everglow", topNote: "Pink Grapefruit, Apple, Pineapple", middleNote: "Peony, Heliotrope, Jasmine", baseNote: "Vanilla, Sandalwood, Musk" },
+            { no: 100, namaKecil: "Jilo Still", namaBesar: "Autumn Arrives", topNote: "Mandarin Orange, White Pepper, Earl Grey Tea", middleNote: "Jasmine, Lily-of-the-Valley, Freesia, Rose", baseNote: "Musk, Iris, Sandalwood, Amber" },
+            { no: 101, namaKecil: "Jilo Still Sexy", namaBesar: "Lily of Valley", topNote: "Mandarin Orange, Pink Pepper, Apple", middleNote: "Jasmine, Lily-of-the-Valley, Freesia, Rose", baseNote: "Musk, Sandalwood, Amber" },
+            { no: 102, namaKecil: "Jomalone English Pear", namaBesar: "Everyday Scent", topNote: "Pear, Bergamot", middleNote: "Freesia", baseNote: "Patchouli, Amber, White Musk" },
+            { no: 103, namaKecil: "Jomalone Orange Blossom", namaBesar: "Clementine Flower, Green Notes", topNote: "Orange Blossom, Water Lily, Lilac", middleNote: "Orris Root, Balsamic Notes, Vetiver", baseNote: "" },
+            { no: 104, namaKecil: "Jomalone Poeny", namaBesar: "Cedarwood Natco", topNote: "Red Apple", middleNote: "Peony, Jasmine, Carnation, Rose", baseNote: "Suede, Patchouli, Woody Notes" },
+            { no: 105, namaKecil: "Jomalone Poppy", namaBesar: "The Enchanting", topNote: "Black Currant", middleNote: "Poppy, Rose, Violet", baseNote: "Barley, Bran, White Musk" },
+            { no: 106, namaKecil: "Jomalone Sea Salt", namaBesar: "Jomalone Sea Salt", topNote: "Bergamot, Ambrette Seed, Grapefruit", middleNote: "Sea Salt", baseNote: "Sage, Seaweed, Musk" },
+            { no: 107, namaKecil: "JPG Scandal", namaBesar: "JPG Scandal", topNote: "Blood Orange, Mandarin Orange", middleNote: "Honey, Gardenia, Jasmine, Peach", baseNote: "Patchouli, Beeswax, Caramel" },
+            { no: 108, namaKecil: "Kayali Eden JAElegant Charmed", namaBesar: "Red Apple, Pink Pepper, Citrus Notes", topNote: "Jasmine, Lotus, Peony", middleNote: "Vanilla, Sandalwood, Musk", baseNote: "" },
+            { no: 109, namaKecil: "Kayali Utopia Vanila", namaBesar: "Scentopia Flower", topNote: "Pear Blossom, Coconut Milk, Black Currant", middleNote: "White Floral Notes, Jasmine Sambac, Tuberose, Heliotrope", baseNote: "Vanilla Bourbon, Sandalwood, Musk" },
+            { no: 110, namaKecil: "Kayali Vanila", namaBesar: "Aromatique Bliss", topNote: "Orchid, Citruses", middleNote: "Brown Sugar, Tonka Bean", baseNote: "Vanilla, Amber, Musk, Sandalwood, Patchouli" },
+            { no: 111, namaKecil: "Kenzo Bali", namaBesar: "View The Journey", topNote: "Passionfruit, Mango", middleNote: "Frangipani, Jasmine", baseNote: "White Musk, Vanilla" },
+            { no: 112, namaKecil: "Kenzo Bamboo", namaBesar: "Wooden Core", topNote: "Bergamot, Mandarin Orange", middleNote: "Bamboo Leaves, Ylang-Ylang, Lily", baseNote: "White Musk, Sandalwood, Vanilla" },
+            { no: 113, namaKecil: "Lacoste Cool Play", namaBesar: "Sooting Breeze", topNote: "Bergamot, Mandarin Orange, Green Notes", middleNote: "Violet, Pink Pepper, Juniper", baseNote: "Patchouli, Sandalwood, Musk" },
+            { no: 114, namaKecil: "Lanvin Marry Me", namaBesar: "Pleaseant", topNote: "Bitter Orange, Peach, Freesia", middleNote: "Jasmine Sambac, Magnolia, Rose", baseNote: "Musk, Virginia Cedar, Amber" },
+            { no: 115, namaKecil: "Loly", namaBesar: "Delight Scent", topNote: "Sweet Notes, Fruity Notes", middleNote: "Floral Notes, Vanilla", baseNote: "Musk, Caramel" },
+            { no: 116, namaKecil: "LV Monde", namaBesar: "Scent Glow", topNote: "Mandarin Orange, Bergamot", middleNote: "Orange Blossom, Jasmine", baseNote: "White Musk, Sandalwood" },
+            { no: 117, namaKecil: "Lv Rose The Vent", namaBesar: "Lily Red Rose", topNote: "Rose, Pink Pepper", middleNote: "Lily-of-the-Valley, Raspberry", baseNote: "White Musk, Patchouli, Amber" },
+            { no: 118, namaKecil: "Marc Jacob Daisy", namaBesar: "Marc Jacob Daisy", topNote: "Strawberry, Violet Leaf, Pink Grapefruit", middleNote: "Violet, Jasmine, Gardenia", baseNote: "Musk, White Woods, Vanilla" },
+            { no: 119, namaKecil: "Miami", namaBesar: "Fresh Verde", topNote: "Lime, Mint, Green Notes", middleNote: "Marine Notes, Freesia", baseNote: "Musk, Cedarwood" },
+            { no: 120, namaKecil: "Miss Dior Blooming", namaBesar: "Velvet Whisper", topNote: "Sicilian Orange, Mandarin Orange, Bergamot", middleNote: "Rose Absolute, Peony, Jasmine, Apricot", baseNote: "White Musk" },
+            { no: 121, namaKecil: "Miss Dior Women Rose", namaBesar: "Spring Lilies", topNote: "Rose", middleNote: "Grasse Rose, Damask Rose", baseNote: "White Musk" },
+            { no: 122, namaKecil: "Montale Dark Vanila", namaBesar: "Montale Dark Vanila", topNote: "Bergamot, Sicilian Orange", middleNote: "Bulgarian Rose, Jasmine", baseNote: "Vanilla, Musk, Amber, Sandalwood, Agarwood (Oud)" },
+            { no: 123, namaKecil: "Nagita", namaBesar: "Huile Fraise", topNote: "Strawberry", middleNote: "Whipped Cream, Sugar", baseNote: "Vanilla" },
+            { no: 124, namaKecil: "Nina Richie", namaBesar: "Delecta", topNote: "Lemon, Lime", middleNote: "Green Apple, Peony, Moonflower", baseNote: "Musk, Virginia Cedar" },
+            { no: 125, namaKecil: "One Direction", namaBesar: "Calm Fresh", topNote: "Grapefruit, Green Notes, Water Notes", middleNote: "Green Apple, Jasmine, Freesia", baseNote: "Musk, Woody Notes" },
+            { no: 126, namaKecil: "Oriflame Man", namaBesar: "Everpure", topNote: "Bergamot, Mandarin Orange, Water Notes", middleNote: "Violet Leaf, Aquatic Notes, White Tea", baseNote: "Patchouli, Cedarwood, Musk" },
+            { no: 127, namaKecil: "Oriflame Women", namaBesar: "Flirtatios Scent", topNote: "Pink Pepper, Red Berries, Raspberry", middleNote: "White Flowers, Gardenia, Jasmine", baseNote: "Sandalwood, Amber, Musk" },
+            { no: 128, namaKecil: "Paco Black Xs Woman", namaBesar: "Clasy Scent", topNote: "Cranberry, Pink Peppercorn, Tamarind Blossom", middleNote: "Black Violet, Cacao, Rose", baseNote: "Patchouli, Vanilla, Massoia Wood" },
+            { no: 129, namaKecil: "Paco Invictus", namaBesar: "Tranquility", topNote: "Grapefruit, Marine Notes, Mandarin Orange", middleNote: "Bay Leaf, Jasmine", baseNote: "Guaiac Wood, Oakmoss, Patchouli, Ambergris" },
+            { no: 130, namaKecil: "Paco Invictus Platinum", namaBesar: "Fragrant Lantern", topNote: "Grapefruit, Lavender, Mint", middleNote: "Sea Notes, Violet Leaf", baseNote: "Oakmoss, Patchouli, Sandalwood, Ambergris" },
+            { no: 131, namaKecil: "Paco Olympea Floral", namaBesar: "Queen Nagita", topNote: "Green Mandarin, Water Jasmine, Ginger Flower", middleNote: "Salt, Vanilla", baseNote: "Sandalwood, Cashmeran, Ambergris" },
+            { no: 132, namaKecil: "Paco One Million Lucky", namaBesar: "Velvet Touch", topNote: "Plum, Ozonic notes, Grapefruit", middleNote: "Hazelnut, Honey, Cedar, Cashmeran, Jasmine", baseNote: "Patchouli, Oakmoss, Vetiver" },
+            { no: 133, namaKecil: "Paco Troya", namaBesar: "Legend Scent", topNote: "Bergamot, Lemon, Mandarin Orange", middleNote: "Lavender, Sage, Rosemary", baseNote: "Tonka Bean, Sandalwood, Musk" },
+            { no: 134, namaKecil: "Paco Xs Black Xs", namaBesar: "Paco Xs Black Xs", topNote: "Lemon, Sage", middleNote: "Cinnamon, Cardamom", baseNote: "Patchouli, Black Amber, Ebony Tree" },
+            { no: 135, namaKecil: "Peach Baby", namaBesar: "Flirt", topNote: "Peach, Apricot", middleNote: "Jasmine, Rose", baseNote: "Vanilla, Musk" },
+            { no: 136, namaKecil: "PH Heiris Woman", namaBesar: "Dark Moment", topNote: "Bergamot, Pink Pepper", middleNote: "Rose, Jasmine, Patchouli", baseNote: "Vanilla, Musk, Amber" },
+            { no: 137, namaKecil: "PH In Paris", namaBesar: "Spring in France", topNote: "Bergamot, Mandarin Orange, Raspberry", middleNote: "Rose, Jasmine, Violet", baseNote: "Patchouli, Musk, Sandalwood" },
+            { no: 138, namaKecil: "PH Siren", namaBesar: "Hiden Scent", topNote: "Bergamot, Lemon, Black Currant", middleNote: "Rose, Freesia, Lily-of-the-Valley", baseNote: "Patchouli, Sandalwood, Musk" },
+            { no: 139, namaKecil: "PH Woman", namaBesar: "Serene Scent", topNote: "Bergamot, Pink Pepper, Pear", middleNote: "Rose, Freesia, Heliotrope", baseNote: "Vanilla, Musk, Sandalwood" },
+            { no: 140, namaKecil: "Pink Chiffon", namaBesar: "Rosy Pearls", topNote: "Raspberry, Mandarin Orange, Pear", middleNote: "Red Apple, Peach, Tiare Flower, Jasmine", baseNote: "Vanilla Orchid, Sandalwood, Musk" },
+            { no: 141, namaKecil: "Pramugari Air", namaBesar: "Summer Rain", topNote: "Bergamot, Green Notes, Marine Notes", middleNote: "Lily-of-the-Valley, Jasmine, Rose", baseNote: "White Musk, Sandalwood, Amber" },
+            { no: 142, namaKecil: "Rafi Ahmad", namaBesar: "Scent Delight", topNote: "Bergamot, Lemon, Pineapple", middleNote: "Jasmine, Rose, Patchouli", baseNote: "Amber, Musk, Vanilla" },
+            { no: 143, namaKecil: "Ralp Laurent Polo Fresh", namaBesar: "Gergous", topNote: "Mint, Mandarin Orange, Bergamot", middleNote: "Coriander, Sea Notes, Jasmine", baseNote: "Musk, Sandalwood, Amber" },
+            { no: 144, namaKecil: "Red Velvet", namaBesar: "Trace of Scent", topNote: "Red Berries, Cherry", middleNote: "Rose, Violet, Chocolate", baseNote: "Vanilla, Musk, Patchouli" },
+            { no: 145, namaKecil: "Santal lelabo", namaBesar: "Twinkling Scent", topNote: "Violet, Cardamom", middleNote: "Sandalwood, Papyrus", baseNote: "Leather, Amber" },
+            { no: 146, namaKecil: "Sarah J Parker", namaBesar: "Fresh Splash", topNote: "Mandarin Orange, Bergamot, Water Notes", middleNote: "Freesia, Honeysuckle, Cotton Flower", baseNote: "Musk, Sandalwood, White Amber" },
+            { no: 147, namaKecil: "Selena Gomez", namaBesar: "Trace of Fragrance", topNote: "Raspberry, Peach, Pineapple", middleNote: "Freesia, Purple Freesia, Blackberry", baseNote: "Vanilla, Musk, Amber, Sandalwood" },
+            { no: 148, namaKecil: "Soft Ar Rehab", namaBesar: "Scent Space", topNote: "Powdery Notes, White Musk", middleNote: "Floral Notes, Vanilla", baseNote: "Sandalwood, Amber" },
+            { no: 149, namaKecil: "Stella Candy", namaBesar: "Marshmallow Creme", topNote: "Orange Blossom, Bergamot", middleNote: "Rose Absolute, Freesia", baseNote: "Musk, Amber" },
+            { no: 150, namaKecil: "Sweet Vanila", namaBesar: "Lustrous Elixir", topNote: "Vanilla", middleNote: "Sweet Notes", baseNote: "Musk" },
+            { no: 151, namaKecil: "Switzal", namaBesar: "Switzal", topNote: "Aldehydes, Orange, Bergamot", middleNote: "Honey, Jasmine, Rose", baseNote: "Musk, Sandalwood, Vanilla" },
+            { no: 152, namaKecil: "T Mugler Angel Heart", namaBesar: "Scentsync", topNote: "Bergamot, Pink Peppercorn", middleNote: "Red Berries, Lychee", baseNote: "Patchouli, Cedar, White Musk" },
+            { no: 153, namaKecil: "Taylor Swift", namaBesar: "Deligtful Scent", topNote: "Raspberry, Green Apple, Freesia", middleNote: "Honeysuckle, Iris, Jasmine", baseNote: "Vanilla, Musk, Sandalwood" },
+            { no: 154, namaKecil: "Tere De Hermes", namaBesar: "Spicefille", topNote: "Orange, Grapefruit", middleNote: "Pepper, Spices", baseNote: "Vetiver, Cedar, Patchouli, Benzoin" },
+            { no: 155, namaKecil: "Tobaco Tomford Vanila", namaBesar: "Black Rouge", topNote: "Tobacco Leaf, Spicy Notes", middleNote: "Vanilla, Cacao, Tonka Bean", baseNote: "Dried Fruits, Woody Notes" },
+            { no: 156, namaKecil: "Tomford Bitter Peach", namaBesar: "Adorable Scent", topNote: "Peach, Blood Orange, Cardamom", middleNote: "Heliotrope, Davana, Rum, Cognac", baseNote: "Vanilla, Sandalwood, Tonka Bean, Patchouli, Cashmeran, Benzoin, Styrax, Labdanum, Vetiver" },
+            { no: 157, namaKecil: "Toy Boy", namaBesar: "Nothing on Us", topNote: "Bergamot, Pink Pepper, Pear, Elemi", middleNote: "Rose, Magnolia, Flax", baseNote: "Cashmeran, Sandalwood, Amber, Musk, Vetiver" },
+            { no: 158, namaKecil: "Vanila Cake", namaBesar: "Irresistible Scent", topNote: "Vanilla, Almond", middleNote: "Cake Notes, Caramel", baseNote: "Whipped Cream, Musk" },
+            { no: 159, namaKecil: "Vanila Ice", namaBesar: "Seraphine", topNote: "Vanilla, Mint", middleNote: "Ice Cream Notes", baseNote: "Sweet Notes, Musk" },
+            { no: 160, namaKecil: "Vanila Lace", namaBesar: "Flavorsome", topNote: "Vanilla", middleNote: "Floral Notes", baseNote: "Musk" },
+            { no: 161, namaKecil: "Vanila Latte", namaBesar: "Scent Addition", topNote: "Coffee, Vanilla", middleNote: "Milk Notes, Caramel", baseNote: "Sweet Notes, Musk" },
+            { no: 162, namaKecil: "Vanila Manggo", namaBesar: "Fragrance Season", topNote: "Mango, Vanilla", middleNote: "Coconut Milk, Peach", baseNote: "Musk, Sandalwood" },
+            { no: 163, namaKecil: "Vanila Mocacino", namaBesar: "Candy Glos", topNote: "Coffee, Chocolate", middleNote: "Vanilla, Caramel", baseNote: "Musk, Sweet Notes" },
+            { no: 164, namaKecil: "Vanila Starbucks", namaBesar: "Culinary Craft", topNote: "Coffee, Vanilla", middleNote: "Creamy Notes, Spices", baseNote: "Sweet Notes, Musk" },
+            { no: 165, namaKecil: "Vanila Susu", namaBesar: "Fresh Scent", topNote: "Milk Notes, Vanilla", middleNote: "Sweet Notes", baseNote: "Musk" },
+            { no: 166, namaKecil: "Versace Dylan Purple", namaBesar: "Magnificent", topNote: "Bergamot, Bitter Orange, Pear", middleNote: "Freesia, Pomarose, Iso E Super, Mahonial", baseNote: "Ambroxan, Iso E Super, Cedarwood, Musk, Olibanum" },
+            { no: 167, namaKecil: "Versace Dylan Turqoise", namaBesar: "Bravonarize", topNote: "Lemon, Pink Pepper, Black Currant", middleNote: "Freesia, Jasmine, Cyclamen, Guava", baseNote: "Clearwood, Musk, Cedarwood" },
+            { no: 168, namaKecil: "Vs Back To Pink", namaBesar: "Reveuse", topNote: "Bergamot, Freesia, Raspberry", middleNote: "Lily-of-the-Valley, Violet, Solar notes", baseNote: "Musk, Sandalwood, Amber" },
+            { no: 169, namaKecil: "Vs Banana", namaBesar: "Banana Scent", topNote: "Banana", middleNote: "Creamy Notes", baseNote: "Vanilla, Musk" },
+            { no: 170, namaKecil: "Vs Bare Vanila", namaBesar: "Back to Scent", topNote: "Vanilla", middleNote: "Orchid", baseNote: "Amber, Sandalwood, Musk" },
+            { no: 171, namaKecil: "Vs Boomshel", namaBesar: "Moodsty", topNote: "Passionfruit, Grapefruit, Pineapple, Tangerine, Red Berries", middleNote: "Jasmine, Lily-of-the-Valley, Peony, Orchid", baseNote: "Musk, Woody Notes, Oakmoss" },
+            { no: 172, namaKecil: "Vs Boomshel Night", namaBesar: "Opposite", topNote: "Blackberry, Plum, Apple", middleNote: "Jasmine, Tuberose, Lily", baseNote: "Patchouli, Sandalwood, Amber, Musk" },
+            { no: 173, namaKecil: "Vs Love Pink", namaBesar: "Greekgoddes", topNote: "Bergamot, Mandarin Orange, Neroli", middleNote: "Honeysuckle, Jasmine, Gardenia", baseNote: "Musk, Sandalwood, Vanilla" },
+            { no: 174, namaKecil: "Vs Love Spell", namaBesar: "Fiorella", topNote: "Mandarin Orange, Bergamot, Apple", middleNote: "Peach, Jasmine, White Flowers", baseNote: "Musk" },
+            { no: 175, namaKecil: "Vs Romance", namaBesar: "Intense Desire", topNote: "Pink Pepper, Red Berries", middleNote: "Freesia, Iris, Violet", baseNote: "Musk, Sandalwood, Amber" },
+            { no: 176, namaKecil: "Vs Romance Wish", namaBesar: "Intense Desire", topNote: "Cherry, Peach", middleNote: "White Flowers", baseNote: "Vanilla, Sandalwood, Amber" },
+            { no: 177, namaKecil: "Vs Scandal", namaBesar: "Shine Forever", topNote: "Mandarin Orange, Pink Peppercorn", middleNote: "Gardenia, Tuberose, Jasmine", baseNote: "Musk, Sandalwood, Patchouli" },
+            { no: 178, namaKecil: "Vs So Sexy", namaBesar: "Golden Senora", topNote: "Bergamot, Apple, Mandarin Orange", middleNote: "Jasmine, Tuberose, Gardenia", baseNote: "Vanilla, Musk, Sandalwood" },
+            { no: 179, namaKecil: "White Opium", namaBesar: "Summer Time", topNote: "Pink Pepper, Orange Blossom, Pear", middleNote: "Coffee, Jasmine, Bitter Almond, Licorice", baseNote: "Vanilla, Patchouli, Cedar, Cashmere Wood" },
+            { no: 180, namaKecil: "YSL Baby Cat", namaBesar: "YSL Baby Cat", topNote: "Pink Pepper, Mandarin Orange", middleNote: "Orange Blossom, Tuberose", baseNote: "White Musk, Patchouli, Cashmeran" },
+            { no: 181, namaKecil: "YSL Libre", namaBesar: "YSL Libre", topNote: "Lavender, Mandarin Orange, Black Currant, Petitgrain", middleNote: "Lavender, Orange Blossom, Jasmine", baseNote: "Madagascar Vanilla, Musk, Cedar" },
+            { no: 182, namaKecil: "", namaBesar: "YSL My Self", topNote: "Bergamot, Pink Pepper, Elemi", middleNote: "", baseNote: "" }, // Akan menggunakan namaBesar
+            { no: 183, namaKecil: "Zara Black", namaBesar: "Magical Scent", topNote: "Bergamot, Mandarin Orange, Pink Pepper", middleNote: "Ginger, Nutmeg, Jasmine", baseNote: "Sandalwood, Cedar, Vetiver" },
+            { no: 184, namaKecil: "Zara Blue", namaBesar: "Xotic Blue", topNote: "Grapefruit, Bergamot, Lemon", middleNote: "Ginger, Nutmeg, Mint", baseNote: "Incense, Vetiver, Cedar, Sandalwood" },
+            { no: 185, namaKecil: "Zara Extrem", namaBesar: "Vlosty", topNote: "Bergamot, Mandarin Orange", middleNote: "Lavender, Nutmeg", baseNote: "Leather, Amber" },
+            { no: 186, namaKecil: "Zara Fruity", namaBesar: "Cooling Citrus Slice", topNote: "Grapefruit, Orange, Mandarin Orange", middleNote: "Black Currant, Passionfruit", baseNote: "Musk, Peach, Vanilla" },
+            { no: 187, namaKecil: "Zara Gardenia", namaBesar: "De Opio", topNote: "Orange Blossom", middleNote: "Tuberose, White Flowers", baseNote: "Vanilla, Coffee" },
+            { no: 188, namaKecil: "Zara Home", namaBesar: "Enigma", topNote: "Bergamot, Black Currant", middleNote: "Lily-of-the-Valley", baseNote: "Musk, Amber" },
+            { no: 189, namaKecil: "Zara Leather", namaBesar: "Exotic Sandalwood", topNote: "Bergamot, Mandarin Orange", middleNote: "Incense, Violet", baseNote: "Leather, Sandalwood, Amber" },
+            { no: 190, namaKecil: "Zara Man", namaBesar: "Wild Scent", topNote: "Lemon, Bergamot", middleNote: "Ginger, Cardamom", baseNote: "Woody Notes, Amber" },
+            { no: 191, namaKecil: "Zara Orchid", namaBesar: "Orchid Bloom", topNote: "Bergamot", middleNote: "Orchid, Lily-of-the-Valley", baseNote: "Vanilla, Musk, Woody Notes" },
+            { no: 192, namaKecil: "Zara Tobaco", namaBesar: "Zara Tobaco", topNote: "Bergamot, Grapefruit", middleNote: "Tobacco Leaf, Cedar", baseNote: "Leather, Vetiver" },
+            { no: 193, namaKecil: "Zara Tuberose", namaBesar: "Scent Sensation", topNote: "Black Currant", middleNote: "Tuberose", baseNote: "Vanilla, Sandalwood" },
+            { no: 194, namaKecil: "Zara Vanila", namaBesar: "Moiselle", topNote: "Bergamot", middleNote: "Vanilla, Heliotrope", baseNote: "Musk, Amber" },
+            { no: 195, namaKecil: "Zara Vibrant Oud", namaBesar: "Ageless Blam", topNote: "Bergamot, Saffron", middleNote: "Rose, Agarwood (Oud)", baseNote: "Incense, Amber, Sandalwood" },
+            { no: 196, namaKecil: "Zara Wonderose", namaBesar: "Zephyr", topNote: "Red Berries, Pink Peppercorn", middleNote: "Rose, Freesia", baseNote: "Amber, Musk" }
+        ];
+            // --- KODE BARU UNTUK MENAMPILKAN AROMA LAINNYA ---
+
+            // 1. Dapatkan elemen div tempat aroma akan ditampilkan
+            const otherAromaGrid = document.getElementById('otherAromaGrid');
+
+            // 2. Fungsi untuk mengacak array (Fisher-Yates shuffle)
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]]; // Tukar elemen
+                }
+                return array;
+            }
+
+            // 3. Fungsi untuk menampilkan aroma acak
+            function displayRandomAromas() {
+                // Bersihkan dulu grid (kalau-kalau ada konten lama)
+                otherAromaGrid.innerHTML = ''; 
+
+                // Acak array allAromas
+                const shuffledAromas = shuffleArray([...allAromas]); // Gunakan spread operator untuk membuat salinan array agar yang asli tidak berubah
+
+                // Ambil 9 aroma pertama (atau kurang jika total aroma < 9)
+                const aromasToDisplay = shuffledAromas.slice(0, 9);
+
+                // Buat dan tambahkan kartu aroma untuk setiap aroma yang dipilih
+                aromasToDisplay.forEach(aroma => {
+                    const aromaCard = document.createElement('div');
+                    aromaCard.classList.add('aroma-card');
+
+                    const aromaIcon = document.createElement('div');
+                    aromaIcon.classList.add('aroma-icon');
+                    // Di sini Anda bisa menambahkan gambar jika nanti punya gambar untuk setiap aroma
+                    // aromaIcon.style.backgroundImage = `url('path/to/your/image/${aroma.no}.png')`; 
+                    aromaCard.appendChild(aromaIcon);
+
+                    const aromaName = document.createElement('p');
+                    aromaName.classList.add('aroma-name');
+                    // Gunakan namaKecil jika ada, kalau tidak ada pakai namaBesar
+                    aromaName.textContent = aroma.namaKecil || aroma.namaBesar; 
+                    aromaCard.appendChild(aromaName);
+
+                    otherAromaGrid.appendChild(aromaCard);
+                });
+            }
+
+            // Panggil fungsi untuk menampilkan aroma saat halaman dimuat
+            document.addEventListener('DOMContentLoaded', displayRandomAromas);
+
+            // Jika Anda ingin mengubah 9 aroma setiap kali halaman di-refresh, 
+            // fungsi displayRandomAromas() sudah cukup.
         const categoryGrid = document.querySelector('.category-grid');
         const categoryBlocks = document.querySelectorAll('.category-block');
 
