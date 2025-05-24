@@ -526,3 +526,40 @@ body {
 .main-footer a:hover {
     text-decoration: underline; /* Garis bawah saat di-hover */
 }
+
+/* --- Bagian Aroma Lainnya --- */
+.other-aromas {
+    padding: 20px 10px; /* Padding atas-bawah dan samping */
+    background-color: #fff; /* Latar belakang putih */
+    margin-top: 20px; /* Jarak dari bagian di atasnya */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Bayangan ringan */
+}
+
+.other-aromas .section-header {
+    display: flex; /* Menggunakan Flexbox untuk judul dan tombol More */
+    justify-content: space-between; /* Judul di kiri, More di kanan */
+    align-items: center; /* Sejajar vertikal */
+    margin-bottom: 20px; /* Jarak bawah header bagian */
+}
+
+.other-aromas h2 {
+    margin: 0; /* Menghilangkan margin bawaan h2 */
+    font-size: 20px; /* Ukuran font judul */
+    color: #fff; /* Warna teks putih */
+    background-color: #FF6961; /* Warna MERAH sesuai sketsa untuk "Aroma Lainnya" */
+    padding: 5px 15px;
+    border-radius: 20px; /* Sudut membulat */
+}
+
+.other-aromas .more-button {
+    text-decoration: none; /* Menghilangkan garis bawah tautan */
+    color: #333; /* Warna teks */
+    font-size: 14px;
+    background-color: #A9A9A9; /* Warna abu-abu */
+    padding: 5px 10px;
+    border-radius: 15px; /* Sudut membulat */
+}
+
+/* Karena kita akan mengisi ini dengan JavaScript, kita bisa menggunakan kembali .aroma-grid dan .aroma-card
+   yang sudah ada di bagian Kelas Aroma, jadi tidak perlu mendefinisikan ulang di sini.
+   Cukup pastikan .aroma-grid dan .aroma-card di atas sudah punya gaya yang kamu inginkan. */
