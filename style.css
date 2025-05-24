@@ -85,6 +85,7 @@ body {
 }
 
 /* --- Bagian Kategori Utama / Slider --- */
+/* --- Bagian Kategori Utama / Slider --- */
 .main-categories {
     padding: 20px 10px; /* Padding atas-bawah dan samping */
     background-color: #f0f0f0; /* Latar belakang sama dengan body */
@@ -110,26 +111,28 @@ body {
 
 .category-grid {
     display: flex;
-    overflow-x: auto; /* Aktifkan scroll di HP */
-    -webkit-overflow-scrolling: touch;
+    overflow-x: auto; /* Kunci untuk scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling di iOS */
     padding: 0 10px;
     gap: 15px;
-    width: 100%; /* Lebar 100% agar bisa di-scroll */
+    width: 100%; /* Sangat penting: Pastikan grid mengambil lebar 100% */
     box-sizing: border-box;
-    justify-content: flex-start; /* Dimulai dari kiri */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 10px; /* Sedikit padding bawah untuk scrollbar */
+    justify-content: flex-start; /* Elemen dimulai dari kiri */
+    scrollbar-width: none; /* Menyembunyikan scrollbar Firefox */
+    -ms-overflow-style: none; /* Menyembunyikan scrollbar IE/Edge */
+    padding-bottom: 10px; /* Sedikit padding bawah untuk scrollbar (jika muncul) */
     align-items: flex-start; /* Menyelaraskan item ke bagian atas (jika ada perbedaan tinggi) */
+    /* Tambahan kecil: Pastikan tidak ada wrap jika ada ruang */
+    flex-wrap: nowrap; /* Mencegah item wrapping ke baris baru di mobile */
 }
 
 .category-grid::-webkit-scrollbar {
     display: none;
 }
 
-.category-block { /* DEFINISI TUNGGAL DAN BENAR UNTUK category-block */
-    flex-shrink: 0;
-    min-width: 110px; /* Ukuran dasar yang konsisten */
+.category-block {
+    flex-shrink: 0; /* Penting: Mencegah item menyusut. Ini harus 0 agar scroll terjadi */
+    min-width: 110px; /* Ukuran dasar untuk HP */
     height: 110px;
     background-color: #A9A9A9;
     color: #fff;
@@ -145,6 +148,47 @@ body {
     transition: transform 0.2s ease-out, z-index 0s ease-out;
     position: relative;
     z-index: 1;
+}
+
+/* Warna spesifik untuk setiap kategori (tidak berubah) */
+.category-block.booster,
+.category-block.booster-alt {
+    background-color: #555555;
+}
+.category-block.flash-sale {
+    background-color: #FF6961;
+}
+.category-block.timteng-eropa {
+    background-color: #FADA5E;
+}
+.category-block.new-arrival {
+    background-color: #FF6961;
+}
+.category-block.parfum-malam {
+    background-color: #8BC34A;
+}
+
+/* --- Media Query untuk Layar PC (Lebar minimal 768px atau lebih) --- */
+@media (min-width: 768px) {
+    .main-categories {
+        padding: 20px; /* Tambah padding samping di PC */
+    }
+
+    .category-grid {
+        overflow-x: hidden; /* Matikan scroll di PC */
+        justify-content: center; /* Posisikan item di tengah dalam grid */
+        width: auto; /* Biarkan grid menyesuaikan lebar kontennya */
+        max-width: 100%; /* Jangan melebihi lebar parent */
+        padding: 0; /* Hapus padding samping jika tidak perlu */
+        flex-wrap: wrap; /* Izinkan wrapping di PC untuk mengisi baris */
+    }
+
+    .category-block {
+        transform: none; /* Kembalikan ke ukuran asli (tidak diskala 0.8) */
+        font-size: 20px;
+        min-width: 220px; /* Ukuran 2x di PC untuk kategori utama, sesuai sketsa awal */
+        height: 330px; /* Ukuran 3x di PC untuk kategori utama, sesuai sketsa awal */
+    }
 }
 
 /* Warna spesifik untuk setiap kategori */
