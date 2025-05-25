@@ -349,6 +349,36 @@ body {
     background-color: #8BC34A;
 }
 
+/* --- ATURAN KHUSUS UNTUK KARTU BOOSTER (GAMBAR) --- */
+.category-block.booster {
+    /* Penting: Ini menyembunyikan teks "BO" jika masih ada */
+    font-size: 0;
+    line-height: 0; 
+
+    /* Untuk memposisikan gambar di tengah kotak */
+    display: flex;
+    align-items: center;   /* Pusatkan vertikal */
+    justify-content: center; /* Pusatkan horizontal */
+
+    /* Penting: Mencegah gambar keluar batas kotak */
+    overflow: hidden; 
+
+    /* Catatan: Pastikan .category-block (umum) sudah punya width & height */
+    /* Contoh:
+    width: 100px;
+    height: 100px;
+    */
+}
+
+/* Aturan untuk gambar di dalam kotak kategori BO */
+.category-block.booster img {
+    display: block; /* Menghilangkan margin bawah default pada gambar inline */
+    width: 100%;  /* Gambar akan mengisi 100% lebar kotak */
+    height: 100%; /* Gambar akan mengisi 100% tinggi kotak */
+    object-fit: contain; /* Ini akan membuat seluruh gambar terlihat di dalam kotak, mungkin dengan ruang kosong di pinggir jika rasio aspeknya beda */
+    /* Jika ingin gambar mengisi penuh kotak (dan rela ada bagian terpotong), ganti 'contain' dengan 'cover' */
+}
+
 /* --- Bagian Best Seller --- */
 .best-sellers {
     padding: 20px 10px;
