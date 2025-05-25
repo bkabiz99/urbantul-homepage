@@ -279,17 +279,48 @@ body {
     width: fit-content;
 }
 
+/* Styling untuk .category-grid (Default untuk Desktop/Layar Lebar) */
 .category-grid {
-    display: flex;
-    overflow-x: auto; /* Aktifkan scroll di HP */
-    -webkit-overflow-scrolling: touch;
-    padding: 0 10px;
-    gap: 15px;
-    width: 100%; /* Lebar 100% agar bisa di-scroll */
-    box-sizing: border-box;
-    justify-content: flex-start; /* Dimulai dari kiri */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    display: flex; /* Menggunakan flexbox untuk layout horizontal */
+    overflow-x: hidden; /* HIDDEN: Sembunyikan scroll horizontal secara default di desktop */
+    scroll-snap-type: x mandatory; /* Membantu scroll berhenti di elemen */
+    -webkit-overflow-scrolling: touch; /* Meningkatkan performa scroll di iOS */
+    padding: 20px 0; /* Padding vertikal */
+    margin: 0 auto; /* Pusatkan grid */
+    max-width: 100%; /* Pastikan tidak melebihi lebar induk */
+    justify-content: center; /* Pusatkan item kategori jika total lebarnya kurang dari lebar kontainer */
+    gap: 20px; /* Jarak antar kategori */
+    /* Pastikan juga Anda punya lebar untuk .category-block, contoh: */
+    /* .category-block {
+        flex-shrink: 0;
+        width: 150px; // Contoh lebar blok
+        height: 150px; // Contoh tinggi blok
+        background-color: #777;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        cursor: grab;
+        scroll-snap-align: center;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    } */
+}
+/* Media Query untuk Layar Mobile (Lebar Maksimal 768px, bisa disesuaikan) */
+@media (max-width: 768px) {
+    .category-grid {
+        overflow-x: scroll; /* SCROLL: Aktifkan scroll horizontal di layar kecil */
+        justify-content: flex-start; /* Geser item ke kiri, tidak perlu dipusatkan saat scroll */
+        padding: 20px 10px; /* Sedikit padding horizontal untuk mobile */
+        /* Anda mungkin juga ingin mengatur lebar category-block di sini agar responsif, contoh: */
+        /* .category-block {
+            width: 120px; // Ukuran blok lebih kecil di mobile
+            height: 120px;
+        } */
+    }
 }
 
 .category-grid::-webkit-scrollbar {
