@@ -128,7 +128,7 @@ body {
     background-color: #FFB35C; /* Oranye yang sedikit lebih cerah untuk hover dari #ff9a15 */
 }
 
-/* Styling untuk Overlay */
+/* --- Styling untuk Overlay --- */
 .menu-overlay {
     position: fixed; /* Akan menutupi seluruh viewport */
     top: 0;
@@ -137,12 +137,20 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Warna gelap semi-transparan */
     z-index: 999; /* Pastikan di atas konten lain tapi di bawah sidebar */
-    display: none; /* Sembunyikan secara default */
-    transition: opacity 0.3s ease; /* Transisi untuk memudar */
+    
+    visibility: hidden; /* Sembunyikan secara default */
     opacity: 0; /* Mulai dari tidak terlihat */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* visibility delay saat menutup */
 }
 
-/* Styling untuk Sidebar Menu */
+/* Kelas untuk menampilkan overlay (akan ditambahkan/dihapus oleh JS) */
+.menu-overlay.active {
+    visibility: visible; /* Tampilkan overlay */
+    opacity: 1; /* Transisi menjadi terlihat penuh */
+    transition: opacity 0.3s ease; /* Tidak ada delay visibility saat membuka */
+}
+
+/* --- Styling untuk Sidebar Menu --- */
 .sidebar-menu {
     position: fixed; /* Akan menempel di viewport */
     top: 0;
@@ -157,15 +165,9 @@ body {
     flex-direction: column; /* Konten di dalamnya tersusun vertikal */
 }
 
-/* Kelas untuk menampilkan sidebar (akan ditambahkan/dihapus oleh JS) */
-.sidebar-menu.active {
+/* Kelas untuk menampilkan sidebar */
+.sidebar-menu.open {
     left: 0; /* Geser ke posisi terlihat */
-}
-
-/* Kelas untuk menampilkan overlay (akan ditambahkan/dihapus oleh JS) */
-.menu-overlay.active {
-    display: block; /* Tampilkan overlay */
-    opacity: 1; /* Transisi menjadi terlihat penuh */
 }
 
 /* Header Sidebar */
@@ -359,247 +361,261 @@ body {
     object-fit: contain;
 }
 
-/* --- Bagian Best Seller --- */
+/* --- Bagian Best Seller (Disesuaikan agar Mirip Aroma Inspired) --- */
 .best-sellers {
-    padding: 20px 10px;
-    background-color: #FFFFFF; /* Latar belakang putih (bersih, kontras) */
-    margin-top: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 20px; /* Padding sama dengan aroma-section */
+    margin: 30px auto; /* Margin dan auto untuk memusatkan, sama dengan aroma-section */
+    max-width: 960px; /* Lebar maksimum, sama dengan aroma-section */
+    background-color: #FFFFFF; /* Latar belakang putih */
+    border-radius: 15px; /* Sudut membulat */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Bayangan, sama dengan aroma-section */
 }
 
 .best-sellers .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Margin bawah, sama dengan aroma-section */
+    padding: 0 10px; /* Padding horizontal */
 }
 
 .best-sellers h2 {
     margin: 0;
-    font-size: 20px;
-    color: #FFFFFF; /* Warna teks putih */
-    background-color: #ff9a15; /* Warna oranye yang lebih lembut untuk judul Best Seller */
-    padding: 5px 15px;
-    border-radius: 20px;
+    font-size: 26px; /* Ukuran font, sama dengan aroma-section h2 */
+    color: #4a4a4a; /* Warna teks, sama dengan aroma-section h2 */
+    /* Menghapus background-color dan border-radius yang sebelumnya ada di sini */
+    /* Karena kita ingin judulnya polos seperti Aroma Inspired */
 }
 
 .best-sellers .more-button {
+    background-color: #FF7F50; /* Warna coral/oranye cerah, sama dengan aroma-section .more-button */
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 20px;
     text-decoration: none;
-    color: #7e7e7e; /* Warna teks abu-abu tua sedang */
+    font-weight: bold;
     font-size: 14px;
-    background-color: #F5F5DC; /* Warna krem sedikit lebih gelap */
-    padding: 5px 10px;
-    border-radius: 15px;
+    transition: background-color 0.3s ease;
 }
 
+.best-sellers .more-button:hover {
+    background-color: #E66A3D; /* Sedikit lebih gelap saat hover */
+}
+
+/* Styling untuk product-grid (BEST SELLER) - Tetap 6 kolom */
 .best-sellers .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(6, 1fr); /* Default: 6 kolom */
+    gap: 20px; /* Jarak antar kartu, sama dengan aroma-grid */
+    justify-content: center; /* Pusatkan grid di dalam container */
+    padding: 10px; /* Padding di dalam grid */
 }
 
+/* Styling untuk product-card (BEST SELLER) - Disamakan dengan aroma-card */
 .product-card {
-    background-color: #FDF8F3; /* Warna krem/putih tulang untuk kartu produk */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    padding: 10px; /* Padding di dalam kartu */
+    border-radius: 15px;
+    background-color: #F8F8F8; /* Warna latar belakang kartu */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
+/* Styling untuk gambar di product-card - Disamakan dengan aroma-icon */
 .product-card .product-image {
     width: 100%;
-    padding-top: 100%;
-    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder gambar */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    margin-bottom: 10px;
+    height: 100px; /* Tinggi ikon/gambar untuk best seller, sama dengan aroma-icon */
+    background-color: #D3D3D3; /* Warna abu-abu placeholder */
+    border-radius: 10px; /* Sudut membulat untuk gambar */
+    margin-bottom: 8px; /* Jarak antara gambar dan nama */
+    background-size: cover;
+    background-position: center;
 }
 
+/* Styling untuk nama produk di product-card - Disamakan dengan aroma-name */
 .product-card .product-name {
     margin: 0;
-    font-size: 14px;
-    color: #7e7e7e; /* Warna teks nama produk abu-abu tua sedang */
+    font-size: 14px; /* Ukuran font nama produk */
+    color: #7e7e7e;
     font-weight: bold;
-}
-
-/* --- Bagian Kelas Aroma --- */
-.aroma-classes {
-    padding: 20px 10px;
-    background-color: #FDF8F3; /* Latar belakang krem/putih tulang */
-    margin-top: 20px;
-}
-
-.aroma-classes .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.aroma-classes h2 {
-    margin: 0;
-    font-size: 20px;
-    color: #FFFFFF; /* Warna teks putih */
-    background-color: #7e7e7e; /* Warna abu-abu tua sedang untuk judul */
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.aroma-classes .more-button {
-    text-decoration: none;
-    color: #7e7e7e; /* Warna teks abu-abu tua sedang */
-    font-size: 14px;
-    background-color: #F5F5DC; /* Warna krem sedikit lebih gelap */
-    padding: 5px 10px;
-    border-radius: 15px;
-}
-
-.aroma-classes .aroma-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
-}
-
-.aroma-card {
-    background-color: #FFFFFF; /* Warna putih untuk kartu aroma */
-    border-radius: 15px;
+    text-transform: capitalize; /* Kapitalisasi seperti aroma-name */
+    white-space: nowrap;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding-bottom: 10px;
-    text-align: center;
-}
-
-.aroma-card .aroma-icon {
+    text-overflow: ellipsis;
     width: 100%;
-    padding-top: 100%;
-    background-color: #D3D3D3; /* Warna abu-abu lebih terang untuk placeholder ikon */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    margin-bottom: 10px;
 }
 
-.aroma-card .aroma-name {
+
+/* --- Bagian Kelas Aroma (menggunakan class 'aroma-section' untuk konsistensi di index.html) --- */
+.aroma-section {
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 960px; /* Sesuaikan dengan lebar konten utama Anda */
+    background-color: #FFFFFF; /* Latar belakang bagian */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.aroma-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.aroma-section h2 {
+    font-size: 26px;
+    color: #4a4a4a;
     margin: 0;
-    font-size: 14px;
-    color: #7e7e7e; /* Warna teks nama aroma abu-abu tua sedang */
+}
+
+.aroma-section .more-button {
+    background-color: #FF7F50; /* Warna coral/oranye cerah dari palet */
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
     font-weight: bold;
-}
-
-/* --- Bagian Aroma Inspired (Mengikuti pola aroma-classes) --- */
-.inspired-aroma-section {
-    padding: 20px 10px;
-    background-color: #FDF8F3; /* Latar belakang krem/putih tulang */
-    margin-top: 20px;
-}
-
-.inspired-aroma-section .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.inspired-aroma-section h2 {
-    margin: 0;
-    font-size: 20px;
-    color: #FFFFFF;
-    background-color: #7e7e7e; /* Warna abu-abu tua sedang untuk judul */
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.inspired-aroma-section .more-button {
-    text-decoration: none;
-    color: #7e7e7e;
     font-size: 14px;
-    background-color: #F5F5DC;
-    padding: 5px 10px;
-    border-radius: 15px;
+    transition: background-color 0.3s ease;
 }
 
-.inspired-aroma-section .aroma-grid {
+.aroma-section .more-button:hover {
+    background-color: #E66A3D; /* Sedikit lebih gelap saat hover */
+}
+
+/* Styling untuk grid aroma di index.html (untuk 12 kartu) */
+.aroma-section .aroma-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(6, 1fr); /* Default: 6 kolom */
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
 }
 
-/* --- Bagian Aroma Karakter --- */
-.karakter-aroma-section {
-    padding: 20px 10px;
-    background-color: #F5F5DC; /* Latar belakang krem sedikit lebih gelap */
-    margin-top: 20px;
-}
-
-.karakter-aroma-section .section-header {
+/* Penyesuaian card aroma untuk index.html */
+.aroma-section .aroma-card {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
-}
-
-.karakter-aroma-section h2 {
-    margin: 0;
-    font-size: 20px;
-    color: #FFFFFF;
-    background-color: #7e7e7e; /* Warna abu-abu tua sedang untuk judul */
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.karakter-aroma-section .more-button {
-    text-decoration: none;
-    color: #7e7e7e;
-    font-size: 14px;
-    background-color: #D3D3C6; /* Warna krem yang berbeda */
-    padding: 5px 10px;
+    text-align: center;
+    padding: 10px;
     border-radius: 15px;
+    background-color: #F8F8F8;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
-/* Styling untuk grid aroma karakter */
-.karakter-aroma-section .aroma-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+.aroma-section .aroma-icon {
+    width: 100%;
+    height: 100px; /* Tinggi ikon di index.html */
+    background-color: #D3D3D3;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background-size: cover;
+    background-position: center;
 }
 
-/* --- Bagian Other Aroma (Mengikuti pola aroma-classes) --- */
-.Other-Aroma {
-    padding: 20px 10px;
-    background-color: #FDF8F3; /* Latar belakang krem/putih tulang */
-    margin-top: 20px;
-}
-
-.Other-Aroma .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.Other-Aroma h2 {
-    margin: 0;
-    font-size: 20px;
-    color: #FFFFFF;
-    background-color: #7e7e7e; /* Warna abu-abu tua sedang untuk judul */
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.Other-Aroma .more-button {
-    text-decoration: none;
-    color: #7e7e7e;
+.aroma-section .aroma-name {
     font-size: 14px;
-    background-color: #F5F5DC;
-    padding: 5px 10px;
-    border-radius: 15px;
+    color: #7e7e7e;
+    font-weight: bold;
+    margin: 0;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
-.Other-Aroma .aroma-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+/* --- Media Queries Responsif untuk GRIDS (Aroma & Best Seller) --- */
+
+/* Untuk layar antara 993px dan 1200px */
+@media (max-width: 1200px) { 
+    .aroma-section .aroma-grid,
+    .best-sellers .product-grid { /* Terapkan ke best seller juga */
+        grid-template-columns: repeat(5, 1fr); /* 5 kolom */
+    }
 }
+
+/* Untuk layar antara 769px dan 992px */
+@media (max-width: 992px) { 
+    .aroma-section .aroma-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+        gap: 15px;
+    }
+    .aroma-section .aroma-icon {
+        height: 80px;
+    }
+    .aroma-section .aroma-name {
+        font-size: 13px;
+    }
+
+    .best-sellers .product-grid { /* Terapkan ke best seller juga */
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .product-card .product-image {
+        height: 80px; /* Sesuaikan tinggi gambar best seller */
+    }
+}
+
+/* Untuk tablet dan layar kecil lainnya (sampai 768px) */
+@media (max-width: 768px) { 
+    .aroma-section {
+        padding: 15px;
+        margin: 20px auto;
+    }
+    .aroma-section h2 {
+        font-size: 22px;
+    }
+    .aroma-section .more-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    .aroma-section .aroma-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+        gap: 10px;
+    }
+    .aroma-section .aroma-icon {
+        height: 70px;
+    }
+    .aroma-section .aroma-name {
+        font-size: 12px;
+    }
+
+    .best-sellers .product-grid { /* Terapkan ke best seller juga */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .product-card .product-image {
+        height: 70px; /* Sesuaikan tinggi gambar best seller */
+    }
+}
+
+/* Untuk ponsel kecil (sampai 480px) */
+@media (max-width: 480px) { 
+    .aroma-section .aroma-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+        gap: 8px;
+    }
+    .aroma-section .aroma-icon {
+        height: 60px;
+    }
+    .aroma-section .aroma-name {
+        font-size: 11px;
+    }
+
+    .best-sellers .product-grid { /* Terapkan ke best seller juga */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product-card .product-image {
+        height: 60px; /* Sesuaikan tinggi gambar best seller */
+    }
+}
+
 
 /* --- Bagian Footer Website --- */
 .main-footer {
