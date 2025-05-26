@@ -273,14 +273,14 @@ body {
 }
 
 .category-grid::-webkit-scrollbar {
-    display: none; /* Menyembunyikan scrollbar untuk Webkit (Chrome, Safari) */
+    display: none;
 }
 
-/* Ukuran kotak kategori (Ukuran default untuk mobile dan desktop kecil) */
+/* Ukuran kotak kategori (Sudah kamu ubah) */
 .category-block {
     flex-shrink: 0;
-    min-width: 110px; /* Ukuran dasar yang sama untuk semua */
-    height: 110px;    /* Ukuran dasar yang sama untuk semua */
+    min-width: 220px; /* Lebar 2x */
+    height: 330px;   /* Tinggi 3x */
     background-color: #A9A9A9;
     color: #fff;
     display: flex;
@@ -291,24 +291,17 @@ body {
     font-size: 20px;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transform: scale(0.8); /* Ini tetap untuk efek skala di JS */
+    transform: scale(0.8); /* Tetap aktif untuk efek skala di HP */
     transition: transform 0.2s ease-out, z-index 0s ease-out;
     position: relative;
     z-index: 1;
 }
 
-/* Media Query untuk Layar Mobile (Lebar Maksimal 768px, bisa disesuaikan) */
-@media (max-width: 768px) {
-    .category-grid {
-        overflow-x: scroll; /* Aktifkan scroll horizontal di layar kecil */
-        justify-content: flex-start; /* Geser item ke kiri, tidak perlu dipusatkan saat scroll */
-        padding: 20px 10px; /* Sedikit padding horizontal untuk mobile */
-    }
-}
-
-/* Media Query untuk Layar PC (Lebar minimal 768px atau lebih) */
-@media (min-width: 769px) { /* Menggunakan 769px agar tidak overlap dengan max-width 768px */
+/* --- Media Query untuk Layar PC (Lebar minimal 768px atau lebih) --- */
+@media (min-width: 768px) {
     .main-categories {
+        /* Kita ingin grid kategori di tengah, tapi judul tetap di tengah section */
+        /* align-items: center; sudah cukup untuk menengahkan seluruh section */
         padding: 20px; /* Tambah padding samping di PC */
     }
 
@@ -316,16 +309,42 @@ body {
         overflow-x: hidden; /* Matikan scroll di PC */
         justify-content: center; /* Posisikan item di tengah dalam grid */
         width: auto; /* Biarkan grid menyesuaikan lebar kontennya */
-        padding: 0;
+        max-width: 100%; /* Jangan melebihi lebar parent */
+        padding: 0; /* Hapus padding samping jika tidak perlu */
+
+        /* Jika kamu ingin mengatur jarak antar item lebih presisi di PC */
+        /* gap: 20px; */ /* Bisa diatur di sini, atau biarkan default dari atas */
     }
 
+    /* Di PC, kita tidak ingin efek skala dinamis lagi, jadi reset transform */
     .category-block {
         transform: none; /* Kembalikan ke ukuran asli (tidak diskala 0.8) */
-        min-width: 220px; /* Lebar 2x dari 110px */
-        height: 330px;    /* Tinggi 3x dari 110px */
         font-size: 20px; /* Pastikan ukuran font tetap normal */
     }
 }
+
+.category-block {
+    flex-shrink: 0;
+    min-width: 220px; /* Lebar 2x dari 110px */
+    height: 330px;   /* Tinggi 3x dari 110px */
+    background-color: #A9A9A9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    /* Ini tetap untuk efek skala dinamis di JavaScript */
+    transform: scale(0.8); 
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
 
 /* Warna spesifik untuk setiap kategori (tetap sama) */
 .category-block.booster,
