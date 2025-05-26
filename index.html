@@ -666,46 +666,41 @@ const karakterAromas = [
         let isScrolling = false; // Flag untuk mencegah loop saat memanipulasi scroll
 
         if (categoryGrid) { // Pastikan categoryGrid ada sebelum menambahkan event listener
-            categoryGrid.addEventListener('scroll', () => {
-                if (isScrolling) return; // Jika sedang dalam proses pemindahan, jangan jalankan lagi
+    categoryGrid.addEventListener('scroll', () => {
+        if (isScrolling) return; // Jika sedang dalam proses pemindahan, jangan jalankan lagi
 
-                updateCategoryScales(); // Selalu update skala saat discroll
+        updateCategoryScales(); // Selalu update skala saat discroll
 
-                const scrollLeft = categoryGrid.scrollLeft; // Posisi scroll saat ini
-                const scrollWidth = categoryGrid.scrollWidth; // Total lebar konten yang bisa digulir
-                const clientWidth = categoryGrid.clientWidth; // Lebar area yang terlihat (viewport)
+        const scrollLeft = categoryGrid.scrollLeft; // Posisi scroll saat ini
+        const scrollWidth = categoryGrid.scrollWidth; // Total lebar konten yang bisa digulir
+        const clientWidth = categoryGrid.clientWidth; // Lebar area yang terlihat (viewport)
 
-                // Mendeteksi jika scroll mendekati awal (misal kurang dari 10% dari lebar terlihat dari kiri)
-                if (scrollLeft < clientWidth * scrollThreshold) {
-                    isScrolling = true; // Set flag agar tidak berulang
-                    // Pindahkan 3 elemen terakhir ke awal. Sesuaikan angka 3 jika perlu.
-                    for (let i = 0; i < 3; i++) {
-                        const lastChild = categoryGrid.lastElementChild;
-                        if (lastChild) {
-                            categoryGrid.prepend(lastChild); // Memindahkan elemen ke awal
-                        }
-                    }
-                    // Sesuaikan posisi scroll agar terlihat mulus.
-                    // (categoryBlocks[0].offsetWidth || 110) * 3 adalah perkiraan jarak 3 blok.
-                    categoryGrid.scrollLeft = scrollLeft + (categoryBlocks[0].offsetWidth || 110) * 3;
-                    isScrolling = false; // Reset flag
+        // MENDETEKSI JIKA SCROLL MENDEKATI AWAL
+        if (scrollLeft < clientWidth * scrollThreshold) {
+            isScrolling = true;
+            for (let i = 0; i < 3; i++) {
+                const lastChild = categoryGrid.lastElementChild;
+                if (lastChild) {
+                    categoryGrid.prepend(lastChild);
                 }
-                // Mendeteksi jika scroll mendekati akhir (misal 10% dari lebar terlihat dari kanan)
-                else if (scrollLeft + clientWidth > scrollWidth - clientWidth * scrollThreshold) {
-                    isScrolling = true; // Set flag
-                    // Pindahkan 3 elemen pertama ke akhir. Sesuaikan angka 3 jika perlu.
-                    for (let i = 0; i < 3; i++) {
-                        const firstChild = categoryGrid.firstElementChild;
-                        if (firstChild) {
-                            categoryGrid.appendChild(firstChild); // Memindahkan elemen ke akhir
-                        }
-                    }
-                    // Sesuaikan posisi scroll agar terlihat mulus.
-                    categoryGrid.scrollLeft = scrollLeft - (categoryBlocks[0].offsetWidth || 110) * 3;
-                    isScrolling = false; // Reset flag
-                }
-            });
+            }
+            categoryGrid.scrollLeft = scrollLeft + (categoryBlocks[0].offsetWidth || 110) * 3;
+            isScrolling = false;
         }
+        // MENDETEKSI JIKA SCROLL MENDEKATI AKHIR
+        else if (scrollLeft + clientWidth > scrollWidth - clientWidth * scrollThreshold) {
+            isScrolling = true;
+            for (let i = 0; i < 3; i++) {
+                const firstChild = categoryGrid.firstElementChild;
+                if (firstChild) {
+                    categoryGrid.appendChild(firstChild);
+                }
+            }
+            categoryGrid.scrollLeft = scrollLeft - (categoryBlocks[0].offsetWidth || 110) * 3;
+            isScrolling = false;
+        }
+    });
+}
 
         // Panggil fungsi saat window di-resize (agar skala diperbarui jika ukuran layar berubah)
         window.addEventListener('resize', updateCategoryScales);
