@@ -1,0 +1,114 @@
+/* CSS Khusus untuk best-sellers.html */
+
+.best-seller-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #FDF8F3; /* Menggunakan warna krem/putih tulang dari style.css (background body) */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.best-seller-category {
+    margin-bottom: 40px;
+    background-color: #FFFFFF; /* Menggunakan warna putih dari style.css (background header) */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.category-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF; /* Teks putih */
+    padding: 8px 20px;
+    border-radius: 25px;
+    width: fit-content;
+    margin: 0 auto 30px auto;
+    text-align: center;
+}
+
+/* Warna judul kategori (CEWEK & COWOK) - #8BC34A sudah ada di palet untuk link footer, jadi kita pertahankan */
+.category-title.female-title,
+.category-title.male-title {
+    background-color: #8BC34A; /* Warna hijau muda dari palet (warna link footer) */
+}
+
+.product-grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.product-circle-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.product-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #D3D3D3; /* Menggunakan warna abu-abu lebih terang dari style.css (placeholder gambar) */
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product-name {
+    font-size: 14px;
+    color: #7e7e7e; /* Menggunakan warna abu-abu tua sedang dari style.css (teks dasar) */
+    font-weight: bold;
+    margin: 0;
+    word-break: break-word;
+}
+
+/* Responsif untuk layar yang lebih kecil */
+@media (max-width: 768px) {
+    .best-seller-container {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .category-title {
+        font-size: 20px;
+        padding: 7px 15px;
+        margin-bottom: 25px;
+    }
+
+    .product-grid-row {
+        gap: 10px;
+    }
+
+    .product-circle-card {
+        width: 100px;
+    }
+
+    .product-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .product-name {
+        font-size: 13px;
+    }
+}
+
+/* Responsif untuk layar yang sangat kecil */
+@media (max-width: 480px) {
+    .product-circle-card {
+        width: 80px;
+    }
+    .product-circle {
+        width: 60px;
+        height: 60px;
+    }
+    .product-name {
+        font-size: 12px;
+    }
+}
