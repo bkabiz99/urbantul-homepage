@@ -313,7 +313,6 @@ body {
     }
 
     .category-grid {
-        overflow-x: hidden; /* Matikan scroll di PC */
         justify-content: center; /* Posisikan item di tengah dalam grid */
         width: auto; /* Biarkan grid menyesuaikan lebar kontennya */
         padding: 0;
