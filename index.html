@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menu-overlay"></div>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <aside class="sidebar-menu">
+    <aside class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-header">
             <h2>Menu urBANtul</h2>
-            <button class="close-sidebar-button">&times;</button>
+            <button class="close-sidebar-button" id="closeSidebarButton">&times;</button>
         </div>
         <nav class="sidebar-nav">
             <ul>
                 <li><a href="index.html" class="sidebar-link" data-menu-item="halaman-utama">Halaman Utama</a></li>
-                <li><a href="#" class="sidebar-link" data-menu-item="notes-aroma">Notes Aroma</a></li>
-                <li><a href="best-sellers.html" class="sidebar-link" data-menu-item="aroma-best-seller">Aroma Best Seller</a></li>
+                <li><a href="aroma-notes.html" class="sidebar-link" data-menu-item="notes-aroma">Notes Aroma</a></li> <li><a href="best-sellers.html" class="sidebar-link" data-menu-item="aroma-best-seller">Aroma Best Seller</a></li>
                 <li><a href="aroma-inspired.html" class="sidebar-link" data-menu-item="aroma-inspired">Aroma Inspired</a></li>
                 <li><a href="aroma-karakter.html" class="sidebar-link" data-menu-item="aroma-karakter">Aroma Karakter</a></li>
                 <li><a href="#" class="sidebar-link" data-menu-item="panduan-aroma">Panduan Aroma</a></li>
@@ -30,8 +29,7 @@
     <header class="main-header">
         <div class="header-top">
             <div class="header-left">
-                <div class="hamburger-menu-icon">
-                    <div class="bar"></div>
+                <div class="hamburger-menu-icon" id="hamburgerMenuIcon"> <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
@@ -71,6 +69,61 @@
         </div>
     </section>
 
+    <section class="aroma-classes">
+        <div class="section-header">
+            <h2 class="aroma-classes-title">Kelas Aroma</h2>
+            <a href="aroma-notes.html" class="more-button">More</a> </div>
+        <div class="aroma-classes-grid-main-page">
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Jeruk</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Buah - buahan</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Bunga</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Herbal</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Rempah</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Manis</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Kayu - kayuan</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Resin & Balsam</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Hewan</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Minuman</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Aroma Alam</p>
+            </div>
+            <div class="aroma-class-item-main-page">
+                <div class="aroma-class-box-main-page"></div>
+                <p class="aroma-class-name-main-page">Oud</p>
+            </div>
+        </div>
+    </section>
     <section class="karakter-aroma-section aroma-section">
         <div class="section-header">
             <h2>Aroma Karakter</h2>
@@ -89,14 +142,14 @@
             </div>
     </section>
 
-<section class="best-sellers">
-    <div class="section-header">
-        <h2>Best Seller Kita</h2>
-        <a href="best-sellers.html" class="more-button">More</a> 
-    </div>
-    <div class="product-grid" id="bestSellerGrid">
+    <section class="best-sellers">
+        <div class="section-header">
+            <h2>Best Seller Kita</h2>
+            <a href="best-sellers.html" class="more-button">More</a> 
         </div>
-</section>
+        <div class="product-grid" id="bestSellerGrid">
+            </div>
+    </section>
 
     <footer class="main-footer">
         <p>Jl. Jend. Sudirman No.95, Kurahan, Bantul, Kec. Bantul, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55711</p>
