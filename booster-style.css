@@ -1,0 +1,112 @@
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booster Parfum - urBANtul</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="booster-style.css"> <style>
+        /* Anda bisa menambahkan atau override gaya di sini jika diperlukan khusus untuk booster.html */
+        /* Misalnya, jika ada penyesuaian margin untuk main content di halaman ini */
+        .booster-page-container {
+            margin-top: 20px; /* Contoh: Sedikit lebih atas dari margin default */
+            /* max-width: 960px; /* Sesuaikan dengan layout keseluruhan website Anda */
+            /* margin-left: auto; */
+            /* margin-right: auto; */
+            /* padding: 0 15px; */
+        }
+
+        /* Jika ada override untuk padding page-main-title di halaman ini */
+        .booster-page-container .page-main-title {
+            margin-top: 20px; /* Sesuaikan jarak dari header */
+            margin-bottom: 30px; /* Jarak ke grid card */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-overlay"></div>
+
+    <aside class="sidebar-menu">
+        <div class="sidebar-header">
+            <h2>Menu urBANtul</h2>
+            <button class="close-sidebar-button">&times;</button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html" class="sidebar-link" data-menu-item="halaman-utama">Halaman Utama</a></li>
+                <li><a href="aroma-notes.html" class="sidebar-link" data-menu-item="notes-aroma">Notes Aroma</a></li>
+                <li><a href="best-sellers.html" class="sidebar-link" data-menu-item="aroma-best-seller">Aroma Best Seller</a></li>
+                <li><a href="aroma-inspired.html" class="sidebar-link" data-menu-item="aroma-inspired">Aroma Inspired</a></li>
+                <li><a href="aroma-karakter.html" class="sidebar-link" data-menu-item="aroma-karakter">Aroma Karakter</a></li>
+                <li><a href="#" class="sidebar-link" data-menu-item="panduan-aroma">Panduan Aroma</a></li>
+                <li><a href="#" class="sidebar-link" data-menu-item="lokasi-kontak">Lokasi & Kontak</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <header class="main-header">
+        <div class="header-top">
+            <div class="header-left">
+                <div class="hamburger-menu-icon">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="logo">
+                    <a href="index.html"><h1>urBANtul</h1></a>
+                </div>
+            </div>
+
+            <div class="promo-banner">
+                <span>Hanya Rp.1000/ml</span>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="urban-perfume-point.html">Urban Perfume Point</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="search-section">
+            <input type="text" placeholder="Search : Nama Aroma, Kelas Aroma, dan Note Aroma" class="search-input">
+            <button class="search-button">
+                &#128269;
+            </button>
+        </div>
+    </header>
+
+    <main class="booster-page-container"> <h1 class="page-main-title">AROMA BOOSTER</h1>
+
+        <section class="booster-cards-section">
+            <div class="booster-cards-grid">
+                <div class="booster-card bo1"><span>BO1</span></div>
+                <div class="booster-card bo2"><span>BO2</span></div>
+                <div class="booster-card bo3"><span>BO3</span></div>
+                <div class="booster-card bo4"><span>BO4</span></div>
+            </div>
+        </section>
+
+        <div id="aroma-display-container">
+            <p>Memuat daftar aroma Booster...</p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>Jl. Jend. Sudirman No.95, Kurahan, Bantul, Kec. Bantul, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55711</p>
+        <p>Kontak: <a href="tel:+6289529535222">+62 895-2953-5222</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/urbanperfumepoint.official/" target="_blank">@urbanperfumepoint.official</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="aromaClassifier.js"></script>
+    <script>
+        // Pastikan displayBoosterAromas() dipanggil setelah DOMContentLoaded
+        // dan setelah script.js serta aromaClassifier.js dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            displayBoosterAromas();
+        });
+    </script>
+</body>
+</html>
