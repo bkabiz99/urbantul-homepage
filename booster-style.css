@@ -1,112 +1,85 @@
-  <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booster Parfum - urBANtul</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="booster-style.css"> <style>
-        /* Anda bisa menambahkan atau override gaya di sini jika diperlukan khusus untuk booster.html */
-        /* Misalnya, jika ada penyesuaian margin untuk main content di halaman ini */
-        .booster-page-container {
-            margin-top: 20px; /* Contoh: Sedikit lebih atas dari margin default */
-            /* max-width: 960px; /* Sesuaikan dengan layout keseluruhan website Anda */
-            /* margin-left: auto; */
-            /* margin-right: auto; */
-            /* padding: 0 15px; */
-        }
+/* booster-style.css */
 
-        /* Jika ada override untuk padding page-main-title di halaman ini */
-        .booster-page-container .page-main-title {
-            margin-top: 20px; /* Sesuaikan jarak dari header */
-            margin-bottom: 30px; /* Jarak ke grid card */
-        }
-    </style>
-</head>
-<body>
-    <div class="menu-overlay"></div>
+.booster-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom, lebar sama */
+    gap: 20px; /* Jarak antar card */
+    max-width: 800px; /* Sesuaikan lebar maksimum grid */
+    margin: 30px auto; /* Tengahkan grid */
+    padding: 0 15px; /* Sedikit padding di samping */
+}
 
-    <aside class="sidebar-menu">
-        <div class="sidebar-header">
-            <h2>Menu urBANtul</h2>
-            <button class="close-sidebar-button">&times;</button>
-        </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li><a href="index.html" class="sidebar-link" data-menu-item="halaman-utama">Halaman Utama</a></li>
-                <li><a href="aroma-notes.html" class="sidebar-link" data-menu-item="notes-aroma">Notes Aroma</a></li>
-                <li><a href="best-sellers.html" class="sidebar-link" data-menu-item="aroma-best-seller">Aroma Best Seller</a></li>
-                <li><a href="aroma-inspired.html" class="sidebar-link" data-menu-item="aroma-inspired">Aroma Inspired</a></li>
-                <li><a href="aroma-karakter.html" class="sidebar-link" data-menu-item="aroma-karakter">Aroma Karakter</a></li>
-                <li><a href="#" class="sidebar-link" data-menu-item="panduan-aroma">Panduan Aroma</a></li>
-                <li><a href="#" class="sidebar-link" data-menu-item="lokasi-kontak">Lokasi & Kontak</a></li>
-            </ul>
-        </nav>
-    </aside>
+.booster-card {
+    width: 100%; /* Lebar card mengisi kolom */
+    position: relative;
+    /* Background colors defined below */
+    display: flex;
+    flex-direction: column; /* Konten di dalam card akan ditumpuk vertikal */
+    justify-content: space-between; /* Menjaga jarak antar konten */
+    align-items: center; /* Horisontal center semua item */
+    border-radius: 8px; /* Sudut membulat */
+    overflow: hidden; /* Pastikan konten tidak meluber */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333; /* Warna teks default */
+    padding: 20px; /* Padding di dalam card */
+    min-height: 250px; /* Ditinggikan agar ada ruang untuk gambar dan notes */
+    text-align: center; /* Tengahkan teks di dalam card */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar/tinggi */
+}
 
-    <header class="main-header">
-        <div class="header-top">
-            <div class="header-left">
-                <div class="hamburger-menu-icon">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-                <div class="logo">
-                    <a href="index.html"><h1>urBANtul</h1></a>
-                </div>
-            </div>
+/* Palet warna dari gambar "Seni Layering Parfum Booster" */
+.booster-card.bo1 { background-color: #B2D8D8; /* Biru kehijauan muda */ }
+.booster-card.bo2 { background-color: #F8B3B3; /* Pink muda */ }
+.booster-card.bo3 { background-color: #C0E8D0; /* Hijau mint muda */ }
+.booster-card.bo4 { background-color: #F7D9B4; /* Peach/Krem hangat */ }
 
-            <div class="promo-banner">
-                <span>Hanya Rp.1000/ml</span>
-            </div>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="urban-perfume-point.html">Urban Perfume Point</a></li>
-                </ul>
-            </nav>
-        </div>
+/* Gaya untuk nama booster (BO1, BO2, dst.) di dalam card */
+.booster-name {
+    font-size: 1.5em; /* Ukuran font lebih besar untuk judul BO */
+    font-weight: bold;
+    margin-bottom: 15px; /* Jarak antara nama dan gambar */
+    color: #333; /* Warna teks nama */
+}
 
-        <div class="search-section">
-            <input type="text" placeholder="Search : Nama Aroma, Kelas Aroma, dan Note Aroma" class="search-input">
-            <button class="search-button">
-                &#128269;
-            </button>
-        </div>
-    </header>
+/* GAYA UNTUK GAMBAR DI DALAM CARD */
+.booster-card-image {
+    max-width: 40%; /* Mengurangi lebar gambar relatif terhadap card */
+    height: auto; /* Jaga aspek rasio */
+    display: block; /* Agar margin auto bekerja untuk centering */
+    margin: 0 auto 15px auto; /* Tengahkan gambar dan beri jarak bawah ke notes */
+    object-fit: contain; /* Memastikan gambar sepenuhnya terlihat di dalam area tanpa terpotong */
+}
 
-    <main class="booster-page-container"> <h1 class="page-main-title">AROMA BOOSTER</h1>
+/* Gaya untuk notes di dalam card */
+.booster-notes {
+    font-size: 0.85em;
+    line-height: 1.4;
+    text-align: center; /* Pastikan notes juga di tengah */
+    color: #555; /* Warna teks notes */
+    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang semi-transparan untuk notes */
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(100% - 20px); /* Lebar notes, dikurangi padding card */
+    box-sizing: border-box;
+    margin-top: auto; /* Ini akan mendorong notes ke bagian bawah card jika ada ruang kosong */
+}
 
-        <section class="booster-cards-section">
-            <div class="booster-cards-grid">
-                <div class="booster-card bo1"><span>BO1</span></div>
-                <div class="booster-card bo2"><span>BO2</span></div>
-                <div class="booster-card bo3"><span>BO3</span></div>
-                <div class="booster-card bo4"><span>BO4</span></div>
-            </div>
-        </section>
+/* Untuk tampilan layar kecil, jadikan 1 kolom */
+@media (max-width: 600px) {
+    .booster-cards-grid {
+        grid-template-columns: 1fr; /* 1 kolom */
+    }
+}
 
-        <div id="aroma-display-container">
-            <p>Memuat daftar aroma Booster...</p>
-        </div>
-    </main>
+/* Gaya tambahan untuk menyembunyikan kontainer lama */
+#aroma-display-container {
+    display: none; /* Penting: menyembunyikan daftar aroma lama */
+}
 
-    <footer class="main-footer">
-        <p>Jl. Jend. Sudirman No.95, Kurahan, Bantul, Kec. Bantul, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55711</p>
-        <p>Kontak: <a href="tel:+6289529535222">+62 895-2953-5222</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/urbanperfumepoint.official/" target="_blank">@urbanperfumepoint.official</a></p>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="aromaClassifier.js"></script>
-    <script>
-        // Pastikan displayBoosterAromas() dipanggil setelah DOMContentLoaded
-        // dan setelah script.js serta aromaClassifier.js dimuat
-        document.addEventListener('DOMContentLoaded', () => {
-            displayBoosterAromas();
-        });
-    </script>
-</body>
-</html>
+/* === BARIS BARU UNTUK MENENGahkan JUDUL "AROMA BOOSTER" === */
+.page-main-title {
+    text-align: center;
+    margin-top: 20px; /* Jaga jarak dari header */
+    margin-bottom: 30px; /* Jaga jarak ke grid card */
+}
