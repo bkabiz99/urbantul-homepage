@@ -19,36 +19,45 @@ const aromaCategories = {
     "Aromatic/Herbal": ["lavender", "rosemary", "kemangi", "thyme", "clary sage", "petitgrain"]
 };
 
-// Objek untuk menyimpan hasil klasifikasi aroma
+// --- BAGIAN BARU: MAPPING NAMA KATEGORI KE BAHASA INDONESIA UNTUK TAMPILAN ---
+const categoryDisplayMap = {
+    "Floral": "Bunga",
+    "Citrus": "Jeruk",
+    "Fruity": "Buah",
+    "Sweet/Gourmand": "Manis",
+    "Woody": "Kayu",
+    "Spicy": "Rempah", // Diubah sesuai permintaan
+    "Musk/Amber": "Musk & Amber",
+    "Fresh/Clean": "Segar & Bersih",
+    "Coffee/Tobacco": "Kopi & Tembakau", // Diubah sesuai permintaan
+    "Leather": "Kulit",
+    "Powdery": "Bedak",
+    "Resin/Balsamic": "Resin & Balsam",
+    "Aquatic/Ozonic": "Akuatik & Ozonic",
+    "Green": "Hijau",
+    "Aromatic/Herbal": "Aromatik & Herbal"
+};
+// --- AKHIR BAGIAN BARU ---
+
+// Objek untuk menyimpan hasil klasifikasi aroma (untuk halaman aroma-notes.html)
 let classifiedAromas = {};
 
-// Fungsi untuk mengklasifikasikan aroma berdasarkan notes
-// Fungsi ini akan menggunakan inspiredAromas (asumsi global dari script.js)
+// Fungsi untuk mengklasifikasikan aroma berdasarkan notes (digunakan di aroma-notes.html)
 function classifyAromas() {
     const result = {};
-
-    // Pastikan inspiredAromas tersedia
     if (typeof inspiredAromas === 'undefined' || !Array.isArray(inspiredAromas)) {
         console.error("Kesalahan: 'inspiredAromas' tidak ditemukan atau bukan array. Pastikan script.js dimuat duluan.");
         return {};
     }
-
-    // Inisialisasi setiap kategori dengan array kosong
     for (const category in aromaCategories) {
         result[category] = [];
     }
-
     inspiredAromas.forEach(aroma => {
-        // Gabungkan semua notes dan ubah ke huruf kecil untuk pencarian
         const allNotes = `${aroma.topNote || ''}, ${aroma.middleNote || ''}, ${aroma.baseNote || ''}`.toLowerCase();
-
         for (const category in aromaCategories) {
             const keywords = aromaCategories[category];
-            // Filter keyword yang cocok, pastikan keyword juga lowercased
             const foundKeywords = keywords.filter(keyword => allNotes.includes(keyword.toLowerCase()));
-
             if (foundKeywords.length > 0) {
-                // Tambahkan parfum ke kategori ini jika ada kata kunci yang cocok
                 result[category].push({
                     no: aroma.no,
                     namaKecil: aroma.namaKecil,
@@ -64,7 +73,23 @@ function classifyAromas() {
     return result;
 }
 
-// Fungsi untuk menampilkan aroma di container HTML (untuk Kelas Aroma)
+// Fungsi pembantu: Mengambil semua kategori aroma yang cocok untuk satu aroma spesifik
+function getAromaCategoriesForBooster(aroma) {
+    const matchedCategories = [];
+    const allNotes = `${aroma.topNote || ''}, ${aroma.middleNote || ''}, ${aroma.baseNote || ''}`.toLowerCase();
+
+    for (const category in aromaCategories) {
+        const keywords = aromaCategories[category];
+        const foundKeywords = keywords.filter(keyword => allNotes.includes(keyword.toLowerCase()));
+        if (foundKeywords.length > 0) {
+            matchedCategories.push(category);
+        }
+    }
+    return matchedCategories;
+}
+
+
+// Fungsi untuk menampilkan aroma di container HTML (untuk Kelas Aroma di aroma-notes.html)
 function displayAromasByClass(className) {
     const container = document.getElementById('aroma-display-container');
     if (!container) {
@@ -73,10 +98,10 @@ function displayAromasByClass(className) {
     }
     container.innerHTML = ''; // Bersihkan konten sebelumnya
 
-    // Ambil nama tampilan yang ramah pengguna dari data-category di HTML
     const classCardElement = document.querySelector(`.class-card[data-category="${className}"]`);
     let displayCategoryName = className;
     if (classCardElement && classCardElement.querySelector('.class-name-banner')) {
+        // Ini mapping yang sudah ada untuk aroma-notes.html, kita biarkan saja.
         displayCategoryName = classCardElement.querySelector('.class-name-banner').textContent;
     }
 
@@ -113,11 +138,10 @@ function getBoosterAromas() {
     return karakterAromas.filter(aroma => boosterAromaNos.includes(aroma.no));
 }
 
-// FUNGSI UNTUK MENAMPILKAN NOTES DI BAWAH CARD (SUDAH DIUBAH NAMA KECILNYA MENJADI BO1, BO2, DST.)
+// FUNGSI INI AKAN BERUBAH UNTUK MENAMPILKAN KELAS AROMA DENGAN PRIORITAS
 function displayBoosterAromas() {
     const boosterAromas = getBoosterAromas(); // Ambil data booster
 
-    // Pastikan ada cukup data booster untuk setiap card
     if (boosterAromas.length < 4) {
         console.warn("Peringatan: Tidak cukup data aroma booster untuk mengisi semua 4 card.");
     }
@@ -132,7 +156,6 @@ function displayBoosterAromas() {
     cardElements.forEach((card, index) => {
         if (card && boosterAromas[index]) {
             const aroma = boosterAromas[index];
-            // Kosongkan card terlebih dahulu jika ada konten placeholder
             card.innerHTML = '';
 
             const nameDiv = document.createElement('div');
@@ -140,59 +163,86 @@ function displayBoosterAromas() {
             nameDiv.innerHTML = `BO${index + 1}`;
             card.appendChild(nameDiv);
 
-            // === BARIS INI YANG DITAMBAHKAN UNTUK GAMBAR ===
             const imgElement = document.createElement('img');
-            imgElement.src = 'Booster/booster-image.jpg'; // Path gambar sementara
+            imgElement.src = 'Booster/booster-image.jpg';
             imgElement.alt = `Booster Image ${index + 1}`;
-            imgElement.className = 'booster-card-image'; // Kelas untuk styling
+            imgElement.className = 'booster-card-image';
             card.appendChild(imgElement);
-            // ===============================================
 
             const notesDiv = document.createElement('div');
             notesDiv.className = 'booster-notes';
+
+            // Dapatkan semua kategori yang cocok
+            const allCategories = getAromaCategoriesForBooster(aroma); 
+
+            let finalCategoriesToDisplay = [];
+            const desiredPriorities = ['Spicy', 'Coffee/Tobacco']; // Kategori yang diprioritaskan
+
+            // 1. Tambahkan kategori yang diprioritaskan jika ada dan belum mencapai batas 2
+            for (const priorityCat of desiredPriorities) {
+                if (allCategories.includes(priorityCat) && finalCategoriesToDisplay.length < 2) {
+                    finalCategoriesToDisplay.push(priorityCat);
+                }
+            }
+
+            // 2. Jika masih kurang dari 2 kategori, isi dengan kategori lain yang cocok
+            //    (pastikan tidak ada duplikat dan tetap di bawah 2)
+            if (finalCategoriesToDisplay.length < 2) {
+                for (const cat of allCategories) {
+                    if (!finalCategoriesToDisplay.includes(cat) && finalCategoriesToDisplay.length < 2) {
+                        finalCategoriesToDisplay.push(cat);
+                    }
+                }
+            }
+            
+            let categoriesHtml = '';
+            if (finalCategoriesToDisplay.length > 0) {
+                // --- BAGIAN YANG DIUBAH: Menggunakan categoryDisplayMap untuk tampilan Bahasa Indonesia ---
+                const displayNames = finalCategoriesToDisplay.map(cat => categoryDisplayMap[cat] || cat); // Dapatkan nama tampilan BI
+                categoriesHtml = `Kelas Aroma : <strong>${displayNames.join(', ')}</strong><br>`;
+                // --- AKHIR BAGIAN YANG DIUBAH ---
+            }
+
             notesDiv.innerHTML = `
+                ${categoriesHtml}
                 <small>Top: ${aroma.topNote || '-'}</small><br>
                 <small>Middle: ${aroma.middleNote || '-'}</small><br>
                 <small>Base: ${aroma.baseNote || '-'}</small>
             `;
             card.appendChild(notesDiv);
 
-            // Tambahkan event listener untuk card (jika suatu saat nanti ingin bisa diklik)
-            // card.addEventListener('click', () => {
-            //     alert(`Anda mengklik ${aroma.namaKecil}`);
-            // });
-
         } else if (card) {
-            // Jika tidak ada data aroma untuk card ini, tampilkan BO1, BO2, dst.
+            // Jika tidak ada data aroma untuk card ini
             card.innerHTML = `
                 <div class="booster-name">BO${index + 1}</div>
                 <img src="Booster/booster-image.jpg" alt="Booster Image ${index + 1}" class="booster-card-image">
-                <div class="booster-notes"></div>
+                <div class="booster-notes">
+                    <small>Top: -</small><br>
+                    <small>Middle: -</small><br>
+                    <small>Base: -</small>
+                </div>
             `;
         }
     });
 
-    // Sembunyikan atau hapus container lama yang menampilkan daftar aroma
     const oldDisplayContainer = document.getElementById('aroma-display-container');
     if (oldDisplayContainer) {
-        oldDisplayContainer.style.display = 'none'; // Atau oldDisplayContainer.remove();
+        oldDisplayContainer.style.display = 'none';
     }
 }
 
 
-
 // Event Listener untuk mengklik kartu kelas aroma (Hanya di aroma-notes.html)
 document.addEventListener('DOMContentLoaded', () => {
-    // Pastikan ini hanya dijalankan di halaman aroma-notes.html
     if (window.location.pathname.includes('aroma-notes.html')) {
-        classifiedAromas = classifyAromas(); // Panggil tanpa argumen
+        classifiedAromas = classifyAromas();
         const classCards = document.querySelectorAll('.class-card');
         classCards.forEach(card => {
             card.addEventListener('click', () => {
                 let categoryName = card.dataset.category;
                 if (!categoryName) {
+                    // Ini mapping yang sudah ada untuk aroma-notes.html
                     categoryName = card.querySelector('.class-name-banner').textContent.trim();
-                    // Sesuaikan nama kategori dari tampilan ke nama keyword yang sebenarnya di aromaCategories
                     if (categoryName === "Buah - buahan") categoryName = "Fruity";
                     else if (categoryName === "Jeruk") categoryName = "Citrus";
                     else if (categoryName === "Bunga") categoryName = "Floral";
@@ -214,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Panggil fungsi untuk menampilkan aroma Booster jika berada di halaman booster.html
     if (window.location.pathname.includes('booster.html')) {
         displayBoosterAromas();
     }
