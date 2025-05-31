@@ -19,17 +19,17 @@ const aromaCategories = {
     "Aromatic/Herbal": ["lavender", "rosemary", "kemangi", "thyme", "clary sage", "petitgrain"]
 };
 
-// --- BAGIAN BARU: MAPPING NAMA KATEGORI KE BAHASA INDONESIA UNTUK TAMPILAN ---
+// MAPPING NAMA KATEGORI KE BAHASA INDONESIA UNTUK TAMPILAN
 const categoryDisplayMap = {
     "Floral": "Bunga",
     "Citrus": "Jeruk",
     "Fruity": "Buah",
     "Sweet/Gourmand": "Manis",
     "Woody": "Kayu",
-    "Spicy": "Rempah", // Diubah sesuai permintaan
+    "Spicy": "Rempah",
     "Musk/Amber": "Musk & Amber",
     "Fresh/Clean": "Segar & Bersih",
-    "Coffee/Tobacco": "Kopi & Tembakau", // Diubah sesuai permintaan
+    "Coffee/Tobacco": "Kopi & Tembakau",
     "Leather": "Kulit",
     "Powdery": "Bedak",
     "Resin/Balsamic": "Resin & Balsam",
@@ -37,7 +37,6 @@ const categoryDisplayMap = {
     "Green": "Hijau",
     "Aromatic/Herbal": "Aromatik & Herbal"
 };
-// --- AKHIR BAGIAN BARU ---
 
 // Objek untuk menyimpan hasil klasifikasi aroma (untuk halaman aroma-notes.html)
 let classifiedAromas = {};
@@ -197,10 +196,9 @@ function displayBoosterAromas() {
             
             let categoriesHtml = '';
             if (finalCategoriesToDisplay.length > 0) {
-                // --- BAGIAN YANG DIUBAH: Menggunakan categoryDisplayMap untuk tampilan Bahasa Indonesia ---
-                const displayNames = finalCategoriesToDisplay.map(cat => categoryDisplayMap[cat] || cat); // Dapatkan nama tampilan BI
+                // Menggunakan categoryDisplayMap untuk tampilan Bahasa Indonesia
+                const displayNames = finalCategoriesToDisplay.map(cat => categoryDisplayMap[cat] || cat);
                 categoriesHtml = `Kelas Aroma : <strong>${displayNames.join(', ')}</strong><br>`;
-                // --- AKHIR BAGIAN YANG DIUBAH ---
             }
 
             notesDiv.innerHTML = `
@@ -232,8 +230,9 @@ function displayBoosterAromas() {
 }
 
 
-// Event Listener untuk mengklik kartu kelas aroma (Hanya di aroma-notes.html)
+// Event Listener yang akan dijalankan saat DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', () => {
+    // Logic untuk aroma-notes.html
     if (window.location.pathname.includes('aroma-notes.html')) {
         classifiedAromas = classifyAromas();
         const classCards = document.querySelectorAll('.class-card');
@@ -264,7 +263,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Logic untuk booster.html
     if (window.location.pathname.includes('booster.html')) {
         displayBoosterAromas();
     }
+
+    // --- LOGIC BARU UNTUK GAMBAR KELAS AROMA DI HALAMAN UTAMA (index.html) ---
+    // Cek apakah ini halaman utama (asumsi index.html atau root path)
+    const isHomePage = window.location.pathname === '/' || window.location.pathname.includes('index.html');
+
+    if (isHomePage) {
+        const aromaClassItems = document.querySelectorAll('.aroma-class-item-main-page');
+        // --- JALUR DAN EKSTENSI GAMBAR ANDA ---
+        const imagePathPrefix = 'assets/aroma-icons/'; // Folder Anda seperti di screenshot
+        const imageExtension = '.jpg'; // Ekstensi gambar Anda (sesuai screenshot)
+        // ------------------------------------
+
+        // Mapping dari teks kategori HTML ke nama file gambar (tanpa ekstensi) jika berbeda
+        const categoryImagePrefixMap = {
+            'jeruk': 'citrus',
+            'buah-buahan': 'fruity',
+            'bunga': 'floral',
+            'kayu-kayuan': 'kayu',
+            'resin-balsam': 'resin',
+            'aroma-alam': 'alam'
+            // 'herbal', 'rempah', 'manis', 'hewan', 'minuman', 'oud' akan otomatis cocok setelah normalisasi
+        };
+
+        aromaClassItems.forEach(item => {
+            const aromaNameElement = item.querySelector('.aroma-class-name-main-page');
+            const aromaBoxElement = item.querySelector('.aroma-class-box-main-page');
+
+            if (aromaNameElement && aromaBoxElement) {
+                let aromaNameFromHTML = aromaNameElement.textContent.trim();
+                // Normalisasi nama dari HTML: lowercase, ganti ' - ' dan ' & ' dengan '-'
+                // serta hapus karakter non-alfanumerik selain '-'
+                let normalizedKey = aromaNameFromHTML
+                    .toLowerCase()
+                    .replace(/ - /g, '-')
+                    .replace(/ & /g, '-')
+                    .replace(/\s/g, '-')      // Ini yang penting untuk spasi
+                    .replace(/[^a-z0-9-]/g, '')
+                    .replace(/-+/g, '-');
+
+                // Dapatkan awalan nama file dari map, atau gunakan normalizedKey jika tidak ada di map
+                const imageFileNamePrefix = categoryImagePrefixMap[normalizedKey] || normalizedKey;
+                
+                const imageUrl = `${imagePathPrefix}${imageFileNamePrefix}${imageExtension}`;
+                aromaBoxElement.style.backgroundImage = `url('${imageUrl}')`;
+            }
+        });
+    }
+    // --- AKHIR LOGIC BARU UNTUK GAMBAR KELAS AROMA ---
 });
