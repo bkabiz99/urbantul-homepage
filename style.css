@@ -431,10 +431,11 @@ body {
     scroll-snap-align: start;
 }
 
+/* --- KODE CSS INI TELAH DIUBAH UNTUK GAMBAR --- */
 .aroma-class-box-main-page {
     width: 80px;
     height: 80px;
-    background-color: #7ED957;
+    /* background-color: #7ED957; <-- HAPUS BARIS INI */
     border-radius: 20px;
     transform: rotate(45deg);
     display: flex;
@@ -442,7 +443,14 @@ body {
     align-items: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-bottom: 10px;
+
+    /* --- ATURAN BARU UNTUK GAMBAR --- */
+    background-size: cover;       /* Gambar akan menutupi seluruh area box */
+    background-position: center;  /* Gambar akan terpusat */
+    background-repeat: no-repeat; /* Gambar tidak akan diulang */
+    overflow: hidden;             /* Penting untuk memastikan gambar terpotong sesuai bentuk diamond */
 }
+/* --- AKHIR PERUBAHAN KODE CSS --- */
 
 .aroma-class-name-main-page {
     margin: 0;
