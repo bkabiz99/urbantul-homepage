@@ -1,0 +1,783 @@
+/* --- CSS Global / Reset Dasar --- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FDF8F3;
+    color: #7e7e7e;
+}
+
+/* Styling untuk ikon Hamburger Menu */
+.hamburger-menu-icon {
+    width: 30px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 5px;
+    box-sizing: content-box;
+}
+
+.hamburger-menu-icon .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #7e7e7e;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Penyesuaian tata letak header-top */
+.main-header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Penyesuaian header-left agar hamburger dan logo berdampingan */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Pastikan logo urBANtul tidak terlalu besar */
+.logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: #7e7e7e;
+}
+
+/* Menggeser promo banner dan main nav ke kanan atau tengah atas */
+.promo-banner {
+    background-color: #ff9a15;
+    color: #FFFFFF;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    margin: 5px 0;
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #7e7e7e;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background-color: #F5F5DC;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #ff9a15;
+    color: #FFFFFF;
+}
+
+/* Penyesuaian Search Section agar lebih lebar dan di tengah */
+.search-section {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px 20px;
+    background-color: #7e7e7e;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    background-color: #FFFFFF;
+    color: #7e7e7e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-button {
+    background-color: #ff9a15;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #FFB35C;
+}
+
+/* --- Styling untuk Overlay --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+/* Kelas untuk menampilkan overlay (akan ditambahkan/dihapus oleh JS) */
+.menu-overlay.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* --- Styling untuk Sidebar Menu --- */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kelas untuk menampilkan sidebar */
+.sidebar-menu.open {
+    left: 0;
+}
+
+/* Header Sidebar */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #F5F5DC;
+    border-bottom: 1px solid #E6E6DC;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #7e7e7e;
+}
+
+.close-sidebar-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #7e7e7e;
+    padding: 0 10px;
+    transition: color 0.2s ease;
+}
+
+.close-sidebar-button:hover {
+    color: #ff9a15;
+}
+
+/* Navigasi Sidebar */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav .sidebar-link {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #7e7e7e;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    margin: 0 15px 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.sidebar-nav .sidebar-link:hover {
+    background-color: #FDF8F3;
+    transform: translateX(5px);
+}
+
+/* --- Bagian Kategori Utama / Slider --- */
+.main-categories {
+    padding: 20px 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main-categories h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: #7e7e7e;
+    padding: 5px 15px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+/* Styling untuk .category-grid (Default untuk Desktop/Layar Lebar) */
+.category-grid {
+    display: flex;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+/* Media Query untuk Layar Mobile (Lebar Maksimal 768px, bisa disesuaikan) */
+@media (max-width: 768px) {
+    .category-grid {
+        overflow-x: scroll;
+        justify-content: flex-start;
+        padding: 20px 10px;
+    }
+}
+
+.category-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ukuran kotak kategori */
+.category-block {
+    flex-shrink: 0;
+    min-width: 220px;
+    height: 330px;
+    background-color: #F5F5DC;
+    color: #7e7e7e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transform: scale(0.8);
+    transition: transform 0.2s ease-out, z-index 0s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Media Query untuk Layar PC (Lebar minimal 768px atau lebih) --- */
+@media (min-width: 768px) {
+    .main-categories {
+        padding: 20px;
+    }
+
+    .category-grid {
+        overflow-x: hidden;
+        justify-content: center;
+        width: auto;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .category-block {
+        transform: none;
+        font-size: 20px;
+    }
+}
+
+/* Warna spesifik untuk setiap kategori (dipertahankan atau disesuaikan) */
+.category-block.booster,
+.category-block.booster-alt {
+    background-color: #7e7e7e;
+    color: #FFFFFF;
+}
+
+.category-block.flash-sale {
+    background-color: #FF6961;
+}
+
+.category-block.timteng-eropa {
+    background-color: #ff9a15;
+    color: #FFFFFF;
+}
+
+.category-block.new-arrival {
+    background-color: #ff9a15;
+    color: #FFFFFF;
+}
+
+.category-block.parfum-malam {
+    background-color: #7e7e7e;
+    color: #FFFFFF;
+}
+
+/* --- ATURAN KHUSUS UNTUK KARTU BOOSTER (GAMBAR) --- */
+.category-block.booster {
+    font-size: 0;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.category-block.booster img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- Bagian Kelas Aroma Baru (Halaman Utama - 6 item horizontal scrollable) --- */
+.aroma-classes {
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 960px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.aroma-classes .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.aroma-classes-title {
+    background-color: #7ED957;
+    border: 3px solid #6BAF4D;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Style tombol "More" di section-header */
+.aroma-classes .more-button {
+    background-color: #FF7F50;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.aroma-classes .more-button:hover {
+    background-color: #E66A3D;
+}
+
+
+/* Grid untuk Halaman Utama (Horizontal Scrollable) */
+.aroma-classes-grid-main-page {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+    gap: 20px;
+}
+
+.aroma-classes-grid-main-page::-webkit-scrollbar {
+    display: none;
+}
+
+.aroma-class-item-main-page {
+    flex-shrink: 0;
+    min-width: 150px; /* Lebar setiap item (sesuaikan agar 6 item terlihat atau sesuai keinginan) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+/* --- KODE CSS INI TELAH DIUBAH UNTUK GAMBAR --- */
+.aroma-class-box-main-page {
+    width: 80px;
+    height: 80px;
+    /* background-color: #7ED957; <-- HAPUS BARIS INI */
+    border-radius: 20px;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+
+    /* --- ATURAN BARU UNTUK GAMBAR --- */
+    background-size: cover;       /* Gambar akan menutupi seluruh area box */
+    background-position: center;  /* Gambar akan terpusat */
+    background-repeat: no-repeat; /* Gambar tidak akan diulang */
+    overflow: hidden;             /* Penting untuk memastikan gambar terpotong sesuai bentuk diamond */
+}
+/* --- AKHIR PERUBAHAN KODE CSS --- */
+
+.aroma-class-name-main-page {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7e7e7e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* --- Bagian Karakter Aroma (sudah ada) --- */
+.karakter-aroma-section {
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 960px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+/* Menggunakan style dari .aroma-section */
+.karakter-aroma-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+.karakter-aroma-section h2 {
+    font-size: 26px;
+    color: #4a4a4a;
+    margin: 0;
+}
+.karakter-aroma-section .more-button {
+    background-color: #FF7F50;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.karakter-aroma-section .more-button:hover {
+    background-color: #E66A3D;
+}
+.karakter-aroma-section .aroma-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+/* Jika Anda memiliki style khusus untuk item di karakter-aroma-section, tambahkan di sini */
+
+
+/* --- Bagian Aroma Inspired (sudah ada) --- */
+.inspired-aroma-section {
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 960px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+/* Menggunakan style dari .aroma-section */
+.inspired-aroma-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+.inspired-aroma-section h2 {
+    font-size: 26px;
+    color: #4a4a4a;
+    margin: 0;
+}
+.inspired-aroma-section .more-button {
+    background-color: #FF7F50;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.inspired-aroma-section .more-button:hover {
+    background-color: #E66A3D;
+}
+.inspired-aroma-section .aroma-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Penyesuaian card aroma untuk index.html */
+.aroma-section .aroma-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #F8F8F8;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.aroma-section .aroma-icon {
+    width: 100%;
+    height: 100px;
+    background-color: #D3D3D3;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background-size: cover;
+    background-position: center;
+}
+
+.aroma-section .aroma-name {
+    font-size: 14px;
+    color: #7e7e7e;
+    font-weight: bold;
+    margin: 0;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+
+/* --- Bagian Best Seller (Disesuaikan agar Mirip Aroma Inspired) --- */
+.best-sellers {
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 960px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.best-sellers .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.best-sellers h2 {
+    margin: 0;
+    font-size: 26px;
+    color: #4a4a4a;
+}
+
+.best-sellers .more-button {
+    background-color: #FF7F50;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.best-sellers .more-button:hover {
+    background-color: #E66A3D;
+}
+
+/* Styling untuk product-grid (BEST SELLER) - Tetap 6 kolom */
+.best-sellers .product-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Styling untuk product-card (BEST SELLER) - Disamakan dengan aroma-card */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #F8F8F8;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* Styling untuk gambar di product-card - Disamakan dengan aroma-icon */
+.product-card .product-image {
+    width: 100%;
+    height: 100px;
+    background-color: #D3D3D3;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Styling untuk nama produk di product-card - Disamakan dengan aroma-name */
+.product-card .product-name {
+    margin: 0;
+    font-size: 14px;
+    color: #7e7e7e;
+    font-weight: bold;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+
+/* --- Media Queries Responsif untuk GRIDS (Aroma & Best Seller) --- */
+
+/* Untuk layar antara 993px dan 1200px */
+@media (max-width: 1200px) { 
+    .inspired-aroma-section .aroma-grid,
+    .karakter-aroma-section .aroma-grid, /* Terapkan ke karakter aroma juga */
+    .best-sellers .product-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Untuk layar antara 769px dan 992px */
+@media (max-width: 992px) { 
+    .inspired-aroma-section .aroma-grid,
+    .karakter-aroma-section .aroma-grid, /* Terapkan ke karakter aroma juga */
+    .best-sellers .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+    .aroma-section .aroma-icon, /* Berlaku untuk inspired dan karakter */
+    .product-card .product-image {
+        height: 80px;
+    }
+    .aroma-section .aroma-name,
+    .product-card .product-name {
+        font-size: 13px;
+    }
+}
+
+/* Untuk tablet dan layar kecil lainnya (sampai 768px) */
+@media (max-width: 768px) { 
+    .inspired-aroma-section,
+    .karakter-aroma-section, /* Terapkan ke karakter aroma juga */
+    .best-sellers {
+        padding: 15px;
+        margin: 20px auto;
+    }
+    .inspired-aroma-section h2,
+    .karakter-aroma-section h2, /* Terapkan ke karakter aroma juga */
+    .best-sellers h2 {
+        font-size: 22px;
+    }
+    .inspired-aroma-section .more-button,
+    .karakter-aroma-section .more-button, /* Terapkan ke karakter aroma juga */
+    .best-sellers .more-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    .inspired-aroma-section .aroma-grid,
+    .karakter-aroma-section .aroma-grid, /* Terapkan ke karakter aroma juga */
+    .best-sellers .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .aroma-section .aroma-icon,
+    .product-card .product-image {
+        height: 70px;
+    }
+    .aroma-section .aroma-name,
+    .product-card .product-name {
+        font-size: 12px;
+    }
+}
+
+/* Untuk ponsel kecil (sampai 480px) */
+@media (max-width: 480px) { 
+    .inspired-aroma-section .aroma-grid,
+    .karakter-aroma-section .aroma-grid, /* Terapkan ke karakter aroma juga */
+    .best-sellers .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .aroma-section .aroma-icon,
+    .product-card .product-image {
+        height: 60px;
+    }
+    .aroma-section .aroma-name,
+    .product-card .product-name {
+        font-size: 11px;
+    }
+}
+
+
+
+/* --- Bagian Footer Website --- */
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 15px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.main-footer p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.main-footer a {
+    color: #8BC34A;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
+}
