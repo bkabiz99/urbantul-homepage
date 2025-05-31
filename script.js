@@ -62,7 +62,7 @@ const karakterAromas = [
     { no: 50, namaBesar: "Felice", namaKecil: "charlie yellow", topNote: "Aldehydes, Gardenia, Persik, Hyacinth, Bergamot", middleNote: "Anyelir, Sedap malam, Lily-of-the-Valley, Mawar, Melati, Kenanga, Cyclamen", baseNote: "Cendana, Amber, Musk, Cedar, Vanilla, Lumut Oak" },
     { no: 51, namaBesar: "Fighter Man", namaKecil: "Mont blanc individual starwalker", topNote: "Bergamot, Jeruk Mandarin, Pink Pepper, Juniper", middleNote: "Lavender, Pala, Cedar, Kayu Manis", baseNote: "Cendana, Musk, Amber, Cemara, Kulit" },
     { no: 52, namaBesar: "Five Years", namaKecil: "elizabeth arden 5th avenue", topNote: "Lily-of-the-Valley, Lilac, Magnolia, Jeruk Mandarin, Bergamot", middleNote: "Melati, Sedap malam, Mawar Bulgaria, Persik, Kenanga, Anyelir, Pala", baseNote: "Cendana, Amber, Musk, Vanilla, Akar Iris, Cedar" },
-    { no: 53, namaBesar: "FOF", namaKecil: "annasui flight funcy", topNote: "Jeruk Mandarin, Pink Pepper, Litchi", middleNote: "Mawar, Melati, Freesia", baseNote: "Musk, Aroma Kayu, Amber" },
+    { no: 53, namaBesar: "FOF", namaKecil: "Anna Sui flight funcy", topNote: "Jeruk Mandarin, Pink Pepper, Litchi", middleNote: "Mawar, Melati, Freesia", baseNote: "Musk, Aroma Kayu, Amber" },
     { no: 54, namaBesar: "Fuck Boy", namaKecil: "dunhil blue", topNote: "Bergamot, Jeruk Nipis, Lavender, Jeruk Mandarin", middleNote: "Violet, Aroma Air", baseNote: "Cendana, Musk, Cedar, Tonka Bean, Amber, Nilam, Akar Wangi" },
     { no: 55, namaBesar: "Fuck Girl", namaKecil: "sarah j parker lovely", topNote: "Jeruk Mandarin, Lavender, Apple Martini, Bergamot, Rosewood Palisander", middleNote: "Anggrek, Nilam, Narcissus", baseNote: "Amber, Musk, Cedar, Amber Putih, Aroma Kayu" },
     { no: 56, namaBesar: "Garuda", namaKecil: "Salvador Ice Blue", topNote: "Grapefruit, Bergamot, Cassis", middleNote: "Semangka, Lotus, Nanas", baseNote: "Musk, Cendana, Amber" },
@@ -133,8 +133,8 @@ const karakterAromas = [
     { no: 121, namaBesar: "Sasa", namaKecil: "Cacharel Nemo", topNote: "Ketumbar, Jeruk Mandarin, Bergamot, Lemon", middleNote: "Anyelir, Pala, Melati, Mawar, Kenanga", baseNote: "Nilam, Cendana, Vanilla, Amber, Akar Wangi" },
     { no: 122, namaBesar: "Sauvage Classy", namaKecil: "gio Armani my way woman", topNote: "Bunga Jeruk, Bergamot", middleNote: "Sedap malam India, Melati", baseNote: "Musk Putih, Vanilla, Cedar" },
     { no: 123, namaBesar: "Secret Angel", namaKecil: "European limmited edition", topNote: "", middleNote: "", baseNote: "" }, // Data kosong
-    { no: 124, namaBesar: "Secret Garden", namaKecil: "annasui secret wish", topNote: "Melon, Persik, Lemon", middleNote: "Black Currant, Nanas", baseNote: "Amber, Musk, Cendana, Cedar" },
-    { no: 125, namaBesar: "Secret Kiss", namaKecil: "annasui romantica", topNote: "Bergamot, Jeruk Mandarin, Grapefruit Merah Muda", middleNote: "Mawar, Melati, Bunga Jeruk, Lily-of-the-Valley", baseNote: "Musk, Cendana, Amber, Vanilla" },
+    { no: 124, namaBesar: "Secret Garden", namaKecil: "Anna Sui secret wish", topNote: "Melon, Persik, Lemon", middleNote: "Black Currant, Nanas", baseNote: "Amber, Musk, Cendana, Cedar" },
+    { no: 125, namaBesar: "Secret Kiss", namaKecil: "Anna Sui romantica", topNote: "Bergamot, Jeruk Mandarin, Grapefruit Merah Muda", middleNote: "Mawar, Melati, Bunga Jeruk, Lily-of-the-Valley", baseNote: "Musk, Cendana, Amber, Vanilla" },
     { no: 126, namaBesar: "Seven San", namaKecil: "mancera roses vanille", topNote: "Aroma Air, Lemon", middleNote: "Mawar, Gula", baseNote: "Vanilla, Musk Putih, Cedar" },
     { no: 127, namaBesar: "Sexy Killer", namaKecil: "Paco Black xs Woman", topNote: "Pink Pepper, Cranberry", middleNote: "Violet Hitam, Kakao, Mawar", baseNote: "Nilam, Vanilla, Cendana" },
     { no: 128, namaBesar: "Shape Of You", namaKecil: "ph siren", topNote: "Pir, Pink Pepper, Black Currant", middleNote: "Melati, Bunga Jeruk, Heliotrope", baseNote: "Vanilla, Nilam, Cedar, Cashmeran" },
@@ -182,19 +182,19 @@ const karakterAromas = [
 const inspiredAromas = [
     { no: 1, "namaKecil": "Adidas Natural", "namaBesar": "Sundew", "topNote": "Apel Merah, Leci, Tomat, Jeruk", "middleNote": "Teratai, Semangka, Osmanthus", "baseNote": "Musk, Cendana" },
     { no: 2, "namaKecil": "Al Rehab Dalal", "namaBesar": "Scent Space", "topNote": "Karamel, Vanila, Jeruk", "middleNote": "", "baseNote": "Cendana" },
-    { no: 3, "namaKecil": "Annasui Dolly Girl", "namaBesar": "Black Rose", "topNote": "Melon, Apel, Bergamot, Kayu Manis", "middleNote": "Mawar, Magnolia, Violet, Lili Lembah, Melati", "baseNote": "Raspberry, Esensi Kayu Jati, Stroberi, Musk, Amber, Akar Wangi" },
-    { no: 4, "namaKecil": "Annasui Dream", "namaBesar": "Full Moon", "topNote": "Nektarin, Jeruk Mandarin, Jeruk Pahit, Bergamot", "middleNote": "Nektarin, Jeruk Mandarin, Jeruk Pahit, Bergamot", "baseNote": "Vanila Tahiti, Musk, Pala, Adas Manis, Cendana, Cedar" },
-    { no: 5, "namaKecil": "Annasui Flight Funcy", "namaBesar": "Evening Sunset", "topNote": "Yuzu, Leci, Lemon", "middleNote": "Magnolia, Freesia, Mawar", "baseNote": "Musk, Kayu Putih, Amber" },
-    { no: 6, "namaKecil": "Annasui Magic Romance", "namaBesar": "Fougere", "topNote": "Bergamot, Lemon Sisilia, Melon", "middleNote": "Bunga Jeruk, Teratai, Sedap malam, Cereus Mekar Malam", "baseNote": "Musk, Kelapa, Rosewood Brasil, Amber" },
-    { no: 7, "namaKecil": "Annasui Secret Wish", "namaBesar": "Scent Quisite", "topNote": "Lemon, Melon, Persik, Marigold", "middleNote": "Nanas, Black Currant, Nuansa Bunga", "baseNote": "Ekstrak Cedar Putih, Musk, Amber, Cendana" },
-    { no: 8, "namaKecil": "Antonio Banderas Determination", "namaBesar": "Determination", "topNote": "Bergamot, Apel Hijau, Kapulaga", "middleNote": "Nuansa Laut, Pala, Teh", "baseNote": "Musk, Cendana, Amber" },
-    { no: 9, "namaKecil": "Aqua Kiss", "namaBesar": "Adore You", "topNote": "Nuansa Laut, Freesia, Lidah Buaya", "middleNote": "Daisy, Chamomile, Nuansa Manis, Bunga Plum", "baseNote": "" },
-    { no: 10, "namaKecil": "Avril FBLBidden Rose Spring", "namaBesar": "Bidden Rose Spring", "topNote": "Apel Merah, Persik, Lada", "middleNote": "Teratai, Apel Granny Smith, Heliotrope", "baseNote": "Vanila, Cokelat Meksiko, Cendana" },
-    { no: 11, "namaKecil": "B&B Strawberry", "namaBesar": "Tincture", "topNote": "Stroberi", "middleNote": "Cupcake, Krim Kocok", "baseNote": "" },
-    { no: 12, "namaKecil": "Bacarat 724", "namaBesar": "Autumn Fertiver", "topNote": "Aldehida, Bergamot", "middleNote": "Nuansa Bunga Putih", "baseNote": "Musk, Cendana" },
-    { no: 13, "namaKecil": "Bacarat Amyris Feme", "namaBesar": "River Mist", "topNote": "Bunga Lemon, Kacang Manis", "middleNote": "Amyris, Melati", "baseNote": "Musk, Nuansa Kayu" },
+    { no: 3, "namaKecil": "Anna Sui Dolly Girl", "namaBesar": "Black Rose", "topNote": "Melon, Apel, Bergamot, Kayu Manis", "middleNote": "Mawar, Magnolia, Violet, Lili Lembah, Melati", "baseNote": "Raspberry, Esensi Kayu Jati, Stroberi, Musk, Amber, Akar Wangi" },
+    { no: 4, "namaKecil": "Anna Sui Dream", "namaBesar": "Full Moon", "topNote": "Nektarin, Jeruk Mandarin, Jeruk Pahit, Bergamot", "middleNote": "Nektarin, Jeruk Mandarin, Jeruk Pahit, Bergamot", "baseNote": "Vanila Tahiti, Musk, Pala, Adas Manis, Cendana, Cedar" },
+    { no: 5, "namaKecil": "Anna Sui Flight Funcy", "namaBesar": "Evening Sunset", "topNote": "Yuzu, Leci, Lemon", "middleNote": "Magnolia, Freesia, Mawar", "baseNote": "Musk, Kayu Putih, Amber" },
+    { no: 6, "namaKecil": "Anna Sui Magic Romance", "namaBesar": "Fougere", "topNote": "Bergamot, Lemon Sisilia, Melon", "middleNote": "Bunga Jeruk, Teratai, Sedap malam, Cereus Mekar Malam", "baseNote": "Musk, Kelapa, Rosewood Brasil, Amber" },
+    { no: 7, "namaKecil": "Anna Sui Secret Wish", "namaBesar": "Scent Quisite", "topNote": "Lemon, Melon, Persik, Marigold", "middleNote": "Nanas, Black Currant, Nuansa Bunga", "baseNote": "Ekstrak Cedar Putih, Musk, Amber, Cendana" },
+    { no: 8, "namaKecil": "Antonio Banderas", "namaBesar": "Determination", "topNote": "Balsam Fir, Musk, Kayu Kasmir, Lada, Lemon", "middleNote": "", "baseNote": "" },
+    { no: 9, "namaKecil": "Aqua Kiss", "namaBesar": "Adore You", "topNote": "Nuansa Laut, Freesia, Aloe Vera, Dahlia, Kamomil, Aroma Manis, Bunga Plum", "middleNote": "", "baseNote": "" },
+    { no: 10, "namaKecil": "Avril Forbidden Rose", "namaBesar": "Bidden Rose Spring", "topNote": "Apel Merah, Persik, Lada", "middleNote": "Teratai, Apel Granny Smith, Heliotrope", "baseNote": "Vanila, Cokelat Meksiko, Cendana" },
+    { no: 11, "namaKecil": "B&B Strawberry", "namaBesar": "Tincture", "topNote": "Stroberi, Kue mangkuk, Krim kocok", "middleNote": "", "baseNote": "" },
+    { no: 12, "namaKecil": "Bacarat 724", "namaBesar": "Autumn Fertiver", "topNote": "Aldehida, Bergamot", "middleNote": "Melati Mesir, Jeruk Palsu, Kacang Manis", "baseNote": "Musk Putih, Cendana" },
+    { no: 13, "namaKecil": "Bacarat Amyris Feme", "namaBesar": "River Mist", "topNote": "Bunga Lemon, Jeruk California", "middleNote": "Amyris elemifera, Bunga Iris", "baseNote": "Akar wangi, Musk, Amber" },
     { no: 14, "namaKecil": "Bacarat Aqua Celestia", "namaBesar": "Calestial Charm", "topNote": "Jeruk Nipis, Mint, Black Currant, Neroli", "middleNote": "Mimosa, Nuansa Hijau, Lili Lembah", "baseNote": "Musk" },
-    { no: 15, "namaKecil": "Bacarat Aqua Universal", "namaBesar": "Ocean Royal", "topNote": "Bergamot, Lemon", "middleNote": "Bunga Putih", "baseNote": "Musk, Nuansa Kayu" },
+    { no: 15, "namaKecil": "Bacarat Aqua Universal", "namaBesar": "Ocean Royal", "topNote": "Bakung lembah, Amalfi lemon, bergamot, Musk, Bunga limau, Oranye, Catatan Hutan", "middleNote": "", "baseNote": "" },
     { no: 16, "namaKecil": "Bacarat Extrait Red", "namaBesar": "Epic Desire", "topNote": "Almond Pahit, Saffron", "middleNote": "Melati Mesir, Cedar", "baseNote": "Musk, Nuansa Kayu, Ambergris" },
     { no: 17, "namaKecil": "Bacarat Grand Soir", "namaBesar": "Date Night", "topNote": "Labdanum", "middleNote": "Kacang Tonka, Vanila", "baseNote": "Amber" },
     { no: 18, "namaKecil": "Bacarat Intens", "namaBesar": "Endless Scent", "topNote": "Saffron, Melati", "middleNote": "Amberwood, Ambergris", "baseNote": "Resin Cemara, Cedar" },
@@ -464,35 +464,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Logika menampilkan aroma di berbagai halaman
-    const currentPage = window.location.pathname.split('/').pop();
+// Logika menampilkan aroma di berbagai halaman
+const currentPage = window.location.pathname.split('/').pop();
 
-    if (currentPage === 'index.html' || currentPage === '') { // Jika di halaman utama
-        // Tampilkan 12 aroma Karakter di index.html (diacak, tampilkan namaBesar)
-        if (document.getElementById('karakterAromaGrid')) {
-            const shuffledKarakter = shuffleArray(karakterAromas);
-            displayAromas(shuffledKarakter, 'karakterAromaGrid', 'namaBesar', 12); 
-        }
-        // Tampilkan 12 aroma Inspired di index.html (diacak, tampilkan namaKecil)
-        if (document.getElementById('inspiredAromaGrid')) {
-            const shuffledInspired = shuffleArray(inspiredAromas);
-            displayAromas(shuffledInspired, 'inspiredAromaGrid', 'namaKecil', 12);
-        }
-        // Tampilkan 12 Best Seller di index.html (TIDAK DIACAK, tampilkan namaKecil)
-        if (document.getElementById('bestSellerGrid')) {
-            displayAromas(bestSellers, 'bestSellerGrid', 'namaKecil', 12); // <-- Tanpa shuffle
-        }
-    } else if (currentPage === 'aroma-karakter.html') {
-        // Tampilkan SEMUA aroma Karakter di halaman khusus (diacak, tampilkan namaBesar)
-        if (document.getElementById('karakterAromaGridFull')) {
-            const shuffledKarakter = shuffleArray(karakterAromas);
-            displayAromas(shuffledKarakter, 'karakterAromaGridFull', 'namaBesar');
-        }
-    } else if (currentPage === 'aroma-inspired.html') {
-        // Tampilkan SEMUA aroma Inspired di halaman khusus (diacak, tampilkan namaKecil)
-        if (document.getElementById('inspiredAromaGridFull')) {
-            const shuffledInspired = shuffleArray(inspiredAromas);
-            displayAromas(shuffledInspired, 'inspiredAromaGridFull', 'namaKecil');
-        }
+if (currentPage === 'index.html' || currentPage === '') { // Jika di halaman utama
+    // Tampilkan 12 aroma Karakter di index.html (diacak, tampilkan namaBesar)
+    if (document.getElementById('karakterAromaGrid')) {
+        const shuffledKarakter = shuffleArray(karakterAromas); // TETAP DIACAK UNTUK HALAMAN UTAMA
+        displayAromas(shuffledKarakter, 'karakterAromaGrid', 'namaBesar', 12); 
     }
-});
+    // Tampilkan 12 aroma Inspired di index.html (diacak, tampilkan namaKecil)
+    if (document.getElementById('inspiredAromaGrid')) {
+        const shuffledInspired = shuffleArray(inspiredAromas); // TETAP DIACAK UNTUK HALAMAN UTAMA
+        displayAromas(shuffledInspired, 'inspiredAromaGrid', 'namaKecil', 12);
+    }
+    // Tampilkan 12 Best Seller di index.html (TIDAK DIACAK, tampilkan namaKecil)
+    if (document.getElementById('bestSellerGrid')) {
+        displayAromas(bestSellers, 'bestSellerGrid', 'namaKecil', 12); // <-- Tanpa shuffle
+    }
+} else if (currentPage === 'aroma-karakter.html') {
+    // Tampilkan SEMUA aroma Karakter di halaman khusus (URUTKAN ABJAD A-Z)
+    if (document.getElementById('karakterAromaGridFull')) {
+        // Urutkan aroma Karakter secara abjad berdasarkan namaBesar
+        const sortedKarakter = [...karakterAromas].sort((a, b) => {
+            const nameA = a.namaBesar.toLowerCase();
+            const nameB = b.namaBesar.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+        });
+        displayAromas(sortedKarakter, 'karakterAromaGridFull', 'namaBesar');
+    }
+} else if (currentPage === 'aroma-inspired.html') {
+    // Tampilkan SEMUA aroma Inspired di halaman khusus (URUTKAN ABJAD A-Z)
+    if (document.getElementById('inspiredAromaGridFull')) {
+        // Urutkan aroma Inspired secara abjad berdasarkan namaKecil
+        const sortedInspired = [...inspiredAromas].sort((a, b) => {
+            const nameA = a.namaKecil.toLowerCase();
+            const nameB = b.namaKecil.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+        });
+        displayAromas(sortedInspired, 'inspiredAromaGridFull', 'namaKecil');
+    }
+}
+    });
