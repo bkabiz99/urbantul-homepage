@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- LOGIC BARU UNTUK GAMBAR KELAS AROMA DI HALAMAN UTAMA (index.html) ---
     // Cek apakah ini halaman utama (asumsi index.html atau root path)
-    const isHomePage = window.location.pathname === '/' || window.location.pathname.includes('index.html');
+    const isHomePage = window.location.pathname === '/urbantul-homepage/' || window.location.pathname.includes('index.html');
 
     if (isHomePage) {
         const aromaClassItems = document.querySelectorAll('.aroma-class-item-main-page');
