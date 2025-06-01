@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Dior Sauvage": "dior s",
             "Dunhil Blue": "dunhill blue",
             "E.A. Black Man": "ea black man",
-            "E.A. Debut": "ea debut",
+            "E.A. Debut": "EA Debut",
             "Erost by Versace": "erost v",
             "HMNS Alpha": "hmns alpha",
             "Jaguar Visio": "jaguar visio",
