@@ -2,7 +2,7 @@
 
 // Definisi kategori aroma dan kata kunci yang terkait (Sudah disesuaikan ke Bahasa Indonesia)
 const aromaCategories = {
-    "Floral": ["mawar", "melati", "freesia", "peony", "lili", "gardenia", "sedap malam", "anggrek", "honeysuckle", "violet", "bunga jeruk", "magnolia", "bunga putih", "nuansa bunga", "pomarose", "mahonia", "iris", "cyclamen", "floral notes"],
+    "Floral": ["mawar", "melati", "freesia", "peony", "lili", "gardenia", "sedap malam", "anggreh", "honeysuckle", "violet", "bunga jeruk", "magnolia", "bunga putih", "nuansa bunga", "pomarose", "mahonia", "iris", "cyclamen", "floral notes"],
     "Citrus": ["bergamot", "lemon", "jeruk", "jeruk bali", "jeruk mandarin", "jeruk pahit", "tangerine", "neroli", "limau", "orange"],
     "Fruity": ["persik", "raspberry", "apel", "red berries", "black currant", "nanas", "mangga", "leci", "pir", "ceri", "plum", "jambu biji", "pisang", "markisa", "buah kering", "nuansa buah", "green apple", "peach"],
     "Sweet/Gourmand": ["vanila", "karamel", "cokelat", "madu", "kacang tonka", "kakao", "nuansa kue", "krim kocok", "nuansa es krim", "nuansa manis", "almond", "licorice", "konyak", "rum", "heliotrope", "vanilla", "sweet notes", "cake notes", "whipped cream", "ice cream notes"],
@@ -99,7 +99,6 @@ function displayAromasByClass(className) {
     const classCardElement = document.querySelector(`.class-card[data-category="${className}"]`);
     let displayCategoryName = className;
     if (classCardElement && classCardElement.querySelector('.class-name-banner')) {
-        // Ini mapping yang sudah ada untuk aroma-notes.html, kita biarkan saja.
         displayCategoryName = classCardElement.querySelector('.class-name-banner').textContent;
     }
 
@@ -130,7 +129,7 @@ const boosterAromaNos = [155, 156, 157, 158];
 
 function getBoosterAromas() {
     if (typeof karakterAromas === 'undefined' || !Array.isArray(karakterAromas)) {
-        console.error("Kesalahan: 'karakterAromas' tidak ditemukan atau bukan array. Pastikan script.js dimuat duluan.");
+        console.error("Kesalahan: 'karakterAmas' tidak ditemukan atau bukan array. Pastikan script.js dimuat duluan.");
         return [];
     }
     return karakterAromas.filter(aroma => boosterAromaNos.includes(aroma.no));
@@ -339,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .toLowerCase()
                     .replace(/ - /g, '-')
                     .replace(/ & /g, '-')
-                    .replace(/\s/g, '-')       
+                    .replace(/\s/g, '-')      
                     .replace(/[^a-z0-9-]/g, '')
                     .replace(/-+/g, '-');
 
@@ -356,4 +355,100 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- MULAI LOGIC BARU UNTUK best-sellers.html ---
+    if (window.location.pathname.includes('best-sellers.html')) {
+        const productCircleCards = document.querySelectorAll('.product-circle-card');
+        const imagePathBase = 'assets/best-sellers/'; // Path dasar ke folder best-sellers
+
+        // --- PENTING: MAPPING NAMA PARFUM DARI HTML KE NAMA FILE GAMBAR ---
+        // Ini adalah mapping manual karena nama di HTML tidak selalu 1:1 dengan nama file gambar.
+        // Pastikan nama di sisi kiri (key) SAMA PERSIS dengan teks di <p class="product-name">
+        // Dan nama di sisi kanan (value) SAMA PERSIS dengan AWALAN nama file gambar (tanpa .jpg)
+        const bestSellerImageFileNameMap = {
+            // --- KATEGORI CEWEK (Sudah disesuaikan dengan daftar Anda) ---
+            "Aqua Kiss": "aquaa kiss",
+            "Avril FBL": "avril",
+            "Black Opium": "black opiuum",
+            "Celindion Sensation": "celindion", 
+            "Guci Floral": "guci floral",
+            "Jlo Live Platinum": "jlo plat",
+            "Kayali Vanila": "kayali vanilla",
+            "Lanvin Marry Me": "lanvin",
+            "Miss Dior Blooming": "mdb",
+            "Giorgio Armani My Way": "my way",
+            "Nagita Slavina": "nagita",
+            "Peach Baby": "peach baby",
+            "Pink Chiffon": "pink chiffon",
+            "Pramugari Air": "Pramugari Air", // Ditambahkan: Key = "Pramugari Air", Value = "Pramugari Air" (sesuai nama file)
+            "VS Scandal": "scandal",
+            "VS So Sexy": "so sexy",
+            "VS Romance Wish": "VS Romance Wish", // Ditambahkan: Key = "VS Romance Wish", Value = "VS Romance Wish" (sesuai nama file)
+            "Taylor Swift": "taylor",
+            "Vanila Ice": "vanila ice",
+            "Zara Orchid": "zara orchid",
+
+            // --- KATEGORI COWOK (Dibiarkan seperti sebelumnya) ---
+            "Adidas Natural": "adidas n",
+            "Bacarat Aqua Unibersal": "bac aqua",
+            "Bacarat Rouge": "bac rouge",
+            "Blue Emotion": "blue emo",
+            "Bulgari Aquatic": "bulgari aquatic",
+            "Bulgari Extreme": "bulgari extreme",
+            "Charlie Yellow": "charlie y",
+            "D&G No. 3": "d&g no. 3",
+            "Dior Sauvage": "dior s",
+            "Dunhil Blue": "dunhill blue",
+            "E.A. Black Man": "ea black man",
+            "E.A. Debut": "ea debut",
+            "Erost by Versace": "erost v",
+            "HMNS Alpha": "hmns alpha",
+            "Jaguar Visio": "jaguar visio",
+            "Justin Bieber Someday": "jbs",
+            "Kenzo Bali": "kenzo bali",
+            "Lacoste Cool Play": "lacoste cool",
+            "One Direction": "one d",
+            "Zara Man": "zara man",
+        };
+
+        productCircleCards.forEach(card => {
+            const productNameElement = card.querySelector('.product-name');
+            const productCircleElement = card.querySelector('.product-circle');
+
+            if (productNameElement && productCircleElement) {
+                const productName = productNameElement.textContent.trim();
+                const imageFileName = bestSellerImageFileNameMap[productName];
+
+                // Tentukan folder berdasarkan parent section (cewek/cowok)
+                let genderFolder = '';
+                const parentCategorySection = card.closest('.best-seller-category');
+                if (parentCategorySection) {
+                    if (parentCategorySection.querySelector('.female-title')) {
+                        genderFolder = 'cewek/';
+                    } else if (parentCategorySection.querySelector('.male-title')) {
+                        genderFolder = 'cowok/';
+                    }
+                }
+
+                if (imageFileName && genderFolder) {
+                    const imageUrl = `${imagePathBase}${genderFolder}${imageFileName}.jpg`;
+
+                    productCircleElement.style.backgroundImage = `url('${imageUrl}')`;
+                    productCircleElement.style.backgroundSize = 'contain'; // *** UBAH DI SINI: DARI 'cover' MENJADI 'contain' ***
+                    productCircleElement.style.backgroundPosition = 'center'; // Tetap 'center'
+                    productCircleElement.style.backgroundRepeat = 'no-repeat'; // Tetap 'no-repeat'
+                    productCircleElement.style.backgroundColor = 'white'; // *** UBAH DI SINI: DARI 'transparent' MENJADI 'white' ***
+                    productCircleElement.style.overflow = 'hidden'; // Tetap 'hidden'
+                } else {
+                    // Opsi: Jika gambar tidak ditemukan, bisa tampilkan placeholder atau log peringatan
+                    console.warn(`Peringatan: Gambar tidak ditemukan untuk parfum "${productName}" di folder "${genderFolder}" atau folder gender tidak teridentifikasi.`);
+                    // Contoh: Menetapkan gambar placeholder jika tidak ditemukan
+                    // productCircleElement.style.backgroundImage = `url('assets/placeholders/placeholder.jpg')`;
+                    // productCircleElement.style.backgroundColor = '#f0f0f0';
+                }
+            }
+        });
+    }
+    // --- AKHIR LOGIC BARU UNTUK best-sellers.html ---
+
 });
