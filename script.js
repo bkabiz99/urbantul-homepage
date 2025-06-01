@@ -255,9 +255,9 @@ const inspiredAromas = [
     { no: 73, "namaKecil": "Esc. Soberto", "namaBesar": "Symbolina Scent", "topNote": "Nuansa Citrus, Nuansa Laut", "middleNote": "Freesia, Semangka", "baseNote": "Musk, Nuansa Kayu" },
     { no: 74, "namaKecil": "Espresso Coffee", "namaBesar": "Good Mood Scent", "topNote": "Kopi", "middleNote": "", "baseNote": "" },
     { no: 75, "namaKecil": "Ferrari Oud", "namaBesar": "Ferrari Oud", "topNote": "Bergamot, Lavender, Pala, Elemi", "middleNote": "Mawar, Anyelir, Kayu Manis, Agarwood (Oud)", "baseNote": "Nilam, Kulit, Vanila, Amber" },
-    { no: 76, "namaKecil": "GA Aqua Digio Man", "namaBesar": "Royality in a Bottle", "topNote": "Jeruk Nipis, Lemon, Bergamot, Melati, Jeruk, Jeruk Mandarin, Neroli", "middleNote": "Nuansa Laut, Melati, Calone, Rosemary, Persik, Freesia, Eceng Gondok, Cyclamen, Violet, Ketumbar, Mawar, Pala", "baseNote": "Musk Putih, Cedar, Lumut Ek, Nilam, Amber." },
-    { no: 77, "namaKecil": "GA Aqua Digio Perfume", "namaBesar": "GA Aqua Digio Perfume", "topNote": "Nuansa laut, bergamot", "middleNote": "rosemary, sage, geranium", "baseNote": "dupa, nilam" },
-    { no: 78, "namaKecil": "GA My Way", "namaBesar": "Scented Twilight", "topNote": "Bunga Jeruk, Bergamot", "middleNote": "Sedap malam, Melati India", "baseNote": "Vanila Madagaskar, Musk Putih, Cedar Virginia" },
+    { no: 76, "namaKecil": "Giorgio Armani Aqua Digio Man", "namaBesar": "Royality in a Bottle", "topNote": "Jeruk Nipis, Lemon, Bergamot, Melati, Jeruk, Jeruk Mandarin, Neroli", "middleNote": "Nuansa Laut, Melati, Calone, Rosemary, Persik, Freesia, Eceng Gondok, Cyclamen, Violet, Ketumbar, Mawar, Pala", "baseNote": "Musk Putih, Cedar, Lumut Ek, Nilam, Amber." },
+    { no: 77, "namaKecil": "Giorgio Armani Aqua Digio Perfume", "namaBesar": "GA Aqua Digio Perfume", "topNote": "Nuansa laut, bergamot", "middleNote": "rosemary, sage, geranium", "baseNote": "dupa, nilam" },
+    { no: 78, "namaKecil": "Giorgio Armani My Way", "namaBesar": "Scented Twilight", "topNote": "Bunga Jeruk, Bergamot", "middleNote": "Sedap malam, Melati India", "baseNote": "Vanila Madagaskar, Musk Putih, Cedar Virginia" },
     { no: 79, "namaKecil": "Grey Joyrose", "namaBesar": "Zethful", "topNote": "Jeruk Bali, Jeruk Mandarin", "middleNote": "Mawar, Melati, Kenanga", "baseNote": "Musk, Cendana, Vanila" },
     { no: 80, "namaKecil": "Gucci Bamboo", "namaBesar": "Whispering Forest", "topNote": "Bergamot", "middleNote": "Lili Casablanca, Kenanga, Bunga Jeruk", "baseNote": "Cendana, Vanila Tahiti, Amber" },
     { no: 81, "namaKecil": "Gucci Floral", "namaBesar": "Bouquet of Night", "topNote": "Nuansa Citrus, Nuansa Hijau", "middleNote": "Sedap malam, Melati, Honeysuckle", "baseNote": "Musk, Cendana, Nilam" },
@@ -380,18 +380,18 @@ const inspiredAromas = [
 
 // Data Best Sellers (BARU - Pastikan PROPERTI 'image' ADA dan PATH-nya BENAR)
 const bestSellers = [
-    { no: 1, namaBesar: "Victoria's Secret Scandal", namaKecil: "Vic. Sec. Scandal #1", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 2, namaBesar: "Avril Lavigne Forbidden Rose", namaKecil: "Avril Forbidden Love #2", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 3, namaBesar: "Vanilla Ice Cream", namaKecil: "Vanilla Ice #3", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 4, namaBesar: "Victoria's Secret So Sexy", namaKecil: "Vic. Sec. So Sexy #4", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 5, namaBesar: "Dunhill Blue", namaKecil: "Dunhill Blue #5", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 6, namaBesar: "Miss Dior Blooming Bouquet", namaKecil: "Miss Dior Blooming #6", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 7, namaBesar: "Elizabeth Arden Blue Emotion", namaKecil: "E.A. Blue Emotion #7", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 8, namaBesar: "Elizabeth Arden Debut", namaKecil: "E.A. Debut #8", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 9, namaBesar: "Taylor Swift Enchanted", namaKecil: "Taylor Swift #9", image: "assets/images/best-seller-placeholder.jpg" },
+    { no: 1, namaBesar: "Victoria's Secret Scandal", namaKecil: "Vic. Sec. Scandal #1", image: "assets/best-sellers/cewek/scandal.jpg" },
+    { no: 2, namaBesar: "Avril Lavigne Forbidden Rose", namaKecil: "Avril Forbidden Love #2", image: "assets/best-sellers/cewek/avril.jpg" },
+    { no: 3, namaBesar: "Vanilla Ice Cream", namaKecil: "Vanilla Ice #3", image: "assets/best-sellers/cewek/vanila ice.jpg" },
+    { no: 4, namaBesar: "Victoria's Secret So Sexy", namaKecil: "Vic. Sec. So Sexy #4", image: "assets/best-sellers/cewek/so sexy.jpg" },
+    { no: 5, namaBesar: "Dunhill Blue", namaKecil: "Dunhill Blue #5", image: "assets/best-sellers/cowok/dunhil blue.jpg" },
+    { no: 6, namaBesar: "Miss Dior Blooming Bouquet", namaKecil: "Miss Dior Blooming #6", image: "assets/best-sellers/cewek/mdb.jpg" },
+    { no: 7, namaBesar: "Elizabeth Arden Blue Emotion", namaKecil: "E.A. Blue Emotion #7", image: "assets/best-sellers/cowok/blue emo.jog" },
+    { no: 8, namaBesar: "Elizabeth Arden Debut", namaKecil: "E.A. Debut #8", image: "assets/best-sellers/cowok/EA Debut.jpg" },
+    { no: 9, namaBesar: "Taylor Swift Enchanted", namaKecil: "Taylor Swift #9", image: "assets/best-sellers/cewek/taylor.jpg" },
     { no: 10, namaBesar: "Guess Summer Yellow", namaKecil: "Guess Summer Yellow #10", image: "assets/images/best-seller-placeholder.jpg" },
     { no: 11, namaBesar: "VS Romance Wish", namaKecil: "VS Romance Wish #11", image: "assets/images/best-seller-placeholder.jpg" },
-    { no: 12, namaBesar: "One Direction Our Moment", namaKecil: "One Direction #12", image: "assets/images/best-seller-placeholder.jpg" }
+    { no: 12, namaBesar: "One Direction Our Moment", namaKecil: "One Direction #12", image: "assets/best-sellers/cowok/one d.jpg" }
 ];
 
 
