@@ -1,126 +1,102 @@
-    /* CSS Khusus untuk aroma-inspired.html */
+/* aroma-inspired-style.css */
 
-    .aroma-inspired-page-container {
-        padding: 20px;
-        max-width: 960px; /* Lebar maksimal agar menampung 4 kolom */
-        margin: 20px auto;
-        background-color: #FDF8F3;
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        text-align: center;
+.aroma-inspired-page-container {
+    padding: 20px;
+    max-width: 960px; /* Lebar maksimal agar menampung 4 kolom */
+    margin: 20px auto;
+    background-color: #FDF8F3;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.page-main-title { /* MENGUBAH NAMA CLASS DARI main-page-title ke page-main-title */
+    font-size: 28px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #8BC34A; /* Warna hijau dari palet */
+    padding: 10px 30px;
+    border-radius: 30px;
+    width: fit-content;
+    margin: 0 auto 40px auto; /* Margin disesuaikan agar sama dengan booster.html */
+    text-transform: uppercase;
+}
+
+.aroma-full-grid { /* Kelas ini digunakan untuk grid penuh di halaman khusus, mengadaptasi gaya booster-cards-grid */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom, lebar sama seperti booster */
+    gap: 20px; /* Jarak antar kartu */
+    max-width: 800px; /* Sesuaikan lebar maksimum grid seperti booster */
+    margin: 30px auto; /* Tengahkan grid seperti booster */
+    padding: 0 15px; /* Sedikit padding di samping seperti booster */
+    justify-content: center; /* Memastikan item terpusat */
+}
+
+.aroma-card { /* Mengadaptasi gaya booster-card */
+    width: 100%; /* Lebar card mengisi kolom */
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Konten di dalam card akan ditumpuk vertikal */
+    justify-content: space-between; /* Menjaga jarak antar konten */
+    align-items: center; /* Horisontal center semua item */
+    border-radius: 8px; /* Sudut membulat */
+    overflow: hidden; /* Pastikan konten tidak meluber */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333; /* Warna teks default */
+    padding: 20px; /* Padding di dalam card */
+    min-height: 250px; /* Ditinggikan agar ada ruang untuk gambar dan notes */
+    text-align: center; /* Tengahkan teks di dalam card */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar/tinggi */
+    background-color: #F8F8F8; /* Latar belakang kartu, bisa disesuaikan jika ingin warna berbeda untuk setiap kartu */
+}
+
+/* GAYA UNTUK GAMBAR DI DALAM CARD (seperti booster-card-image) */
+.aroma-card img { /* Menggunakan img tag, bukan background-image lagi */
+    max-width: 40%; /* Mengurangi lebar gambar relatif terhadap card, seperti booster */
+    height: auto; /* Jaga aspek rasio */
+    display: block; /* Agar margin auto bekerja untuk centering */
+    margin: 0 auto 15px auto; /* Tengahkan gambar dan beri jarak bawah ke notes */
+    object-fit: contain; /* Memastikan gambar sepenuhnya terlihat di dalam area tanpa terpotong */
+}
+
+/* GAYA UNTUK NAMA AROMA (nama kecil dan nama besar) */
+.aroma-card h3 {
+    font-size: 1.5em; /* Ukuran font lebih besar untuk nama kecil */
+    font-weight: bold;
+    margin-bottom: 5px; /* Jarak antara nama kecil dan nama besar */
+    color: #333;
+}
+
+/* GAYA UNTUK KOTAK KETERANGAN AROMA (aroma-notes) */
+/* Ini yang perlu kamu perbarui untuk meniru gaya booster-notes */
+.aroma-notes {
+    font-size: 0.85em; /* Ukuran font sesuai booster */
+    line-height: 1.4; /* Jarak baris sesuai booster */
+    text-align: center; /* Teks di tengah */
+    color: #555; /* Warna teks */
+    
+    /* === BAGIAN INI UNTUK Latar Belakang Lebih Terang === */
+    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang putih semi-transparan */
+    
+    padding: 10px; /* Padding di dalam kotak keterangan */
+    border-radius: 5px; /* Sudut membulat */
+    
+    /* Lebar notes, dikurangi padding total card (padding 20px kiri + 20px kanan = 40px) */
+    width: calc(100% - 40px); /* Ini agar notes memiliki lebar yang konsisten dengan padding card */
+    box-sizing: border-box; /* Pastikan padding dihitung di dalam lebar */
+    
+    margin-top: auto; /* Ini akan mendorong notes ke bagian bawah card jika ada ruang kosong */
+    margin-left: auto; /* Untuk menengahkan elemen div di dalam flex container */
+    margin-right: auto; /* Untuk menengahkan elemen div di dalam flex container */
+}
+
+/* Hapus aturan CSS ini karena sekarang kita menargetkan .aroma-notes sebagai satu blok */
+/* .aroma-card p { ... } */
+
+
+/* Responsif untuk layar yang lebih kecil (mengadaptasi media queries dari booster-style.css) */
+@media (max-width: 600px) {
+    .aroma-full-grid {
+        grid-template-columns: 1fr; /* 1 kolom */
     }
-
-    .main-page-title {
-        font-size: 28px;
-        font-weight: bold;
-        color: #FFFFFF;
-        background-color: #8BC34A; /* Warna hijau dari palet */
-        padding: 10px 30px;
-        border-radius: 30px;
-        width: fit-content;
-        margin: 0 auto 40px auto;
-        text-transform: uppercase;
-    }
-
-    .aroma-full-grid { /* Kelas ini digunakan untuk grid penuh di halaman khusus */
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 20px; /* Jarak antar kartu */
-        justify-content: center;
-        padding: 10px;
-    }
-
-    .aroma-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px; /* Padding di dalam kartu */
-        border-radius: 15px; /* Sudut membulat untuk kartu */
-        background-color: #F8F8F8; /* Latar belakang kartu */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Bayangan lembut */
-        overflow: hidden;
-    }
-
-    .aroma-icon {
-        width: 100%; /* Agar memenuhi lebar kartu */
-        height: 120px; /* Tinggi untuk area gambar */
-        background-color: #D3D3D3; /* Placeholder abu-abu */
-        border-radius: 10px; /* Sedikit membulat pada sudut gambar */
-        margin-bottom: 10px;
-        background-size: cover;
-        background-position: center;
-        /* Anda bisa tambahkan background-image di sini jika punya gambar spesifik untuk setiap aroma */
-    }
-
-    .aroma-name {
-        font-size: 15px;
-        color: #7e7e7e;
-        font-weight: bold;
-        margin: 0;
-        text-transform: capitalize;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100%;
-    }
-
-    /* Responsif untuk layar yang lebih kecil */
-    @media (max-width: 992px) {
-        .aroma-full-grid {
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .aroma-inspired-page-container {
-            padding: 15px;
-            margin: 15px auto;
-        }
-
-        .main-page-title {
-            font-size: 24px;
-            padding: 8px 25px;
-            margin-bottom: 30px;
-        }
-
-        .aroma-full-grid {
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
-        }
-
-        .aroma-icon {
-            height: 100px;
-        }
-
-        .aroma-name {
-            font-size: 14px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .aroma-inspired-page-container {
-            padding: 10px;
-            margin: 10px auto;
-        }
-
-        .main-page-title {
-            font-size: 20px;
-            padding: 6px 20px;
-            margin-bottom: 25px;
-        }
-
-        .aroma-full-grid {
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-        }
-
-        .aroma-icon {
-            height: 80px;
-        }
-
-        .aroma-name {
-            font-size: 12px;
-        }
-    }
+}
