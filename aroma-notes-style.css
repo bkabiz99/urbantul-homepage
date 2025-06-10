@@ -137,4 +137,38 @@
         padding: 6px 15px;
         border-radius: 15px;
     }
+
+/* --- Desain Khusus untuk Kartu "Lain-lain" --- */
+/* Target class-block di dalam class-card dengan data-category="Miscellaneous" */
+.class-card[data-category="Miscellaneous"] .class-block {
+    background-color: #a0a0a0; /* Contoh: abu-abu netral */
+    /* Jika ingin menambahkan ikon FontAwesome atau teks simbol, bisa pakai pseudo-element */
+    /* content: '?'; */ /* Contoh: tanda tanya jika tidak ada gambar */
+    /* font-size: 50px; */
+    /* color: white; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+/* Opsi: Jika Anda ingin latar belakangnya transparan dan mengandalkan hanya warna kartu */
+/* Anda bisa menghapus atau mengomentari background-color di atas dan biarkan JavaScript yang mengatur gambar jika ada */
+
+/* Pastikan class-name-banner tetap terbaca di atas warna ini */
+.class-card[data-category="Miscellaneous"] .class-name-banner {
+    color: #333; /* Warna teks yang kontras */
+    background-color: #f0f0f0; /* Latar belakang untuk teks "Lain-lain" */
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px; /* Jarak dari kotak atas */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Jika Anda berencana menambahkan gambar untuk "Miscellaneous" nanti,
+   maka kode JavaScript yang sudah ada akan otomatis menimpa background-color ini
+   dengan gambar yang Anda definisikan di aromaNotesImageFileNameMap.
+   Jadi, aturan CSS ini akan menjadi fallback yang baik.
+*/
+
+
 }
