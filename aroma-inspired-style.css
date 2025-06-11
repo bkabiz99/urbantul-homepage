@@ -1,8 +1,9 @@
-/* aroma-inspired-style.css */
+/* aroma-inspired-style.css (di root utama, seperti yang Anda jelaskan) */
 
+/* Container utama halaman */
 .aroma-inspired-page-container {
     padding: 20px;
-    max-width: 960px; /* Lebar maksimal agar menampung 4 kolom */
+    max-width: 960px; /* Lebar maksimal keseluruhan halaman */
     margin: 20px auto;
     background-color: #FDF8F3;
     border-radius: 15px;
@@ -10,93 +11,132 @@
     text-align: center;
 }
 
-.page-main-title { /* MENGUBAH NAMA CLASS DARI main-page-title ke page-main-title */
+/* Judul utama halaman */
+.page-main-title {
     font-size: 28px;
     font-weight: bold;
     color: #FFFFFF;
-    background-color: #8BC34A; /* Warna hijau dari palet */
+    background-color: #8BC34A; /* Warna hijau dari palet Anda */
     padding: 10px 30px;
     border-radius: 30px;
     width: fit-content;
-    margin: 0 auto 40px auto; /* Margin disesuaikan agar sama dengan booster.html */
+    margin: 0 auto 40px auto;
     text-transform: uppercase;
 }
 
-.aroma-full-grid { /* Kelas ini digunakan untuk grid penuh di halaman khusus, mengadaptasi gaya booster-cards-grid */
+/* KUNCI: Kontainer Grid untuk Kartu Aroma */
+.aroma-full-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom, lebar sama seperti booster */
+    /* Default: 2 kolom untuk tampilan yang Anda inginkan dari gambar */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px; /* Jarak antar kartu */
-    max-width: 800px; /* Sesuaikan lebar maksimum grid seperti booster */
-    margin: 30px auto; /* Tengahkan grid seperti booster */
-    padding: 0 15px; /* Sedikit padding di samping seperti booster */
-    justify-content: center; /* Memastikan item terpusat */
+    max-width: 800px; /* Lebar maksimal grid agar cocok dengan 2 kolom */
+    margin: 30px auto; /* Tengahkan grid */
+    padding: 0 15px; /* Sedikit padding di samping */
+    /* Pastikan item grid mengisi seluruh tinggi sel mereka untuk tinggi seragam */
+    align-items: stretch; /* Penting untuk menyeragamkan tinggi baris */
 }
 
-.aroma-card { /* Mengadaptasi gaya booster-card */
-    width: 100%; /* Lebar card mengisi kolom */
+/* KARTU AROMA INDIVIDUAL */
+.aroma-card {
+    width: 100%; /* Kartu mengisi lebar kolom grid */
     position: relative;
     display: flex;
-    flex-direction: column; /* Konten di dalam card akan ditumpuk vertikal */
-    justify-content: space-between; /* Menjaga jarak antar konten */
+    flex-direction: column; /* Konten di dalam kartu ditumpuk vertikal */
     align-items: center; /* Horisontal center semua item */
-    border-radius: 8px; /* Sudut membulat */
-    overflow: hidden; /* Pastikan konten tidak meluber */
+    justify-content: flex-start; /* Konten dimulai dari atas */
+    border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333; /* Warna teks default */
-    padding: 20px; /* Padding di dalam card */
-    min-height: 250px; /* Ditinggikan agar ada ruang untuk gambar dan notes */
-    text-align: center; /* Tengahkan teks di dalam card */
-    box-sizing: border-box; /* Pastikan padding tidak menambah lebar/tinggi */
-    background-color: #F8F8F8; /* Latar belakang kartu, bisa disesuaikan jika ingin warna berbeda untuk setiap kartu */
+    color: #333;
+    padding: 20px;
+    /* Hapus min-height di sini. Biarkan grid mengatur tinggi seragam. */
+    text-align: center;
+    box-sizing: border-box;
+    /* Background color default, akan di-override oleh JS melalui kelas kategori */
+    background-color: #F8F8F8;
+    /* Tambahkan transition untuk efek halus saat hover atau perubahan warna */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* GAYA UNTUK GAMBAR DI DALAM CARD (seperti booster-card-image) */
-.aroma-card img { /* Menggunakan img tag, bukan background-image lagi */
-    max-width: 40%; /* Mengurangi lebar gambar relatif terhadap card, seperti booster */
-    height: auto; /* Jaga aspek rasio */
-    display: block; /* Agar margin auto bekerja untuk centering */
-    margin: 0 auto 15px auto; /* Tengahkan gambar dan beri jarak bawah ke notes */
-    object-fit: contain; /* Memastikan gambar sepenuhnya terlihat di dalam area tanpa terpotong */
+.aroma-card:hover {
+    transform: translateY(-5px); /* Efek naik sedikit saat di-hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* GAYA UNTUK NAMA AROMA (nama kecil dan nama besar) */
+/* GAYA WARNA LATAR BELAKANG KARTU BERDASARKAN KATEGORI DOMINAN */
+/* PENTING: ISI DENGAN KODE WARNA PASTEL ANDA UNTUK SETIAP KATEGORI! */
+/* Ini akan menggantikan warna acak sebelumnya */
+.aroma-card.category-jeruk { background-color: #FFEBDA; } /* Contoh: Oranye muda/krem */
+.aroma-card.category-buah { background-color: #FDDCDC; } /* Contoh: Merah muda muda */
+.aroma-card.category-bunga { background-color: #FFF7DD; } /* Contoh: Kuning muda/krem */
+.aroma-card.category-rempah { background-color: #EDEBDA; } /* Contoh: Coklat muda/krem */
+.aroma-card.category-manis { background-color: #DCEEFD; } /* Contoh: Biru muda */
+.aroma-card.category-kayu { background-color: #E0F5E0; } /* Contoh: Hijau muda */
+.aroma-card.category-musk-amber { background-color: #E4DCDC; } /* Contoh: Abu-abu muda/krem */
+.aroma-card.category-segar-bersih { background-color: #E0DEF7; } /* Contoh: Ungu muda */
+.aroma-card.category-kopi-tembakau { background-color: #F7F7DD; } /* Contoh: Agak gelap, bisa disesuaikan */
+.aroma-card.category-kulit { background-color: #DDE0F5; } /* Contoh: Coklat pucat */
+.aroma-card.category-bedak { background-color: #FFF7DD; } /* Contoh: Kuning muda, bisa diubah */
+.aroma-card.category-resin-balsam { background-color: #EDEBDA; } /* Contoh: Coklat muda, bisa diubah */
+.aroma-card.category-akuatik-ozonic { background-color: #DCEEFD; } /* Contoh: Biru muda, bisa diubah */
+.aroma-card.category-hijau { background-color: #E0F5E0; } /* Contoh: Hijau muda, bisa diubah */
+.aroma-card.category-aromatik-herbal { background-color: #FFF7DD; } /* Contoh: Kuning muda, bisa diubah */
+.aroma-card.category-minuman { background-color: #FFEBDA; } /* Contoh: Sama dengan jeruk */
+.aroma-card.category-aroma-alam { background-color: #E0F5E0; } /* Contoh: Sama dengan kayu */
+.aroma-card.category-oud { background-color: #EDEBDA; } /* Contoh: Sama dengan rempah */
+.aroma-card.category-hewan { background-color: #E4DCDC; } /* Contoh: Sama dengan musk */
+.aroma-card.category-lain-lain { background-color: #F8F8F8; } /* Default fallback jika tidak ada kategori */
+
+
+/* GAYA UNTUK GAMBAR DI DALAM KARTU */
+.aroma-card img {
+    max-width: 60%; /* Sesuaikan ukuran gambar */
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto;
+    object-fit: contain;
+}
+
+/* GAYA UNTUK NAMA AROMA */
 .aroma-card h3 {
-    font-size: 1.5em; /* Ukuran font lebih besar untuk nama kecil */
+    font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 5px; /* Jarak antara nama kecil dan nama besar */
+    margin-bottom: 5px;
     color: #333;
 }
 
-/* GAYA UNTUK KOTAK KETERANGAN AROMA (aroma-notes) */
-/* Ini yang perlu kamu perbarui untuk meniru gaya booster-notes */
+/* GAYA UNTUK KOTAK KETERANGAN AROMA (kelas, notes) */
 .aroma-notes {
-    font-size: 0.85em; /* Ukuran font sesuai booster */
-    line-height: 1.4; /* Jarak baris sesuai booster */
-    text-align: center; /* Teks di tengah */
-    color: #555; /* Warna teks */
-    
-    /* === BAGIAN INI UNTUK Latar Belakang Lebih Terang === */
-    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang putih semi-transparan */
-    
-    padding: 10px; /* Padding di dalam kotak keterangan */
-    border-radius: 5px; /* Sudut membulat */
-    
-    /* Lebar notes, dikurangi padding total card (padding 20px kiri + 20px kanan = 40px) */
-    width: calc(100% - 40px); /* Ini agar notes memiliki lebar yang konsisten dengan padding card */
-    box-sizing: border-box; /* Pastikan padding dihitung di dalam lebar */
-    
-    margin-top: auto; /* Ini akan mendorong notes ke bagian bawah card jika ada ruang kosong */
-    margin-left: auto; /* Untuk menengahkan elemen div di dalam flex container */
-    margin-right: auto; /* Untuk menengahkan elemen div di dalam flex container */
+    font-size: 0.85em;
+    line-height: 1.4;
+    text-align: center;
+    color: #555;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(100% - 20px); /* Memastikan lebar notes di dalam padding card */
+    box-sizing: border-box;
+    margin-top: auto; /* Ini akan mendorong notes ke bagian bawah card jika ada ruang kosong, menjaga gambar dan judul di atas */
 }
 
-/* Hapus aturan CSS ini karena sekarang kita menargetkan .aroma-notes sebagai satu blok */
-/* .aroma-card p { ... } */
 
-
-/* Responsif untuk layar yang lebih kecil (mengadaptasi media queries dari booster-style.css) */
-@media (max-width: 600px) {
+/* MEDIA QUERIES (RESPONSIVITAS) */
+/* Untuk layar yang lebih kecil */
+@media (max-width: 768px) { /* Untuk layar tablet, tetap 2 kolom */
     .aroma-full-grid {
-        grid-template-columns: 1fr; /* 1 kolom */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) { /* Untuk layar mobile, 1 kolom */
+    .aroma-full-grid {
+        grid-template-columns: 1fr;
+    }
+    .aroma-card {
+        padding: 15px; /* Kurangi padding di mobile */
+    }
+    .aroma-card img {
+        max-width: 60%; /* Sesuaikan ukuran gambar */
     }
 }
