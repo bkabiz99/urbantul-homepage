@@ -1,82 +1,89 @@
 /* CSS Khusus untuk aroma-classes.html */
 
+/* Container utama halaman */
 .aroma-classes-page-container {
     padding: 30px 20px; /* Lebih banyak padding atas bawah */
-    max-width: 900px; /* Sesuaikan lebar agar 3 kolom pas */
-    margin: 20px auto;
+    max-width: 900px; /* Lebar maksimum container */
+    margin: 20px auto; /* Pusatkan container dengan margin otomatis */
     background-color: #FDF8F3; /* Warna krem/putih tulang */
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    text-align: center;
+    border-radius: 15px; /* Sudut membulat */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sedikit bayangan */
+    text-align: center; /* Pusatkan teks di dalam container */
 }
 
+/* Judul utama halaman */
 .page-main-title {
     font-size: 32px;
     font-weight: bold;
-    color: #FFFFFF;
-    background-color: #fe9843; /* Warna oren */
+    color: #FFFFFF; /* Warna teks putih */
+    background-color: #fe9843; /* Warna oranye */
     padding: 12px 40px;
-    border-radius: 30px;
-    width: fit-content;
-    margin: 0 auto 50px auto; /* Jarak bawah lebih besar */
-    text-transform: uppercase;
+    border-radius: 30px; /* Sudut sangat membulat */
+    width: fit-content; /* Lebar menyesuaikan konten */
+    margin: 0 auto 50px auto; /* Pusatkan horizontal, jarak bawah lebih besar */
+    text-transform: uppercase; /* Huruf kapital semua */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sedikit bayangan untuk judul utama */
 }
 
+/* Grid untuk kartu-kartu aroma */
 .aroma-classes-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom sama lebar */
     gap: 30px; /* Jarak antar kartu */
-    justify-items: center; /* Pusatkan item di setiap grid cell */
-    align-items: start; /* Mulai dari atas di setiap cell */
+    justify-items: center; /* Pusatkan item di setiap grid cell secara horizontal */
+    align-items: start; /* Mulai item dari atas di setiap grid cell secara vertikal */
 }
 
+/* Struktur dasar kartu kelas aroma */
 .class-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Pusatkan item di dalam kartu */
     text-align: center;
-    width: 100%; /* Agar memenuhi ruang grid */
-    max-width: 180px; /* Batasi lebar maksimum per kartu jika perlu */
+    width: 100%; /* Agar memenuhi ruang grid yang tersedia */
+    max-width: 180px; /* Batasi lebar maksimum per kartu agar tidak terlalu besar */
 }
 
+/* Blok hijau di bagian atas kartu */
 .class-block {
     width: 140px; /* Lebar blok hijau */
     height: 140px; /* Tinggi blok hijau */
     background-color: #8BC34A; /* Warna hijau dari palet */
     border-radius: 20px; /* Sudut membulat */
-    position: relative; /* Untuk menyesuaikan bentuk */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative; /* Penting untuk clip-path atau posisi elemen lain di dalamnya */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Bayangan */
     margin-bottom: 20px; /* Jarak antara blok dan nama */
 
     /* Bentuk lekukan di tengah (seperti di gambar) */
+    /* Ini akan membuat bentuk oktagon dengan sudut yang sedikit masuk ke dalam */
     clip-path: polygon(
         0% 10%, 10% 0%, 90% 0%, 100% 10%,
         100% 90%, 90% 100%, 10% 100%, 0% 90%
     );
-    /* Atau lebih kompleks jika ingin persis lekukan di gambar, contoh lain: */
-    /* clip-path: polygon(0% 15%, 15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%); */
-    /* Untuk tampilan yang mirip tiket, bisa gunakan properti border-image atau SVG */
-    /* Untuk kesederhanaan, saya menggunakan clip-path yang mirip "bevel" */
+    /* Jika Anda ingin bentuk yang lebih spesifik seperti tiket atau lekukan yang lebih melengkung,
+        mungkin perlu SVG atau kombinasi pseudo-element dengan border-radius.
+        Namun, clip-path ini sudah memberikan efek visual yang menarik. */
 }
 
-
+/* Banner nama kelas di bawah blok hijau */
 .class-name-banner {
-    background-color: #fe9843; /* Warna oren */
-    color: #FFFFFF;
+    background-color: #fe9843; /* Warna oranye */
+    color: #FFFFFF; /* Warna teks putih */
     font-size: 16px;
     font-weight: bold;
     padding: 8px 20px;
     border-radius: 20px; /* Sudut membulat */
-    width: fit-content;
-    white-space: nowrap; /* Pastikan teks tidak terputus */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Tambahkan elipsis jika teks terlalu panjang */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-transform: uppercase;
+    width: fit-content; /* Lebar menyesuaikan konten teks */
+    white-space: nowrap; /* Mencegah teks patah baris */
+    overflow: hidden; /* Sembunyikan jika teks terlalu panjang */
+    text-overflow: ellipsis; /* Tambahkan elipsis (...) jika teks terlalu panjang */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan kecil */
+    text-transform: uppercase; /* Huruf kapital semua */
 }
 
-/* Responsif */
+/* --- Media Queries untuk Responsif --- */
+
+/* Untuk layar tablet (misalnya, lebar maksimum 768px) */
 @media (max-width: 768px) {
     .aroma-classes-page-container {
         padding: 20px 15px;
@@ -90,7 +97,7 @@
     }
 
     .aroma-classes-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet/mobile */
+        grid-template-columns: repeat(2, 1fr); /* Ubah menjadi 2 kolom */
         gap: 20px;
     }
 
@@ -108,6 +115,7 @@
     }
 }
 
+/* Untuk layar mobile (misalnya, lebar maksimum 480px) */
 @media (max-width: 480px) {
     .aroma-classes-page-container {
         padding: 15px 10px;
@@ -121,7 +129,7 @@
     }
 
     .aroma-classes-grid {
-        grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom */
+        grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom untuk mobile */
         gap: 15px;
     }
 
@@ -137,38 +145,196 @@
         padding: 6px 15px;
         border-radius: 15px;
     }
-
-/* --- Desain Khusus untuk Kartu "Lain-lain" --- */
-/* Target class-block di dalam class-card dengan data-category="Miscellaneous" */
-.class-card[data-category="Miscellaneous"] .class-block {
-    background-color: #a0a0a0; /* Contoh: abu-abu netral */
-    /* Jika ingin menambahkan ikon FontAwesome atau teks simbol, bisa pakai pseudo-element */
-    /* content: '?'; */ /* Contoh: tanda tanya jika tidak ada gambar */
-    /* font-size: 50px; */
-    /* color: white; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 
-/* Opsi: Jika Anda ingin latar belakangnya transparan dan mengandalkan hanya warna kartu */
-/* Anda bisa menghapus atau mengomentari background-color di atas dan biarkan JavaScript yang mengatur gambar jika ada */
+/* --- Desain Khusus untuk Kartu "Lain-lain" (Miscellaneous) --- */
+/* Target class-block di dalam class-card dengan data-category="Miscellaneous" */
+.class-card[data-category="Miscellaneous"] .class-block {
+    background-color: #a0a0a0; /* Contoh: abu-abu netral untuk kategori "Lain-lain" */
+    /* Jika ingin menambahkan ikon FontAwesome atau teks simbol ke dalam blok ini,
+        Anda bisa menggunakan pseudo-element ::before atau ::after pada .class-block
+        dan mengatur `content`, `font-family`, `font-size`, dll. */
+}
 
 /* Pastikan class-name-banner tetap terbaca di atas warna ini */
 .class-card[data-category="Miscellaneous"] .class-name-banner {
     color: #333; /* Warna teks yang kontras */
-    background-color: #f0f0f0; /* Latar belakang untuk teks "Lain-lain" */
+    background-color: #f0f0f0; /* Latar belakang lebih terang untuk teks "Lain-lain" */
     border-radius: 5px;
     padding: 5px 10px;
     margin-top: 10px; /* Jarak dari kotak atas */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Jika Anda berencana menambahkan gambar untuk "Miscellaneous" nanti,
-   maka kode JavaScript yang sudah ada akan otomatis menimpa background-color ini
-   dengan gambar yang Anda definisikan di aromaNotesImageFileNameMap.
-   Jadi, aturan CSS ini akan menjadi fallback yang baik.
-*/
+/* Jika Anda berencana menambahkan gambar untuk "Miscellaneous" nanti melalui JavaScript,
+    maka kode JavaScript yang sudah ada akan otomatis menimpa background-color ini
+    dengan gambar yang Anda definisikan di aromaNotesImageFileNameMap.
+    Jadi, aturan CSS ini akan menjadi fallback yang baik. */
+
+/* --- Bagian popup overlay dan container --- */
+.aroma-popup-overlay {
+    position: fixed; /* Tetap pada posisi viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap transparan */
+    display: none; /* Sembunyikan secara default, akan diubah oleh JavaScript */
+    justify-content: center; /* Pusatkan konten popup secara horizontal */
+    align-items: center; /* Pusatkan konten popup secara vertikal */
+    z-index: 1000; /* Pastikan di atas elemen lain */
+    backdrop-filter: blur(5px); /* Efek blur pada latar belakang, opsional */
+}
+
+.aroma-popup-content {
+    background-color: #FDF8F3; /* Konten popup utama putih */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Bayangan yang lebih menonjol */
+    width: 90%;
+    max-width: 900px; /* Lebar maksimum konten popup */
+    max-height: 90vh; /* Tinggi maksimum relatif terhadap viewport height */
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Untuk posisi tombol close */
+    overflow-y: auto; /* Aktifkan scroll vertikal jika kontennya terlalu banyak */
+}
+
+.aroma-popup-content h3 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.close-popup-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s; /* Animasi saat hover */
+    z-index: 1001; /* Pastikan tombol X di atas konten lain di dalam popup */
+}
+
+.close-popup-button:hover {
+    color: #000;
+}
+
+/* --- Bagian container aroma di dalam popup (horizontal scroll) --- */
+.aroma-list-container {
+    display: flex; /* Mengatur item secara horizontal */
+    overflow-x: auto; /* Aktifkan horizontal scroll jika konten melebihi lebar */
+    gap: 20px; /* Jarak antar kartu aroma */
+    padding: 10px 0; /* Padding vertikal untuk kartu */
+    -webkit-overflow-scrolling: touch; /* Meningkatkan performa scroll di iOS */
+    scrollbar-width: thin; /* Firefox: scrollbar tipis */
+    scrollbar-color: #f0f0f0 transparent; /* Firefox: warna scrollbar */
+    align-items: flex-start; /* Penting: agar kartu sejajar di bagian atas container */
+}
+
+/* Sembunyikan scrollbar di Webkit (Chrome, Safari) */
+.aroma-list-container::-webkit-scrollbar {
+    height: 8px; /* Tinggi scrollbar */
+    background-color: transparent; /* Latar belakang transparan */
+}
+
+.aroma-list-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Warna thumb scrollbar */
+    border-radius: 10px;
+}
+
+.aroma-list-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Desain Kartu Aroma di dalam Popup --- */
+/* (Selektor ini masih tetap karena spesifik untuk styling di popup) */
+.aroma-card-in-popup {
+    flex: 0 0 auto; /* Penting: mencegah kartu mengecil dan memenuhi lebar tetap */
+    width: 200px; /* Lebar tetap untuk setiap kartu aroma */
+    min-width: 200px; /* Pastikan tidak mengecil */
+    height: auto; /* Tinggi akan menyesuaikan konten */
+    padding: 15px;
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sedikit bayangan */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Untuk meratakan konten secara vertikal */
+    color: #333; /* Warna teks default */
+    border: none; /* Hapus border */
+    position: relative; /* Untuk positioning teks atau elemen lain */
+    transition: transform 0.2s ease-in-out; /* Animasi saat hover */
+}
+
+.aroma-card-in-popup:hover {
+    transform: translateY(-5px); /* Efek melayang saat hover */
+}
+
+.aroma-card-in-popup strong {
+    font-size: 1.2em; /* Lebih besar untuk nama utama */
+    color: inherit; /* Warisi warna dari parent (aroma-card-in-popup) */
+    margin-bottom: 5px;
+    display: block; /* Pastikan nama aroma di barisnya sendiri */
+    font-weight: bold; /* Lebih tebal */
+}
+
+.aroma-card-in-popup .scent-original {
+    font-style: italic;
+    font-size: 0.9em;
+    color: inherit; /* Warisi warna */
+    margin-bottom: 10px;
+    display: block;
+}
+
+.aroma-card-in-popup small {
+    display: block;
+    font-size: 0.85em;
+    color: inherit; /* Warisi warna */
+    line-height: 1.4; /* Jarak antar baris */
+    margin-top: 5px;
+}
+
+/* --- Warna Latar Belakang Kartu Aroma (Digeneralisasi) --- */
+/* Selektor diubah dari ".aroma-card-in-popup.category-XYZ" menjadi ".category-XYZ"
+   agar berlaku untuk semua elemen dengan kelas kategori tersebut, termasuk aroma-card
+   di halaman inspired. */
+
+.category-Floral { background-color: #ffe0f0; } /* Pink muda */
+.category-Citrus { background-color: #fffacd; } /* Kuning lemon */
+.category-Fruity { background-color: #ffe6e0; } /* Oranye muda */
+.category-Sweet-Gourmand { background-color: #f7e6cc; } /* Creamy */
+.category-Woody { background-color: #e0d0c0; } /* Coklat kayu */
+.category-Spicy { background-color: #f0d0c0; } /* Coklat kemerahan */
+.category-Musk-Amber { background-color: #e6e6e6; } /* Abu-abu muda */
+.category-Fresh-Clean { background-color: #e0f8ff; } /* Biru langit muda */
+.category-Coffee-Tobacco { background-color: #d2b48c; } /* Tan */
+.category-Leather { background-color: #c9a997; } /* Coklat kulit */
+.category-Powdery { background-color: #f0e6fa; } /* Ungu muda */
+.category-Resin-Balsamic { background-color: #eeddcc; } /* Oranye kecoklatan */
+.category-Aquatic-Ozonic { background-color: #e0f2f7; } /* Biru air */
+.category-Green { background-color: #e0ffe0; } /* Hijau muda */
+.category-Aromatic-Herbal { background-color: #f0fff0; } /* Hijau daun */
+.category-Miscellaneous { background-color: #f5f5f5; } /* Abu-abu sangat muda */
 
 
+/* Responsif untuk popup */
+@media (max-width: 768px) {
+    .aroma-popup-content {
+        width: 95%; /* Lebih lebar di layar tablet */
+        padding: 15px;
+    }
+    .aroma-card-in-popup {
+        width: 160px; /* Lebih kecil untuk mobile/tablet */
+        min-width: 160px;
+        padding: 10px;
+        font-size: 0.9em; /* Ukuran font sedikit lebih kecil */
+    }
+    .aroma-card-in-popup strong {
+        font-size: 1.1em; /* Ukuran font nama aroma sedikit lebih kecil */
+    }
 }
