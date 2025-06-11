@@ -255,8 +255,12 @@ document.addEventListener('DOMContentLoaded', () => {
             'Musk/Amber': 'hewan',
             'Coffee/Tobacco': 'minuman',
             'Green': 'alam',
-            'Miscellaneous': 'lain-lain' // Tambahan mapping untuk gambar Miscellaneous
-        };
+            'Fresh/Clean': 'segar-bersih', // Asumsi nama file: segar-bersih.jpg
+            'Leather': 'kulit',           // Asumsi nama file: kulit.jpg
+            'Powdery': 'bedak',           // Asumsi nama file: bedak.jpg
+            'Aquatic/Ozonic': 'akuatik',  // Asumsi nama file: akuatik.jpg
+            'Miscellaneous': 'lain-lain'
+};
 
         classCards.forEach(card => {
             const dataCategory = card.dataset.category; // Ambil nilai data-category
