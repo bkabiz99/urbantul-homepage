@@ -18,6 +18,10 @@ function displayAromas(aromas, containerId, nameProperty = 'namaBesar', limit = 
 
     const aromasToDisplay = aromas.slice(0, limit);
 
+    const imagePathPrefixInspired = 'assets/aromaInspired/'; // Prefix untuk gambar Inspired
+    const imagePathPrefixKarakter = 'assets/aromaKarakter/'; // Prefix untuk gambar Karakter (jika ada)
+    const imagePathPrefixBestSeller = 'assets/bestSellers/'; // Prefix untuk gambar Best Seller (jika ada)
+
     aromasToDisplay.forEach(aroma => {
         const aromaCard = document.createElement('div');
         // Untuk best seller, kita ingin class 'product-card'
@@ -28,15 +32,26 @@ function displayAromas(aromas, containerId, nameProperty = 'namaBesar', limit = 
         const aromaImageContainer = document.createElement('div');
         if (containerId.includes('bestSellerGrid')) {
             aromaImageContainer.classList.add('product-image'); // Untuk Best Seller
+            // Menggunakan properti 'image' jika tersedia, jika tidak, fall back ke 'no'
+            const imageUrl = aroma.image ? aroma.image : `${imagePathPrefixBestSeller}${aroma.no}.jpg`; 
+            aromaImageContainer.style.backgroundImage = `url('${imageUrl}')`;
         } else {
             aromaImageContainer.classList.add('aroma-icon'); // Untuk Karakter/Inspired
+            let imageUrl;
+            if (containerId.includes('inspiredAromaGrid')) {
+                // Untuk Aroma Inspired, gunakan 'no' dari data dan prefix yang benar
+                imageUrl = `${imagePathPrefixInspired}${aroma.no}.jpg`; 
+            } else if (containerId.includes('karakterAromaGrid')) {
+                // Untuk Aroma Karakter, gunakan 'no' atau properti gambar lain jika ada
+                imageUrl = `${imagePathPrefixKarakter}${aroma.no}.jpg`; // Asumsi ada gambar untuk karakter juga
+            } else {
+                imageUrl = 'assets/images/placeholder.jpg'; // Gambar placeholder jika tidak ada
+            }
+            aromaImageContainer.style.backgroundImage = `url('${imageUrl}')`;
         }
         
-        if (aroma.image) {
-            aromaImageContainer.style.backgroundImage = `url('${aroma.image}')`;
-            aromaImageContainer.style.backgroundSize = 'cover'; // Pastikan gambar menutupi area
-            aromaImageContainer.style.backgroundPosition = 'center'; // Pusatkan gambar
-        }
+        aromaImageContainer.style.backgroundSize = 'cover'; // Pastikan gambar menutupi area
+        aromaImageContainer.style.backgroundPosition = 'center'; // Pusatkan gambar
 
         const aromaName = document.createElement('p');
         // Untuk nama, kita juga perlu menyesuaikan class-nya
