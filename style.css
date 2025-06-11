@@ -4,6 +4,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #FDF8F3;
     color: #7e7e7e;
+    /* Tambahan untuk memberi ruang di atas agar konten tidak tertutup header sticky */
+    padding-top: 140px; /* Sesuaikan nilai ini jika tinggi header berubah. Ini perkiraan awal. */
 }
 
 /* Styling untuk ikon Hamburger Menu */
@@ -26,14 +28,25 @@ body {
     transition: all 0.3s ease;
 }
 
+/* --- Perubahan untuk Header Sticky --- */
+.main-header {
+    position: fixed; /* Membuat header sticky */
+    top: 0; /* Menempel di bagian atas viewport */
+    width: 100%; /* Memastikan header mengambil lebar penuh */
+    z-index: 1000; /* Memastikan header berada di atas elemen lain */
+    background-color: #FFFFFF; /* Penting agar konten di bawahnya tidak terlihat saat digulir */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Tambahkan bayangan untuk efek elevasi */
+    box-sizing: border-box; /* Pastikan padding dan border tidak menambah lebar */
+}
+
 /* Penyesuaian tata letak header-top */
 .main-header .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* background-color: #FFFFFF; <-- Dipindahkan ke .main-header */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); <-- Dipindahkan ke .main-header */
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -96,8 +109,8 @@ body {
     justify-content: center;
     padding: 10px 20px 20px;
     background-color: #7e7e7e;
-    border-radius: 0 0 15px 15px;
-    margin-bottom: 20px;
+    border-radius: 0 0 15px 15px; /* Tetap pertahankan sudut melengkung bawah */
+    /* margin-bottom: 20px; <-- Dihapus karena header sticky tidak memerlukan margin bawah internal */
 }
 
 .search-input {
@@ -158,7 +171,7 @@ body {
     height: 100%;
     background-color: #FFFFFF;
     box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 1001; /* Z-index lebih tinggi dari header agar sidebar muncul di atas header */
     transition: left 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -233,7 +246,7 @@ body {
 /* --- Bagian Kategori Utama / Slider --- */
 .main-categories {
     padding: 20px 10px;
-    margin-top: 20px;
+    margin-top: 20px; /* Pertahankan margin-top untuk memisahkan dari elemen di atasnya */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -445,10 +458,10 @@ body {
     margin-bottom: 10px;
 
     /* --- ATURAN BARU UNTUK GAMBAR --- */
-    background-size: cover;       /* Gambar akan menutupi seluruh area box */
-    background-position: center;  /* Gambar akan terpusat */
-    background-repeat: no-repeat; /* Gambar tidak akan diulang */
-    overflow: hidden;             /* Penting untuk memastikan gambar terpotong sesuai bentuk diamond */
+    background-size: cover;          /* Gambar akan menutupi seluruh area box */
+    background-position: center;     /* Gambar akan terpusat */
+    background-repeat: no-repeat;    /* Gambar tidak akan diulang */
+    overflow: hidden;                /* Penting untuk memastikan gambar terpotong sesuai bentuk diamond */
 }
 /* --- AKHIR PERUBAHAN KODE CSS --- */
 
@@ -704,6 +717,11 @@ body {
 
 /* Untuk tablet dan layar kecil lainnya (sampai 768px) */
 @media (max-width: 768px) { 
+    /* Sesuaikan padding-top body untuk mobile jika header menyusut */
+    body {
+        padding-top: 130px; /* Nilai perkiraan, bisa disesuaikan */
+    }
+
     .inspired-aroma-section,
     .karakter-aroma-section, /* Terapkan ke karakter aroma juga */
     .best-sellers {
@@ -739,6 +757,11 @@ body {
 
 /* Untuk ponsel kecil (sampai 480px) */
 @media (max-width: 480px) { 
+    /* Sesuaikan padding-top body lebih lanjut jika diperlukan */
+    body {
+        padding-top: 120px; /* Nilai perkiraan, bisa disesuaikan */
+    }
+
     .inspired-aroma-section .aroma-grid,
     .karakter-aroma-section .aroma-grid, /* Terapkan ke karakter aroma juga */
     .best-sellers .product-grid {
@@ -755,7 +778,53 @@ body {
     }
 }
 
+/* --- Tambahan: Efek Interaksi untuk Kategori Utama di index.html --- */
+/* Targetkan semua .category-block */
+.category-block {
+    /* Pastikan transisi sudah ada, jika belum, tambahkan */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+    
+    /* Indikator interaktivitas utama: kursor tangan */
+    cursor: pointer;
+    
+    /* Tambahkan border transparan default sebagai dasar untuk efek */
+    border: 2px solid transparent; /* Atau bisa juga border-color: rgba(0,0,0,0); */
+    box-sizing: border-box; /* Penting agar border tidak menambah ukuran elemen */
+    
+    /* Z-index bisa membantu jika ada elemen tumpang tindih */
+    z-index: 1; 
+    position: relative; /* Diperlukan agar z-index bekerja dengan baik */
+}
 
+.category-block:hover {
+    transform: translateY(-5px); /* Efek naik sedikit */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Efek bayangan lebih tebal */
+    border-color: #ff9a15; /* Contoh: border oranye saat di-hover */
+    /* Anda bisa juga tambahkan sedikit perubahan warna latar belakang jika mau */
+    /* background-color: #F8F8F8; */
+    z-index: 2; /* Agar elemen yang di-hover terlihat di atas */
+}
+
+/* Jika ada link <a> di dalam category-block, pastikan juga memiliki kursor pointer */
+.category-block a {
+    cursor: pointer;
+}
+
+/* Optional: Untuk elemen lain yang juga interaktif, seperti product-card dan aroma-card (di halaman utama) */
+/* Cek apakah elemen ini juga ingin diberi efek yang sama */
+.product-card,
+.aroma-section .aroma-card { /* Jika aroma-card di index.html memiliki class ini */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    border: 1px solid transparent; /* Atau disesuaikan dengan border yang sudah ada */
+}
+
+.product-card:hover,
+.aroma-section .aroma-card:hover {
+    transform: translateY(-3px); /* Naik sedikit */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bayangan */
+    border-color: #7ED957; /* Contoh: border hijau saat hover */
+}
 
 /* --- Bagian Footer Website --- */
 .main-footer {
@@ -764,7 +833,15 @@ body {
     padding: 20px 15px;
     text-align: center;
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 30px; /* Biarkan margin-top agar ada jarak dengan konten di atasnya */
+    /* Hapus properti sticky dari sini */
+    /* position: sticky; */
+    /* bottom: 0; */
+    /* width: 100%; */
+    /* z-index: 990; */
+    /* box-shadow: 0 -2px 10px rgba(0,0,0,0.2); */
+    /* box-sizing: border-box; */
+    /* margin-top: auto; */
 }
 
 .main-footer p {
@@ -780,4 +857,11 @@ body {
 
 .main-footer a:hover {
     text-decoration: underline;
+}
+
+/* Media Query untuk mengatur padding-top body pada layar lebih lebar */
+@media (min-width: 768px) {
+    body {
+        padding-top: 140px; /* Nilai padding-top yang disesuaikan untuk desktop, sesuaikan jika tinggi header desktop berbeda */
+    }
 }
