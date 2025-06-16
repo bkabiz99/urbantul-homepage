@@ -38,26 +38,28 @@
 .class-card {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Pusatkan item di dalam kartu */
+    align-items: center;
     text-align: center;
-    width: 100%; /* Agar memenuhi ruang grid yang tersedia */
-    max-width: 180px; /* Batasi lebar maksimum per kartu agar tidak terlalu besar */
-    cursor: pointer; /* Menunjukkan bahwa elemen bisa diklik */
-    /* MENAMBAHKAN TRANSISI UNTUK BORDER-COLOR DAN BORDER-WIDTH, SERTA BORDER TRANSPARAN */
+    width: 100%;
+    max-width: 180px;
+    cursor: pointer;
+    /* MENAMBAHKAN BACKGROUND-COLOR DAN BOX-SHADOW DI SINI UNTUK KONDISI DEFAULT */
+    background-color: #FDF8F3; /* Warna putih tulang untuk card background */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sedikit bayangan untuk card background (disesuaikan) */
+    
     transition: transform 0.2s ease-in-out,
                 box-shadow 0.2s ease-in-out,
-                border-color 0.2s ease-in-out; /* border-width tidak perlu jika hanya warna yang berubah */
-    border: 3px solid transparent; /* Border transparan di keadaan normal */
-    box-sizing: border-box; /* Pastikan padding dan border tidak menambah ukuran total */
-    border-radius: 15px; 
+                border-color 0.2s ease-in-out;
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    border-radius: 15px;
     padding: 10px;
 }
 
 .class-card:hover {
-    transform: translateY(-8px); /* Efek terangkat lebih tinggi saat hover */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Tambah bayangan agar efek lebih terasa */
-    border-color: #8BC34A; /* Warna hijau untuk border saat hover */
-}
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Bayangan lebih kuat saat hover */
+    border-color: #8BC34A; /* Warna hijau untuk border saat hover */}
 
 /* Blok hijau di bagian atas kartu */
 .class-block {
