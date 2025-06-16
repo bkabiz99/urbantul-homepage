@@ -1,133 +1,601 @@
 /* CSS Khusus untuk aroma-karakter.html */
 
+
+
 .aroma-karakter-page-container {
+
     padding: 20px;
+
     max-width: 960px; /* Sedikit lebih lebar dari desain sebelumnya untuk menampung 4 kolom */
+
     margin: 20px auto;
+
     background-color: #FDF8F3;
+
     border-radius: 15px;
+
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
     text-align: center;
+
 }
+
+
 
 .main-page-title {
+
     font-size: 28px;
+
     font-weight: bold;
+
     color: #FFFFFF;
+
     background-color: #8BC34A; /* Warna hijau dari palet */
+
     padding: 10px 30px;
+
     border-radius: 30px;
+
     width: fit-content;
+
     margin: 0 auto 40px auto;
+
     text-transform: uppercase;
+
 }
+
+
 
 .aroma-full-grid {
+
     display: grid;
+
     /* Membuat grid 4 kolom yang responsif */
+
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
     gap: 20px; /* Jarak antar kartu */
+
     justify-content: center;
+
     padding: 10px;
+
 }
+
+
 
 .aroma-card {
+
+    /* Tambahkan cursor pointer agar pengguna tahu ini bisa diklik */
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Efek hover */
+
+
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     text-align: center;
+
     padding: 10px; /* Padding di dalam kartu */
+
     border-radius: 15px; /* Sudut membulat untuk kartu */
+
     background-color: #F8F8F8; /* Latar belakang kartu, sedikit berbeda dari container */
+
     box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Bayangan lembut */
+
     overflow: hidden; /* Penting untuk radius yang aneh pada icon */
+
 }
+
+
+
+/* Efek hover pada kartu */
+
+.aroma-card:hover {
+
+    transform: translateY(-5px); /* Sedikit naik */
+
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Bayangan lebih kuat */
+
+}
+
+
 
 .aroma-icon {
+
     width: 100%; /* Agar memenuhi lebar kartu */
+
     height: 120px; /* Tinggi untuk area gambar */
+
     background-color: #D3D3D3; /* Placeholder abu-abu */
+
     border-radius: 10px; /* Sedikit membulat pada sudut gambar */
+
     margin-bottom: 10px;
+
     background-size: cover;
+
     background-position: center;
+
     /* Desain gambar asli Anda memiliki sudut bawah yang agak melengkung.
+
        Untuk mencapainya dengan CSS polos sedikit rumit.
+
        Sebagai alternatif yang mendekati:
+
        border-bottom-left-radius: 20px 50%;
+
        border-bottom-right-radius: 20px 50%;
+
        Atau bisa menggunakan clip-path yang lebih kompleks atau SVG.
+
        Untuk kesederhanaan, saya menggunakan border-radius standar. */
+
 }
+
+
 
 .aroma-name {
+
     font-size: 15px;
+
     color: #7e7e7e;
+
     font-weight: bold;
+
     margin: 0;
+
     text-transform: capitalize;
+
     white-space: nowrap; /* Mencegah nama memotong baris */
+
     overflow: hidden; /* Sembunyikan jika terlalu panjang */
+
     text-overflow: ellipsis; /* Tambahkan elipsis jika disembunyikan */
+
     width: 100%; /* Memastikan text-overflow bekerja */
+
 }
+
+
+
+/* --- Styling for the Modal Pop-up --- */
+
+.modal-overlay {
+
+    display: none; /* Hidden by default */
+
+    position: fixed; /* Stay in place */
+
+    z-index: 1000; /* Sit on top */
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%; /* Full width */
+
+    height: 100%; /* Full height */
+
+    overflow: auto; /* Enable scroll if needed */
+
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+
+    justify-content: center; /* Center horizontally */
+
+    align-items: center; /* Center vertically */
+
+    -webkit-animation: fadeIn 0.3s forwards;
+
+    animation: fadeIn 0.3s forwards;
+
+}
+
+
+
+.modal-content {
+
+    background-color: #FDF8F3; /* Warna latar belakang kontainer utama */
+
+    margin: auto; /* Center the modal vertically and horizontally */
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+    position: relative;
+
+    width: 90%; /* Responsive width */
+
+    max-width: 450px; /* Maximum width for larger screens */
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    -webkit-animation: zoomIn 0.3s forwards;
+
+    animation: zoomIn 0.3s forwards;
+
+}
+
+
+
+.close-modal-button {
+
+    color: #aaa;
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 25px;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+
+}
+
+
+
+.close-modal-button:hover,
+
+.close-modal-button:focus {
+
+    color: #333;
+
+    text-decoration: none;
+
+}
+
+
+
+.modal-body {
+
+    width: 100%;
+
+    padding-top: 10px; /* Space for close button */
+
+}
+
+
+
+.modal-aroma-image {
+
+    max-width: 180px; /* Ukuran gambar di pop-up */
+
+    height: auto;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.modal-aroma-title {
+
+    font-size: 26px;
+
+    color: #333;
+
+    margin-bottom: 5px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.modal-aroma-subtitle {
+
+    font-size: 18px;
+
+    color: #7e7e7e;
+
+    margin-bottom: 25px;
+
+    font-style: italic;
+
+}
+
+
+
+.modal-notes-section {
+
+    background-color: #E8F5E9; /* Latar belakang untuk bagian notes */
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    text-align: left; /* Teks notes rata kiri */
+
+    margin-top: 20px;
+
+}
+
+
+
+.modal-note-label {
+
+    font-weight: bold;
+
+    color: #555;
+
+    margin-bottom: 5px;
+
+    font-size: 16px;
+
+}
+
+
+
+.modal-note-text {
+
+    color: #333;
+
+    margin-bottom: 15px;
+
+    line-height: 1.5;
+
+    font-size: 15px;
+
+}
+
+
+
+/* Remove bottom margin for the last note text */
+
+.modal-note-text:last-of-type {
+
+    margin-bottom: 0;
+
+}
+
+
+
+/* Animations */
+
+@-webkit-keyframes fadeIn {
+
+    from {opacity: 0;}
+
+    to {opacity: 1;}
+
+}
+
+
+
+@keyframes fadeIn {
+
+    from {opacity: 0;}
+
+    to {opacity: 1;}
+
+}
+
+
+
+@-webkit-keyframes zoomIn {
+
+    from {transform: scale(0.7); opacity: 0;}
+
+    to {transform: scale(1); opacity: 1;}
+
+}
+
+
+
+@keyframes zoomIn {
+
+    from {transform: scale(0.7); opacity: 0;}
+
+    to {transform: scale(1); opacity: 1;}
+
+}
+
+
+
+
 
 /* Responsif untuk layar yang lebih kecil */
+
 @media (max-width: 992px) {
+
     .aroma-full-grid {
+
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 3 kolom di layar menengah */
+
         gap: 15px;
+
     }
+
 }
+
+
 
 @media (max-width: 768px) {
+
     .aroma-karakter-page-container {
+
         padding: 15px;
+
         margin: 15px auto;
+
     }
+
+
 
     .main-page-title {
+
         font-size: 24px;
+
         padding: 8px 25px;
+
         margin-bottom: 30px;
+
     }
+
+
 
     .aroma-full-grid {
+
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* 2-3 kolom di tablet */
+
         gap: 15px;
+
     }
+
+
 
     .aroma-icon {
+
         height: 100px;
+
     }
 
+
+
     .aroma-name {
+
         font-size: 14px;
+
     }
+
+
+
+    .modal-content {
+
+        max-width: 95%;
+
+        padding: 20px;
+
+    }
+
+    .modal-aroma-title {
+
+        font-size: 22px;
+
+    }
+
+    .modal-aroma-subtitle {
+
+        font-size: 16px;
+
+    }
+
+    .modal-note-label, .modal-note-text {
+
+        font-size: 14px;
+
+    }
+
 }
 
+
+
 @media (max-width: 480px) {
+
     .aroma-karakter-page-container {
+
         padding: 10px;
+
         margin: 10px auto;
+
     }
+
+
 
     .main-page-title {
+
         font-size: 20px;
+
         padding: 6px 20px;
+
         margin-bottom: 25px;
+
     }
+
+
 
     .aroma-full-grid {
+
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 2 kolom di ponsel */
+
         gap: 10px;
+
     }
+
+
 
     .aroma-icon {
+
         height: 80px;
+
     }
 
+
+
     .aroma-name {
+
         font-size: 12px;
+
     }
+
+
+
+    .modal-content {
+
+        padding: 15px;
+
+    }
+
+    .modal-aroma-image {
+
+        max-width: 150px;
+
+    }
+
+    .modal-aroma-title {
+
+        font-size: 20px;
+
+    }
+
+    .modal-aroma-subtitle {
+
+        font-size: 14px;
+
+    }
+
+    .modal-notes-section {
+
+        padding: 15px;
+
+    }
+
 }
