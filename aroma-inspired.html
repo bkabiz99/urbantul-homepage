@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aroma Inspired - urBANtul</title>
-    
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="aroma-inspired-style.css"> 
+    <title>Aroma Inspired urBANtul</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="aroma-inspired-style.css">
     </head>
 <body>
     <div class="menu-overlay"></div>
@@ -55,16 +54,15 @@
         </div>
 
         <div class="search-section">
-            <input type="text" id="search-input" placeholder="Search : Nama Aroma, Kelas Aroma, dan Note Aroma" class="search-input">
+            <input type="text" placeholder="Search : Nama Aroma, Kelas Aroma, dan Note Aroma" class="search-input">
             <button class="search-button">
-                &#128269;
-            </button>
+                &#128269; </button>
         </div>
     </header>
 
     <main class="aroma-inspired-page-container">
-        <h1 class="page-main-title">AROMA INSPIRED</h1>
-        <div class="aroma-full-grid" id="aroma-list-container"> 
+        <h1 class="main-page-title">Aroma inspired</h1>
+        <div class="aroma-full-grid" id="inspiredAromaGridFull">
             </div>
     </main>
 
@@ -74,9 +72,26 @@
         <p>Instagram: <a href="https://www.instagram.com/urbanperfumepoint.official/" target="_blank">@urbanperfumepoint.official</a></p>
     </footer>
 
-    <script src="data/aromas_data.js"></script> 
-    <script src="aromaClassifier.js"></script> 
-    <script src="aroma-inspired-renderer.js"></script> 
-    <script src="script.js"></script> 
+    <div id="aromaDetailModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal-button">&times;</span>
+            <div class="modal-body">
+                <img id="modalAromaImage" src="" alt="Aroma Image" class="modal-aroma-image">
+                <h3 id="modalNamaBesar" class="modal-aroma-title"></h3>
+                <p id="modalNamaKecil" class="modal-aroma-subtitle"></p>
+                <div class="modal-notes-section">
+                    <p class="modal-note-label">Top Note:</p>
+                    <p id="modalTopNote" class="modal-note-text"></p>
+                    <p class="modal-note-label">Middle Note:</p>
+                    <p id="modalMiddleNote" class="modal-note-text"></p>
+                    <p class="modal-note-label">Base Note:</p>
+                    <p id="modalBaseNote" class="modal-note-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/aromas_data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
