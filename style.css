@@ -378,7 +378,7 @@ body {
     padding: 20px;
     margin: 30px auto;
     max-width: 960px;
-    background-color: #FFFFFF;
+    background-color: #FFFFFF; /* Pastikan latar belakang section ini putih */
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -442,27 +442,41 @@ body {
     align-items: center;
     text-align: center;
     scroll-snap-align: start;
+    cursor: pointer; /* Menambahkan kursor pointer untuk indikasi interaktivitas */
+
+    /* Menambahkan background card putih tulang, shadow, dan transisi untuk efek hover */
+    background-color: #FDF8F3; /* Warna putih tulang untuk card background */
+    border-radius: 20px; /* Sudut membulat untuk keseluruhan item */
+    padding: 15px 10px; /* Padding di dalam card, sesuaikan jika perlu */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sedikit bayangan default */
+    border: 3px solid transparent; /* Border transparan default */
+    transition: transform 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out,
+                border-color 0.2s ease-in-out; /* Transisi untuk efek mulus */
+    box-sizing: border-box; /* Agar padding dan border tidak menambah ukuran */
+}
+.aroma-class-item-main-page:hover {
+    transform: translateY(-8px); /* Efek terangkat lebih tinggi saat hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Bayangan lebih kuat saat hover */
+    border-color: #8BC34A; /* Warna hijau untuk border saat hover */
 }
 
-/* --- KODE CSS INI TELAH DIUBAH UNTUK GAMBAR --- */
+/* --- KODE CSS INI TELAH DIUBAH UNTUK GAMBAR (tetap dipertahankan seperti sebelumnya) --- */
 .aroma-class-box-main-page {
     width: 80px;
     height: 80px;
-    /* background-color: #7ED957; <-- HAPUS BARIS INI */
     border-radius: 20px;
-    transform: rotate(45deg);
+    transform: rotate(45deg); /* Tetap dipertahankan jika ingin efek diamond */
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-bottom: 10px;
 
-    /* --- ATURAN BARU UNTUK GAMBAR --- */
-    background-size: cover;          /* Gambar akan menutupi seluruh area box */
-    background-position: center;     /* Gambar akan terpusat */
-    background-repeat: no-repeat;    /* Gambar tidak akan diulang */
-    overflow: hidden;                /* Penting untuk memastikan gambar terpotong sesuai bentuk diamond */
-}
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; /* Penting untuk memastikan gambar terpotong sesuai bentuk diamond */}
 /* --- AKHIR PERUBAHAN KODE CSS --- */
 
 .aroma-class-name-main-page {
